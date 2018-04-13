@@ -99,3 +99,16 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# secrets
+environment_*
+
+# IDE
+.idea/
+
+# terraform
+.terraform/
+
+# target
+target/
+lambda.zip
