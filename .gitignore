@@ -105,6 +105,7 @@ environment_*
 
 # IDE
 .idea/
+tags
 
 # terraform
 .terraform/
