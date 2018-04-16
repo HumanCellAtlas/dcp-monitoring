@@ -1,27 +1,37 @@
+<<<<<<< HEAD
 variable "aws_profile" {}
 data "aws_caller_identity" "current" {}
 
 variable "aws_region" {
   default = "us-east-1"
 }
+=======
+
+data "aws_caller_identity" "current" {}
+>>>>>>> route53
 
 provider "aws" {
   region = "${var.aws_region}"
   profile = "${var.aws_profile}"
 }
 
+<<<<<<< HEAD
 ////
 // general setup
 //
 
 // the bucket must be configured with the -backend-config flag on `terraform init`
 
+=======
+// the bucket must be configured with the -backend-config flag on `terraform init`
+>>>>>>> route53
 terraform {
   backend "s3" {
     key = "health-check/app.tfstate"
   }
 }
 
+<<<<<<< HEAD
 ////
 //  Health check app
 //
@@ -143,3 +153,5 @@ resource "aws_cloudwatch_event_target" "google" {
 }
 EOF
 }
+=======
+>>>>>>> route53
