@@ -113,3 +113,8 @@ tags
 # target
 target/
 lambda.zip
+
+# config
+grafana.ini
+all.yaml
+health.json

@@ -1,4 +1,3 @@
-// logging infrastructure
 resource "aws_route53_health_check" "logs" {
   fqdn              = "logs.${(var.deployment_stage == "prod") ? "" : "${var.deployment_stage}."}data.humancellatlas.org"
   port              = 443

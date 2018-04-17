@@ -1,19 +1,19 @@
-resource "aws_route53_health_check" "dss" {
-  fqdn              = "dss.${(var.deployment_stage == "prod") ? "" : "${var.deployment_stage}."}data.humancellatlas.org"
-  port              = 443
-  type              = "HTTPS"
-  resource_path     = "/v1/swagger.json"
+resource "aws_route53_health_check" "ingest" {
+  fqdn              = "api.ingest.${(var.deployment_stage == "prod") ? "" : "${var.deployment_stage}."}data.humancellatlas.org"
+  port              = 80
+  type              = "HTTP"
+  resource_path     = "/health"
   failure_threshold = "3"
   request_interval  = "30"
   cloudwatch_alarm_region = "${var.aws_region}"
 
   tags = {
-    Name = "dss-health-check"
+    Name = "ingest-health-check"
   }
 }
 
-resource "aws_cloudwatch_metric_alarm" "dss" {
-  alarm_name          = "DSS"
+resource "aws_cloudwatch_metric_alarm" "ingest" {
+  alarm_name          = "INGEST"
   comparison_operator = "LessThanThreshold"
   evaluation_periods = "2"
   metric_name = "HealthCheckStatus"
@@ -27,7 +27,7 @@ resource "aws_cloudwatch_metric_alarm" "dss" {
   ]
 
   dimensions {
-    HealthCheckId = "${aws_route53_health_check.dss.id}"
+    HealthCheckId = "${aws_route53_health_check.ingest.id}"
   }
 }
 

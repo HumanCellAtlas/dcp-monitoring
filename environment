@@ -1,0 +1,12 @@
+set -ax
+ACCOUNT_ID=$(aws sts get-caller-identity | jq -r .Account)
+TERRAFORM_BUCKET=org-humancellatlas-${ACCOUNT_ID}-terraform
+APP_NAME=grafana
+SEC_GROUP_ID=$(aws ec2 describe-security-groups | jq -r '.SecurityGroups[] | select(.GroupName == "grafana") | .GroupId')
+TARGET_GROUP_ARN=$(aws elbv2 describe-target-groups | jq -r '.TargetGroups[] | select(.TargetGroupName == "grafana") | .TargetGroupArn')
+IMAGE_NAME=$(terraform output ecr_uri)
+SUBNETS=$(terraform output subnets | tr '\n' ' ')
+SEC_GROUP=$(terraform output security_group)
+GRAFANA_AWS_ACCESS_KEY_ID=$(terraform output access_key_id)
+GRAFANA_AWS_SECRET_ACCESS_KEY=$(terraform output secret_access_key)
+set +ax

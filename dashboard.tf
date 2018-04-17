@@ -1,116 +1,417 @@
-// health dashboard
-resource "aws_cloudwatch_dashboard" "system_health" {
-  dashboard_name = "system-health"
-  dashboard_body = <<EOF
+output "dashboard_json" {
+  value = <<EOF
 {
-  "widgets": [
-    {
-      "type": "metric",
-      "x": 12,
-      "y": 0,
-      "width": 3,
-      "height": 3,
-      "styles": "undefined",
-      "properties": {
-        "title": "DSS",
-        "annotations": {
-          "alarms": [
-            "arn:aws:cloudwatch:${var.aws_region}:${data.aws_caller_identity.current.account_id}:alarm:DSS"
-          ]
-        },
-        "view": "singleValue"
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
       }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "links": [],
+  "panels": [
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#bf1b00",
+        "#629e51",
+        "#d44a3a"
+      ],
+      "datasource": "Cloudwatch",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "dimensions": {
+            "HealthCheckId": "${aws_route53_health_check.dcp.id}"
+          },
+          "metricName": "HealthCheckStatus",
+          "namespace": "AWS/Route53",
+          "period": "",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Minimum"
+          ]
+        }
+      ],
+      "thresholds": "0.5",
+      "title": "DCP Health [${var.deployment_stage}]",
+      "transparent": false,
+      "type": "singlestat",
+      "valueFontSize": "200%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
     },
     {
-      "type": "metric",
-      "x": 15,
-      "y": 0,
-      "width": 9,
-      "height": 3,
-      "styles": "undefined",
-      "properties": {
-        "title": "DSS",
-        "annotations": {
-          "alarms": [
-            "arn:aws:cloudwatch:${var.aws_region}:${data.aws_caller_identity.current.account_id}:alarm:DSS"
-          ]
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#bf1b00",
+        "#629e51",
+        "#d44a3a"
+      ],
+      "datasource": "Cloudwatch",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 0,
+        "y": 6
+      },
+      "id": 3,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
         },
-        "view": "timeSeries",
-        "stacked": false
-      }
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "dimensions": {
+            "HealthCheckId": "${aws_route53_health_check.dss.id}"
+          },
+          "metricName": "HealthCheckStatus",
+          "namespace": "AWS/Route53",
+          "period": "",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Minimum"
+          ]
+        }
+      ],
+      "thresholds": "0.5",
+      "title": "DSS Health",
+      "transparent": false,
+      "type": "singlestat",
+      "valueFontSize": "200%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
     },
     {
-      "type": "metric",
-      "x": 0,
-      "y": 0,
-      "width": 3,
-      "height": 3,
-      "styles": "undefined",
-      "properties": {
-        "title": "DCP",
-        "annotations": {
-          "alarms": [
-            "arn:aws:cloudwatch:${var.aws_region}:${data.aws_caller_identity.current.account_id}:alarm:DCP"
-          ]
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#bf1b00",
+        "#629e51",
+        "#d44a3a"
+      ],
+      "datasource": "Cloudwatch",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 5,
+        "y": 6
+      },
+      "id": 4,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
         },
-        "view": "singleValue"
-      }
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "dimensions": {
+            "HealthCheckId": "${aws_route53_health_check.logs.id}"
+          },
+          "metricName": "HealthCheckStatus",
+          "namespace": "AWS/Route53",
+          "period": "",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Minimum"
+          ]
+        }
+      ],
+      "thresholds": "0.5",
+      "title": "LOGS Health",
+      "transparent": false,
+      "type": "singlestat",
+      "valueFontSize": "200%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
     },
     {
-      "type": "metric",
-      "x": 3,
-      "y": 0,
-      "width": 9,
-      "height": 3,
-      "styles": "undefined",
-      "properties": {
-        "title": "DCP",
-        "annotations": {
-          "alarms": [
-            "arn:aws:cloudwatch:${var.aws_region}:${data.aws_caller_identity.current.account_id}:alarm:DCP"
-          ]
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#bf1b00",
+        "#629e51",
+        "#d44a3a"
+      ],
+      "datasource": "Cloudwatch",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 10,
+        "y": 6
+      },
+      "id": 5,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
         },
-        "view": "timeSeries",
-        "stacked": false
-      }
-    },
-    {
-      "type": "metric",
-      "x": 0,
-      "y": 3,
-      "width": 3,
-      "height": 3,
-      "styles": "undefined",
-      "properties": {
-        "title": "LOGS",
-        "annotations": {
-          "alarms": [
-            "arn:aws:cloudwatch:${var.aws_region}:${data.aws_caller_identity.current.account_id}:alarm:LOGS"
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "$$hashKey": "object:265",
+          "dimensions": {
+            "HealthCheckId": "${aws_route53_health_check.ingest.id}"
+          },
+          "metricName": "HealthCheckStatus",
+          "namespace": "AWS/Route53",
+          "period": "",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Minimum"
           ]
-        },
-        "view": "singleValue"
-      }
-    },
-    {
-      "type": "metric",
-      "x": 3,
-      "y": 3,
-      "width": 9,
-      "height": 3,
-      "styles": "undefined",
-      "properties": {
-        "title": "LOGS",
-        "annotations": {
-          "alarms": [
-            "arn:aws:cloudwatch:${var.aws_region}:${data.aws_caller_identity.current.account_id}:alarm:LOGS"
-          ]
-        },
-        "view": "timeSeries",
-        "stacked": false
-      }
+        }
+      ],
+      "thresholds": "0.5",
+      "title": "INGEST Health",
+      "transparent": false,
+      "type": "singlestat",
+      "valueFontSize": "200%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
     }
-  ]
+  ],
+  "schemaVersion": 16,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "DCP Health",
+  "uid": "v4-0_FWiz",
+  "version": 1
 }
 EOF
 }
-

@@ -1,0 +1,40 @@
+{
+  "family": "grafana",
+  "containerDefinitions": [
+      {
+          "name": "grafana",
+          "image": "${IMAGE_NAME}",
+          "cpu": 0,
+          "memoryReservation": 1024,
+          "portMappings": [
+              {
+                  "containerPort": 3000,
+                  "hostPort": 3000,
+                  "protocol": "tcp"
+              }
+          ],
+          "essential": true,
+          "environment": [],
+          "mountPoints": [],
+          "volumesFrom": [],
+          "logConfiguration": {
+              "logDriver": "awslogs",
+              "options": {
+                  "awslogs-group": "/aws/ecs/grafana",
+                  "awslogs-region": "${AWS_DEFAULT_REGION}",
+                  "awslogs-stream-prefix": "ecs"
+              }
+          }
+      }
+  ],
+  "taskRoleArn": "arn:aws:iam::${ACCOUNT_ID}:role/grafana",
+  "executionRoleArn": "arn:aws:iam::${ACCOUNT_ID}:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+      "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "2048"
+}

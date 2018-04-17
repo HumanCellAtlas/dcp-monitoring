@@ -1,0 +1,11 @@
+apiVersion: 1
+
+datasources:
+-  name: 'Cloudwatch'
+   type: 'cloudwatch'
+   jsonData:
+     authType: keys
+   secureJsonData:
+     defaultRegion: ${AWS_DEFAULT_REGION}
+     accessKey: ${GRAFANA_AWS_ACCESS_KEY_ID}
+     secretKey: ${GRAFANA_AWS_SECRET_ACCESS_KEY}
