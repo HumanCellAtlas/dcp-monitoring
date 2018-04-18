@@ -1,8 +1,21 @@
+APP_NAME=grafana
+CLUSTER=FarGate-cluster-$(APP_NAME)
+AWS_DEFAULT_REGION=$(shell aws configure get region)
+ACCOUNT_ID=$(shell aws sts get-caller-identity | jq -r .Account)
+SEC_GROUP_ID=$(shell aws ec2 describe-security-groups | jq -r '.SecurityGroups[] | select(.GroupName == "$(APP_NAME)") | .GroupId')
+TARGET_GROUP_ARN=$(shell aws elbv2 describe-target-groups | jq -r '.TargetGroups[] | select(.TargetGroupName == "$(APP_NAME)") | .TargetGroupArn')
+IMAGE_NAME=$(shell terraform output ecr_uri)
+SUBNETS=$(shell terraform output subnets | tr '\n' ' ')
+SEC_GROUP=$(shell terraform output security_group)
+GRAFANA_AWS_ACCESS_KEY_ID=$(shell terraform output access_key_id)
+GRAFANA_AWS_SECRET_ACCESS_KEY=$(shell terraform output secret_access_key)
+
+
 .PHONY: init
 init:
 	terraform init \
 		-backend-config region=$(AWS_DEFAULT_REGION) \
-		-backend-config bucket=$(TERRAFORM_BUCKET) \
+		-backend-config bucket=org-humancellatlas-${ACCOUNT_ID}-terraform \
 		-backend-config profile=$(AWS_PROFILE)
 
 terraform-%:
@@ -58,8 +71,8 @@ service:
 		--load-balancers targetGroupArn=$(TARGET_GROUP_ARN),containerName=$(APP_NAME),containerPort=3000 \
 		--launch-type FARGATE
 
-.PHONY: deploy
-deploy:
+.PHONY: deploy-service
+deploy-service:
 	aws ecs update-service \
 		--cluster $(CLUSTER) \
 		--service $(APP_NAME) \
@@ -67,8 +80,8 @@ deploy:
 		--desired-count 1 \
 		--force-new-deployment
 
-.PHONY: scale-down
-scale-down:
+.PHONY: scale-down-service
+scale-down-service:
 	aws ecs list-services \
 		--cluster $(CLUSTER) | \
 		jq -r .serviceArns[] | \
@@ -80,8 +93,18 @@ scale-down:
 		xargs aws ecs stop-task --cluster $(CLUSTER) --task
 
 .PHONY: delete-service
-delete-service: scale-down
+delete-service: scale-down-service
 	aws ecs list-services \
 		--cluster $(CLUSTER) | \
 		jq -r .serviceArns[] | \
 		xargs aws ecs delete-service --cluster $(CLUSTER) --service
+
+deploy-%:
+ifeq ($(AWS_PROFILE),)
+	@echo "You must set AWS_PROFILE" && False
+endif
+ifneq ($(shell cat .terraform/terraform.tfstate | jq -r '.backend.config.profile'),$(AWS_PROFILE))
+	rm -r .terraform
+	DEPLOYMENT_STAGE=$(*) $(MAKE) init
+endif
+	DEPLOYMENT_STAGE=$(*) make apply image publish scale-down-service deploy-service
