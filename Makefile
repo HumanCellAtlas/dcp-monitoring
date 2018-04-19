@@ -7,8 +7,6 @@ TARGET_GROUP_ARN=$(shell aws elbv2 describe-target-groups | jq -r '.TargetGroups
 IMAGE_NAME=$(shell terraform output ecr_uri)
 SUBNETS=$(shell terraform output subnets | tr '\n' ' ')
 SEC_GROUP=$(shell terraform output security_group)
-GRAFANA_AWS_ACCESS_KEY_ID=$(shell terraform output access_key_id)
-GRAFANA_AWS_SECRET_ACCESS_KEY=$(shell terraform output secret_access_key)
 
 
 .PHONY: init
@@ -44,7 +42,10 @@ grafana.ini:
 
 .PHONY: all.yaml
 all.yaml:
-	cat datasources/datasources_template.yaml | envsubst '$$AWS_DEFAULT_REGION $$GRAFANA_AWS_ACCESS_KEY_ID $$GRAFANA_AWS_SECRET_ACCESS_KEY' > datasources/all.yaml
+	cat datasources/datasources_template.yaml | \
+		GRAFANA_AWS_ACCESS_KEY_ID=$(shell terraform output access_key_id) \
+		GRAFANA_AWS_SECRET_ACCESS_KEY=$(shell terraform output secret_access_key) \
+		envsubst '$$AWS_DEFAULT_REGION $$GRAFANA_AWS_ACCESS_KEY_ID $$GRAFANA_AWS_SECRET_ACCESS_KEY' > datasources/all.yaml
 
 .PHONY: health.json
 health.json:
