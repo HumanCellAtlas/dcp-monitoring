@@ -33,7 +33,7 @@ resource "aws_cloudwatch_metric_alarm" "dss" {
 
 resource "aws_cloudwatch_log_metric_filter" "2xx" {
   name           = "dss-http-2xx"
-  pattern        = "[Level=*INFO*, Timestamp, Uuid, Module=*dispatch*, RequestInfo!=\"GET /internal/health\", StatusCode=2*, ...]"
+  pattern        = "[Level=*INFO*, Timestamp, Uuid, Module=*dispatch*, RequestInfo!=\"GET /v1/swagger.json\", StatusCode=2*, ...]"
   log_group_name = "/aws/lambda/dss-${var.deployment_stage}"
 
   metric_transformation {
@@ -45,7 +45,7 @@ resource "aws_cloudwatch_log_metric_filter" "2xx" {
 
 resource "aws_cloudwatch_log_metric_filter" "3xx" {
   name           = "dss-http-3xx"
-  pattern        = "[Level=*INFO*, Timestamp, Uuid, Module=*dispatch*, RequestInfo!=\"GET /internal/health\", StatusCode=3*, ...]"
+  pattern        = "[Level=*INFO*, Timestamp, Uuid, Module=*dispatch*, RequestInfo!=\"GET /v1/swagger.json\", StatusCode=3*, ...]"
   log_group_name = "/aws/lambda/dss-${var.deployment_stage}"
 
   metric_transformation {
@@ -57,7 +57,7 @@ resource "aws_cloudwatch_log_metric_filter" "3xx" {
 
 resource "aws_cloudwatch_log_metric_filter" "4xx" {
   name           = "dss-http-4xx"
-  pattern        = "[Level=*INFO*, Timestamp, Uuid, Module=*dispatch*, RequestInfo!=\"GET /internal/health\", StatusCode=4*, ...]"
+  pattern        = "[Level=*INFO*, Timestamp, Uuid, Module=*dispatch*, RequestInfo!=\"GET /v1/swagger.json\", StatusCode=4*, ...]"
   log_group_name = "/aws/lambda/dss-${var.deployment_stage}"
 
   metric_transformation {
@@ -69,7 +69,7 @@ resource "aws_cloudwatch_log_metric_filter" "4xx" {
 
 resource "aws_cloudwatch_log_metric_filter" "5xx" {
   name           = "dss-http-5xx"
-  pattern        = "[Level=*INFO*, Timestamp, Uuid, Module=*dispatch*, RequestInfo!=\"GET /internal/health\", StatusCode=5*, ...]"
+  pattern        = "[Level=*INFO*, Timestamp, Uuid, Module=*dispatch*, RequestInfo!=\"GET /v1/swagger.json\", StatusCode=5*, ...]"
   log_group_name = "/aws/lambda/dss-${var.deployment_stage}"
 
   metric_transformation {
