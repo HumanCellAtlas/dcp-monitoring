@@ -117,4 +117,5 @@ lambda.zip
 # config
 grafana.ini
 all.yaml
-health.json
+dcp.json
+dss.json

@@ -1,4 +1,4 @@
-output "dashboard_json" {
+output "dcp_dashboard_json" {
   value = <<EOF
 {
   "annotations": {
@@ -618,8 +618,8 @@ output "dashboard_json" {
       "dashLength": 10,
       "dashes": false,
       "datasource": "Cloudwatch",
-      "description": "Graph metrics at the following address to drill down: https://console.aws.amazon.com/cloudwatch/home?region=${var.aws_region}#metricsV2:graph=~(view~'timeSeries~stacked~false~region~'${var.aws_region}~start~'-PT1H~end~'P0D);search=errors;namespace=Logs;dimensions=CountType,LogGroup",
-      "fill": 4,
+      "description": "Rates of HTTP status codes on the DSS API not including health checks",
+      "fill": 6,
       "gridPos": {
         "h": 8,
         "w": 12,
@@ -793,7 +793,7 @@ output "dashboard_json" {
     ]
   },
   "timezone": "",
-  "title": "DCP Health [${var.deployment_stage}]",
+  "title": "DCP Health [${upper(var.deployment_stage)}]",
   "uid": "v4-0_FWiz",
   "version": 2
 }

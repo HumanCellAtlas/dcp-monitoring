@@ -47,12 +47,13 @@ all.yaml:
 		GRAFANA_AWS_SECRET_ACCESS_KEY=$(shell terraform output secret_access_key) \
 		envsubst '$$AWS_DEFAULT_REGION $$GRAFANA_AWS_ACCESS_KEY_ID $$GRAFANA_AWS_SECRET_ACCESS_KEY' > datasources/all.yaml
 
-.PHONY: health.json
-health.json:
-	terraform output dashboard_json > dashboards/health.json
+.PHONY: dashboards
+dashboards:
+	terraform output dcp_dashboard_json > dashboards/dcp.json
+	terraform output dss_dashboard_json > dashboards/dss.json
 
 .PHONY: image
-image: grafana.ini all.yaml health.json
+image: grafana.ini all.yaml dashboards
 	docker build -t $(APP_NAME) .
 
 .PHONY: publish
