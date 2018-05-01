@@ -915,7 +915,7 @@ output "dss_dashboard_json" {
     ]
   },
   "timezone": "",
-  "title": "DSS",
+  "title": "DSS [${upper(var.deployment_stage)}]",
   "uid": "AgBS30Gmk",
   "version": 3
 }
