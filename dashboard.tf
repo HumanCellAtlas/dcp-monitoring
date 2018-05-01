@@ -38,8 +38,8 @@ output "dashboard_json" {
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
+        "h": 4,
+        "w": 24,
         "x": 0,
         "y": 0
       },
@@ -49,12 +49,12 @@ output "dashboard_json" {
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:337",
+          "$hashKey": "object:337",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:338",
+          "$hashKey": "object:338",
           "name": "range to text",
           "value": 2
         }
@@ -64,8 +64,8 @@ output "dashboard_json" {
       "nullText": null,
       "postfix": "",
       "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
+      "prefix": "DCP",
+      "prefixFontSize": "120%",
       "rangeMaps": [
         {
           "from": "null",
@@ -82,7 +82,7 @@ output "dashboard_json" {
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:273",
+          "$hashKey": "object:273",
           "dimensions": {
             "HealthCheckId": "${aws_route53_health_check.dcp.id}"
           },
@@ -100,22 +100,22 @@ output "dashboard_json" {
       "title": "DCP Health",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "170%",
+      "valueFontSize": "120%",
       "valueMaps": [
         {
-          "$$hashKey": "object:340",
+          "$hashKey": "object:340",
           "op": "=",
           "text": "OK",
           "value": "1"
         },
         {
-          "$$hashKey": "object:342",
+          "$hashKey": "object:342",
           "op": "=",
           "text": "ERR",
           "value": "0"
         }
       ],
-      "valueName": "min"
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -136,10 +136,10 @@ output "dashboard_json" {
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
-        "x": 4,
-        "y": 0
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 4
       },
       "id": 6,
       "interval": null,
@@ -147,12 +147,12 @@ output "dashboard_json" {
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:402",
+          "$hashKey": "object:402",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:403",
+          "$hashKey": "object:403",
           "name": "range to text",
           "value": 2
         }
@@ -162,8 +162,8 @@ output "dashboard_json" {
       "nullText": null,
       "postfix": "",
       "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
+      "prefix": "INGEST",
+      "prefixFontSize": "120%",
       "rangeMaps": [
         {
           "from": "null",
@@ -180,7 +180,6 @@ output "dashboard_json" {
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:369",
           "$hashKey": "object:265",
           "dimensions": {
             "HealthCheckId": "${aws_route53_health_check.ingest.id}"
@@ -199,22 +198,22 @@ output "dashboard_json" {
       "title": "Ingest Health",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "170%",
+      "valueFontSize": "120%",
       "valueMaps": [
         {
-          "$$hashKey": "object:405",
+          "$hashKey": "object:405",
           "op": "=",
           "text": "OK",
           "value": "1"
         },
         {
-          "$$hashKey": "object:407",
+          "$hashKey": "object:407",
           "op": "=",
           "text": "ERR",
           "value": "0"
         }
       ],
-      "valueName": "min"
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -235,10 +234,10 @@ output "dashboard_json" {
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
-        "x": 8,
-        "y": 0
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 4
       },
       "id": 3,
       "interval": null,
@@ -246,13 +245,11 @@ output "dashboard_json" {
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:467",
           "$hashKey": "object:237",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:468",
           "$hashKey": "object:238",
           "name": "range to text",
           "value": 2
@@ -263,8 +260,8 @@ output "dashboard_json" {
       "nullText": null,
       "postfix": "",
       "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
+      "prefix": "DSS",
+      "prefixFontSize": "120%",
       "rangeMaps": [
         {
           "from": "null",
@@ -281,7 +278,6 @@ output "dashboard_json" {
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:434",
           "$hashKey": "object:125",
           "dimensions": {
             "HealthCheckId": "${aws_route53_health_check.dss.id}"
@@ -300,23 +296,22 @@ output "dashboard_json" {
       "title": "DSS Health",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "170%",
+      "valueFontSize": "120%",
       "valueMaps": [
         {
-          "$$hashKey": "object:470",
           "$hashKey": "object:240",
           "op": "=",
           "text": "OK",
           "value": "1"
         },
         {
-          "$$hashKey": "object:472",
+          "$hashKey": "object:472",
           "op": "=",
           "text": "ERR",
           "value": "0"
         }
       ],
-      "valueName": "min"
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -337,10 +332,10 @@ output "dashboard_json" {
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
+        "h": 4,
+        "w": 6,
         "x": 12,
-        "y": 0
+        "y": 4
       },
       "id": 5,
       "interval": null,
@@ -348,12 +343,12 @@ output "dashboard_json" {
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:563",
+          "$hashKey": "object:563",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:564",
+          "$hashKey": "object:564",
           "name": "range to text",
           "value": 2
         }
@@ -363,8 +358,8 @@ output "dashboard_json" {
       "nullText": null,
       "postfix": "",
       "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
+      "prefix": "ANALYSIS",
+      "prefixFontSize": "120%",
       "rangeMaps": [
         {
           "from": "null",
@@ -381,7 +376,6 @@ output "dashboard_json" {
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:499",
           "$hashKey": "object:265",
           "dimensions": {
             "HealthCheckId": "${aws_route53_health_check.analysis.id}"
@@ -400,22 +394,22 @@ output "dashboard_json" {
       "title": "Analysis Health",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "170%",
+      "valueFontSize": "120%",
       "valueMaps": [
         {
-          "$$hashKey": "object:566",
+          "$hashKey": "object:566",
           "op": "=",
           "text": "OK",
           "value": "1"
         },
         {
-          "$$hashKey": "object:568",
+          "$hashKey": "object:568",
           "op": "=",
           "text": "ERR",
           "value": "0"
         }
       ],
-      "valueName": "min"
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -436,10 +430,10 @@ output "dashboard_json" {
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
-        "x": 16,
-        "y": 0
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 4
       },
       "id": 4,
       "interval": null,
@@ -447,12 +441,12 @@ output "dashboard_json" {
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:871",
+          "$hashKey": "object:871",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:872",
+          "$hashKey": "object:872",
           "name": "range to text",
           "value": 2
         }
@@ -462,8 +456,8 @@ output "dashboard_json" {
       "nullText": null,
       "postfix": "",
       "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
+      "prefix": "LOGS",
+      "prefixFontSize": "120%",
       "rangeMaps": [
         {
           "from": "null",
@@ -480,7 +474,7 @@ output "dashboard_json" {
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:807",
+          "$hashKey": "object:807",
           "dimensions": {
             "HealthCheckId": "${aws_route53_health_check.logs.id}"
           },
@@ -498,22 +492,268 @@ output "dashboard_json" {
       "title": "Logs Health",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "170%",
+      "valueFontSize": "120%",
       "valueMaps": [
         {
-          "$$hashKey": "object:874",
+          "$hashKey": "object:874",
           "op": "=",
           "text": "OK",
           "value": "1"
         },
         {
-          "$$hashKey": "object:876",
+          "$hashKey": "object:876",
           "op": "=",
           "text": "ERR",
           "value": "0"
         }
       ],
-      "valueName": "min"
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {
+        "By Type_Sum": "#bf1b00",
+        "errors": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Cloudwatch",
+      "description": "Graph metrics at the following address to drill down: https://console.aws.amazon.com/cloudwatch/home?region=${var.aws_region}#metricsV2:graph=~(view~'timeSeries~stacked~false~region~'${var.aws_region}~start~'-PT1H~end~'P0D);search=errors;namespace=Logs;dimensions=CountType,LogGroup",
+      "fill": 4,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 8,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 3,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "$$hashKey": "object:337",
+          "$hashKey": "object:137",
+          "alias": "errors",
+          "dimensions": {
+            "CountType": "errors"
+          },
+          "metricName": "By Type",
+          "namespace": "Logs",
+          "period": "",
+          "refId": "A",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Exceptions in Logs [Rate]",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {
+        "3xx": "#3f2b5b",
+        "4xx": "#ef843c",
+        "5xx": "#bf1b00",
+        "By Type_Sum": "#bf1b00",
+        "HTTP-2xx": "#7eb26d",
+        "HTTP-3xx": "#5195ce",
+        "HTTP-4xx": "#f2c96d",
+        "HTTP-5xx": "#bf1b00",
+        "errors": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Cloudwatch",
+      "description": "Graph metrics at the following address to drill down: https://console.aws.amazon.com/cloudwatch/home?region=${var.aws_region}#metricsV2:graph=~(view~'timeSeries~stacked~false~region~'${var.aws_region}~start~'-PT1H~end~'P0D);search=errors;namespace=Logs;dimensions=CountType,LogGroup",
+      "fill": 4,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 9,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 0,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1027",
+          "alias": "HTTP-5xx",
+          "yaxis": 2
+        },
+        {
+          "$$hashKey": "object:1060",
+          "alias": "HTTP-5xx",
+          "linewidth": 3
+        }
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "$$hashKey": "object:337",
+          "$hashKey": "object:137",
+          "alias": "{{metric}}",
+          "dimensions": {},
+          "metricName": "HTTP-5xx",
+          "namespace": "DSS",
+          "period": "",
+          "refId": "A",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "$$hashKey": "object:454",
+          "$hashKey": "object:137",
+          "alias": "{{metric}}",
+          "dimensions": {},
+          "metricName": "HTTP-4xx",
+          "namespace": "DSS",
+          "period": "",
+          "refId": "B",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "$$hashKey": "object:476",
+          "$hashKey": "object:137",
+          "alias": "{{metric}}",
+          "dimensions": {},
+          "metricName": "HTTP-3xx",
+          "namespace": "DSS",
+          "period": "",
+          "refId": "C",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "$$hashKey": "object:498",
+          "$hashKey": "object:137",
+          "alias": "{{metric}}",
+          "dimensions": {},
+          "metricName": "HTTP-2xx",
+          "namespace": "DSS",
+          "period": "",
+          "refId": "D",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DSS API HTTP Status Classes [Rate]",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:662",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:663",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ]
     }
   ],
   "refresh": "1m",
