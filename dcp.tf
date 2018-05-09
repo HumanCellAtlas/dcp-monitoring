@@ -5,6 +5,7 @@ resource "aws_route53_health_check" "dcp" {
   child_healthchecks     = [
     "${aws_route53_health_check.dss.id}",
     "${aws_route53_health_check.ingest.id}",
+    "${aws_route53_health_check.upload.id}",
     "${aws_route53_health_check.analysis.id}"
   ]
 
