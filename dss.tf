@@ -2,7 +2,7 @@ resource "aws_route53_health_check" "dss" {
   fqdn              = "dss.${(var.deployment_stage == "prod") ? "" : "${var.deployment_stage}."}data.humancellatlas.org"
   port              = 443
   type              = "HTTPS"
-  resource_path     = "/v1/swagger.json"
+  resource_path     = "/internal/application_secrets"
   failure_threshold = "3"
   request_interval  = "30"
   cloudwatch_alarm_region = "${var.aws_region}"
