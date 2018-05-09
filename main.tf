@@ -254,6 +254,7 @@ output "security_group" {
 
 resource "aws_cloudwatch_log_group" "ecs" {
   name = "/aws/ecs/grafana"
+  retention_in_days = 90
 }
 
 
