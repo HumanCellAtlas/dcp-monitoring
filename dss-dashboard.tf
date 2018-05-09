@@ -84,13 +84,13 @@ output "dss_dashboard_json" {
         {
           "$hashKey": "object:125",
           "dimensions": {
-            "HealthCheckId": "${aws_route53_health_check.dcp.id}"
+            "HealthCheckId": "${aws_route53_health_check.dss.id}"
           },
           "metricName": "HealthCheckStatus",
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Minimum"
           ]
@@ -183,7 +183,7 @@ output "dss_dashboard_json" {
           "namespace": "DSS",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
@@ -196,7 +196,7 @@ output "dss_dashboard_json" {
           "namespace": "DSS",
           "period": "",
           "refId": "B",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
@@ -209,7 +209,7 @@ output "dss_dashboard_json" {
           "namespace": "DSS",
           "period": "",
           "refId": "C",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
@@ -222,7 +222,7 @@ output "dss_dashboard_json" {
           "namespace": "DSS",
           "period": "",
           "refId": "D",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
@@ -268,6 +268,280 @@ output "dss_dashboard_json" {
     },
     {
       "aliasColors": {
+        "4XXError": "#ef843c",
+        "5XXError": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Cloudwatch",
+      "fill": 3,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 15,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 0,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "4XXError",
+          "linewidth": 2,
+          "yaxis": 2
+        },
+        {
+          "alias": "5XXError",
+          "linewidth": 2,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}}",
+          "dimensions": {
+            "ApiName": "dss",
+            "Stage": "${var.deployment_stage}"
+          },
+          "metricName": "Count",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "{{metric}}",
+          "dimensions": {
+            "ApiName": "dss",
+            "Stage": "${var.deployment_stage}"
+          },
+          "metricName": "4XXError",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "B",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "{{metric}}",
+          "dimensions": {
+            "ApiName": "dss",
+            "Stage": "${var.deployment_stage}"
+          },
+          "metricName": "5XXError",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "C",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "ApiGateway Metrics [Rate]",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {
+        "4XXError": "#ef843c",
+        "5XXError": "#bf1b00",
+        "Maximum": "#bf1b00",
+        "Minimum": "#508642"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Cloudwatch",
+      "fill": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 17,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "4XXError",
+          "linewidth": 2,
+          "yaxis": 2
+        },
+        {
+          "alias": "5XXError",
+          "linewidth": 2,
+          "yaxis": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{stat}}",
+          "dimensions": {
+            "ApiName": "dss",
+            "Stage": "${var.deployment_stage}"
+          },
+          "metricName": "Latency",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Maximum"
+          ]
+        },
+        {
+          "alias": "{{stat}}",
+          "dimensions": {
+            "ApiName": "dss",
+            "Stage": "${var.deployment_stage}"
+          },
+          "metricName": "Latency",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "B",
+          "region": "us-east-1",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{stat}}",
+          "dimensions": {
+            "ApiName": "dss",
+            "Stage": "${var.deployment_stage}"
+          },
+          "metricName": "Latency",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "C",
+          "region": "us-east-1",
+          "statistics": [
+            "Minimum"
+          ]
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "fill": true,
+          "line": true,
+          "op": "gt",
+          "value": 5000
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "ApiGateway Latencies",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {
         "/aws/lambda/dss-${var.deployment_stage}": "#bf1b00"
       },
       "bars": false,
@@ -276,10 +550,10 @@ output "dss_dashboard_json" {
       "datasource": "Cloudwatch",
       "fill": 10,
       "gridPos": {
-        "h": 8,
-        "w": 12,
+        "h": 7,
+        "w": 24,
         "x": 0,
-        "y": 8
+        "y": 16
       },
       "id": 13,
       "legend": {
@@ -305,7 +579,7 @@ output "dss_dashboard_json" {
       "steppedLine": false,
       "targets": [
         {
-          "$$hashKey": "object:3520",
+          "$hashKey": "object:3520",
           "alias": "{{LogGroup}}",
           "dimensions": {
             "CountType": "errors",
@@ -315,13 +589,13 @@ output "dss_dashboard_json" {
           "namespace": "Logs",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
         },
         {
-          "$$hashKey": "object:3612",
+          "$hashKey": "object:3612",
           "alias": "{{LogGroup}}",
           "dimensions": {
             "CountType": "errors",
@@ -331,13 +605,13 @@ output "dss_dashboard_json" {
           "namespace": "Logs",
           "period": "",
           "refId": "B",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
         },
         {
-          "$$hashKey": "object:3662",
+          "$hashKey": "object:3662",
           "alias": "{{LogGroup}}",
           "dimensions": {
             "CountType": "errors",
@@ -347,13 +621,13 @@ output "dss_dashboard_json" {
           "namespace": "Logs",
           "period": "",
           "refId": "C",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
         },
         {
-          "$$hashKey": "object:3711",
+          "$hashKey": "object:3711",
           "alias": "{{LogGroup}}",
           "dimensions": {
             "CountType": "errors",
@@ -363,13 +637,13 @@ output "dss_dashboard_json" {
           "namespace": "Logs",
           "period": "",
           "refId": "D",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
         },
         {
-          "$$hashKey": "object:4026",
+          "$hashKey": "object:4026",
           "alias": "{{LogGroup}}",
           "dimensions": {
             "CountType": "errors",
@@ -379,13 +653,13 @@ output "dss_dashboard_json" {
           "namespace": "Logs",
           "period": "",
           "refId": "E",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
         },
         {
-          "$$hashKey": "object:4075",
+          "$hashKey": "object:4075",
           "alias": "{{LogGroup}}",
           "dimensions": {
             "CountType": "errors",
@@ -395,13 +669,13 @@ output "dss_dashboard_json" {
           "namespace": "Logs",
           "period": "",
           "refId": "F",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
         },
         {
-          "$$hashKey": "object:4124",
+          "$hashKey": "object:4124",
           "alias": "{{LogGroup}}",
           "dimensions": {
             "CountType": "errors",
@@ -411,7 +685,7 @@ output "dss_dashboard_json" {
           "namespace": "Logs",
           "period": "",
           "refId": "G",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
@@ -436,7 +710,7 @@ output "dss_dashboard_json" {
       },
       "yaxes": [
         {
-          "$$hashKey": "object:3764",
+          "$hashKey": "object:3764",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -445,145 +719,7 @@ output "dss_dashboard_json" {
           "show": true
         },
         {
-          "$$hashKey": "object:3765",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        }
-      ]
-    },
-    {
-      "aliasColors": {
-        "3xx": "#3f2b5b",
-        "4xx": "#ef843c",
-        "5xx": "#bf1b00",
-        "By Type_Sum": "#bf1b00",
-        "Errors": "#bf1b00",
-        "HTTP-2xx": "#7eb26d",
-        "HTTP-3xx": "#5195ce",
-        "HTTP-4xx": "#f2c96d",
-        "HTTP-5xx": "#bf1b00",
-        "Throttles": "#eab839",
-        "errors": "#bf1b00"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Cloudwatch",
-      "description": "Rates of invocation, errors, and throttles in our AWS account",
-      "fill": 4,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 8
-      },
-      "id": 4,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 0,
-      "links": [],
-      "nullPointMode": "connected",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Throttles",
-          "fill": 3,
-          "linewidth": 3,
-          "yaxis": 2
-        },
-        {
-          "alias": "Errors",
-          "fill": 0,
-          "linewidth": 3,
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "$hashKey": "object:137",
-          "alias": "{{metric}}",
-          "dimensions": {},
-          "metricName": "Invocations",
-          "namespace": "AWS/Lambda",
-          "period": "",
-          "refId": "A",
-          "region": "${var.aws_region}",
-          "statistics": [
-            "Sum"
-          ]
-        },
-        {
-          "alias": "{{metric}}",
-          "dimensions": {},
-          "metricName": "Errors",
-          "namespace": "AWS/Lambda",
-          "period": "",
-          "refId": "B",
-          "region": "${var.aws_region}",
-          "statistics": [
-            "Sum"
-          ]
-        },
-        {
-          "alias": "{{metric}}",
-          "dimensions": {},
-          "metricName": "Throttles",
-          "namespace": "AWS/Lambda",
-          "period": "",
-          "refId": "C",
-          "region": "${var.aws_region}",
-          "statistics": [
-            "Sum"
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Lambda Metrics [Rate]",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$hashKey": "object:662",
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "$hashKey": "object:663",
+          "$hashKey": "object:3765",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -606,7 +742,7 @@ output "dss_dashboard_json" {
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 16
+        "y": 23
       },
       "id": 9,
       "legend": {
@@ -634,14 +770,14 @@ output "dss_dashboard_json" {
         {
           "alias": "{{DomainName}}",
           "dimensions": {
-            "ClientId": "861229788715",
+            "ClientId": "${data.aws_caller_identity.current.account_id}",
             "DomainName": "dss-index-${var.deployment_stage}"
           },
           "metricName": "SearchableDocuments",
           "namespace": "AWS/ES",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Average"
           ]
@@ -696,7 +832,7 @@ output "dss_dashboard_json" {
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 16
+        "y": 23
       },
       "id": 6,
       "legend": {
@@ -722,18 +858,33 @@ output "dss_dashboard_json" {
       "steppedLine": false,
       "targets": [
         {
-          "alias": "{{DomainName}}",
+          "alias": "{{DomainName}}-{{stat}}",
           "dimensions": {
-            "ClientId": "861229788715",
+            "ClientId": "${data.aws_caller_identity.current.account_id}",
             "DomainName": "dss-index-${var.deployment_stage}"
           },
           "metricName": "FreeStorageSpace",
           "namespace": "AWS/ES",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
-            "Average"
+            "Sum"
+          ]
+        },
+        {
+          "alias": "{{DomainName}}-{{stat}}",
+          "dimensions": {
+            "ClientId": "${data.aws_caller_identity.current.account_id}",
+            "DomainName": "dss-index-${var.deployment_stage}"
+          },
+          "metricName": "FreeStorageSpace",
+          "namespace": "AWS/ES",
+          "period": "",
+          "refId": "B",
+          "region": "us-east-1",
+          "statistics": [
+            "Minimum"
           ]
         }
       ],
@@ -743,7 +894,7 @@ output "dss_dashboard_json" {
           "fill": true,
           "line": true,
           "op": "lt",
-          "value": 5000
+          "value": 50000
         }
       ],
       "timeFrom": null,
@@ -794,7 +945,7 @@ output "dss_dashboard_json" {
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 16
+        "y": 23
       },
       "id": 8,
       "legend": {
@@ -821,14 +972,14 @@ output "dss_dashboard_json" {
       "targets": [
         {
           "dimensions": {
-            "ClientId": "861229788715",
+            "ClientId": "${data.aws_caller_identity.current.account_id}",
             "DomainName": "dss-index-${var.deployment_stage}"
           },
           "metricName": "JVMMemoryPressure",
           "namespace": "AWS/ES",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Average"
           ]
@@ -879,6 +1030,7 @@ output "dss_dashboard_json" {
       ]
     }
   ],
+  "refresh": "1m",
   "schemaVersion": 16,
   "style": "dark",
   "tags": [],
