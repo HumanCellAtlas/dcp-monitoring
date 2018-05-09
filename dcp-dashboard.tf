@@ -38,8 +38,8 @@ output "dcp_dashboard_json" {
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 4,
-        "w": 24,
+        "h": 8,
+        "w": 6,
         "x": 0,
         "y": 0
       },
@@ -90,7 +90,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Minimum"
           ]
@@ -138,8 +138,8 @@ output "dcp_dashboard_json" {
       "gridPos": {
         "h": 4,
         "w": 6,
-        "x": 0,
-        "y": 4
+        "x": 6,
+        "y": 0
       },
       "id": 6,
       "interval": null,
@@ -163,7 +163,7 @@ output "dcp_dashboard_json" {
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "INGEST",
-      "prefixFontSize": "120%",
+      "prefixFontSize": "100%",
       "rangeMaps": [
         {
           "from": "null",
@@ -188,7 +188,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Minimum"
           ]
@@ -198,7 +198,7 @@ output "dcp_dashboard_json" {
       "title": "Ingest Health",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "120%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "$hashKey": "object:405",
@@ -236,8 +236,106 @@ output "dcp_dashboard_json" {
       "gridPos": {
         "h": 4,
         "w": 6,
-        "x": 6,
-        "y": 4
+        "x": 12,
+        "y": 0
+      },
+      "id": 18,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "$hashKey": "object:871",
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "$hashKey": "object:872",
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "UPLOAD",
+      "prefixFontSize": "100%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "$hashKey": "object:807",
+          "dimensions": {
+            "HealthCheckId": "${aws_route53_health_check.upload.id}"
+          },
+          "metricName": "HealthCheckStatus",
+          "namespace": "AWS/Route53",
+          "period": "",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Minimum"
+          ]
+        }
+      ],
+      "thresholds": "0.5",
+      "title": "Upload Health",
+      "transparent": false,
+      "type": "singlestat",
+      "valueFontSize": "100%",
+      "valueMaps": [
+        {
+          "$hashKey": "object:874",
+          "op": "=",
+          "text": "OK",
+          "value": "1"
+        },
+        {
+          "$hashKey": "object:876",
+          "op": "=",
+          "text": "ERR",
+          "value": "0"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#bf1b00",
+        "#629e51",
+        "#d44a3a"
+      ],
+      "datasource": "Cloudwatch",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 0
       },
       "id": 3,
       "interval": null,
@@ -261,7 +359,7 @@ output "dcp_dashboard_json" {
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "DSS",
-      "prefixFontSize": "120%",
+      "prefixFontSize": "100%",
       "rangeMaps": [
         {
           "from": "null",
@@ -286,7 +384,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Minimum"
           ]
@@ -296,7 +394,7 @@ output "dcp_dashboard_json" {
       "title": "DSS Health",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "120%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "$hashKey": "object:240",
@@ -334,7 +432,7 @@ output "dcp_dashboard_json" {
       "gridPos": {
         "h": 4,
         "w": 6,
-        "x": 12,
+        "x": 6,
         "y": 4
       },
       "id": 5,
@@ -359,7 +457,7 @@ output "dcp_dashboard_json" {
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "ANALYSIS",
-      "prefixFontSize": "120%",
+      "prefixFontSize": "100%",
       "rangeMaps": [
         {
           "from": "null",
@@ -384,7 +482,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Minimum"
           ]
@@ -394,7 +492,7 @@ output "dcp_dashboard_json" {
       "title": "Analysis Health",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "120%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "$hashKey": "object:566",
@@ -432,7 +530,7 @@ output "dcp_dashboard_json" {
       "gridPos": {
         "h": 4,
         "w": 6,
-        "x": 18,
+        "x": 12,
         "y": 4
       },
       "id": 4,
@@ -457,7 +555,7 @@ output "dcp_dashboard_json" {
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "LOGS",
-      "prefixFontSize": "120%",
+      "prefixFontSize": "100%",
       "rangeMaps": [
         {
           "from": "null",
@@ -482,7 +580,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Minimum"
           ]
@@ -492,7 +590,7 @@ output "dcp_dashboard_json" {
       "title": "Logs Health",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "120%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "$hashKey": "object:874",
@@ -510,6 +608,20 @@ output "dcp_dashboard_json" {
       "valueName": "current"
     },
     {
+      "content": "# ¯\\\\\\_(ツ)_/¯",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 4
+      },
+      "id": 20,
+      "links": [],
+      "mode": "markdown",
+      "title": "Your service here!",
+      "type": "text"
+    },
+    {
       "aliasColors": {
         "By Type_Sum": "#bf1b00",
         "errors": "#bf1b00"
@@ -518,7 +630,7 @@ output "dcp_dashboard_json" {
       "dashLength": 10,
       "dashes": false,
       "datasource": "Cloudwatch",
-      "description": "Graph metrics at the following address to drill down: https://console.aws.amazon.com/cloudwatch/home?region=${var.aws_region}#metricsV2:graph=~(view~'timeSeries~stacked~false~region~'${var.aws_region}~start~'-PT1H~end~'P0D);search=errors;namespace=Logs;dimensions=CountType,LogGroup",
+      "description": "Graph metrics at the following address to drill down: https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#metricsV2:graph=~(view~'timeSeries~stacked~false~region~'us-east-1~start~'-PT1H~end~'P0D);search=errors;namespace=Logs;dimensions=CountType,LogGroup",
       "fill": 4,
       "gridPos": {
         "h": 8,
@@ -537,7 +649,7 @@ output "dcp_dashboard_json" {
         "values": false
       },
       "lines": true,
-      "linewidth": 3,
+      "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
@@ -550,7 +662,6 @@ output "dcp_dashboard_json" {
       "steppedLine": false,
       "targets": [
         {
-          "$$hashKey": "object:337",
           "$hashKey": "object:137",
           "alias": "errors",
           "dimensions": {
@@ -560,7 +671,7 @@ output "dcp_dashboard_json" {
           "namespace": "Logs",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
@@ -603,30 +714,228 @@ output "dcp_dashboard_json" {
       ]
     },
     {
-      "aliasColors": {
-        "3xx": "#3f2b5b",
-        "4xx": "#ef843c",
-        "5xx": "#bf1b00",
-        "By Type_Sum": "#bf1b00",
-        "HTTP-2xx": "#7eb26d",
-        "HTTP-3xx": "#5195ce",
-        "HTTP-4xx": "#f2c96d",
-        "HTTP-5xx": "#bf1b00",
-        "errors": "#bf1b00"
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Cloudwatch",
-      "description": "Rates of HTTP status codes on the DSS API not including health checks",
-      "fill": 6,
+      "fill": 2,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
         "y": 8
       },
-      "id": 9,
+      "id": 11,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "dimensions": {
+            "Currency": "USD"
+          },
+          "metricName": "EstimatedCharges",
+          "namespace": "AWS/Billing",
+          "period": "",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Maximum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": "30d",
+      "timeShift": null,
+      "title": "Spend [Sum per Month]",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {
+        "FailedInvocations_Sum": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Cloudwatch",
+      "description": "Events meant to trigger processes in the system",
+      "fill": 3,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 15,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 0,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$hashKey": "object:1963",
+          "alias": "FailedInvocations_Sum",
+          "fill": 0,
+          "linewidth": 2,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "$hashKey": "object:1866",
+          "alias": "",
+          "dimensions": {},
+          "metricName": "Invocations",
+          "namespace": "AWS/Events",
+          "period": "",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "$hashKey": "object:1917",
+          "alias": "",
+          "dimensions": {},
+          "metricName": "FailedInvocations",
+          "namespace": "AWS/Events",
+          "period": "",
+          "refId": "B",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CloudWatch Events",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {
+        "3xx": "#3f2b5b",
+        "4xx": "#ef843c",
+        "5xx": "#bf1b00",
+        "By Type_Sum": "#bf1b00",
+        "Errors": "#bf1b00",
+        "HTTP-2xx": "#7eb26d",
+        "HTTP-3xx": "#5195ce",
+        "HTTP-4xx": "#f2c96d",
+        "HTTP-5xx": "#bf1b00",
+        "Throttles": "#eab839",
+        "errors": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Cloudwatch",
+      "description": "Rates of invocation, errors, and throttles in our AWS account",
+      "fill": 4,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 13,
       "legend": {
         "avg": false,
         "current": false,
@@ -646,72 +955,55 @@ output "dcp_dashboard_json" {
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "$$hashKey": "object:1027",
-          "alias": "HTTP-5xx",
+          "alias": "Throttles",
+          "fill": 3,
+          "linewidth": 3,
           "yaxis": 2
         },
         {
-          "$$hashKey": "object:1060",
-          "alias": "HTTP-5xx",
-          "linewidth": 3
+          "alias": "Errors",
+          "fill": 0,
+          "linewidth": 3,
+          "yaxis": 2
         }
       ],
       "spaceLength": 10,
-      "stack": true,
+      "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "$$hashKey": "object:337",
           "$hashKey": "object:137",
           "alias": "{{metric}}",
           "dimensions": {},
-          "metricName": "HTTP-5xx",
-          "namespace": "DSS",
+          "metricName": "Invocations",
+          "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
         },
         {
-          "$$hashKey": "object:454",
-          "$hashKey": "object:137",
           "alias": "{{metric}}",
           "dimensions": {},
-          "metricName": "HTTP-4xx",
-          "namespace": "DSS",
+          "metricName": "Errors",
+          "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
         },
         {
-          "$$hashKey": "object:476",
-          "$hashKey": "object:137",
           "alias": "{{metric}}",
           "dimensions": {},
-          "metricName": "HTTP-3xx",
-          "namespace": "DSS",
+          "metricName": "Throttles",
+          "namespace": "AWS/Lambda",
           "period": "",
           "refId": "C",
-          "region": "${var.aws_region}",
-          "statistics": [
-            "Sum"
-          ]
-        },
-        {
-          "$$hashKey": "object:498",
-          "$hashKey": "object:137",
-          "alias": "{{metric}}",
-          "dimensions": {},
-          "metricName": "HTTP-2xx",
-          "namespace": "DSS",
-          "period": "",
-          "refId": "D",
-          "region": "${var.aws_region}",
+          "region": "us-east-1",
           "statistics": [
             "Sum"
           ]
@@ -720,7 +1012,7 @@ output "dcp_dashboard_json" {
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "DSS API HTTP Status Classes [Rate]",
+      "title": "Lambda Metrics [Rate]",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -736,7 +1028,7 @@ output "dcp_dashboard_json" {
       },
       "yaxes": [
         {
-          "$$hashKey": "object:662",
+          "$hashKey": "object:662",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -745,12 +1037,137 @@ output "dcp_dashboard_json" {
           "show": true
         },
         {
-          "$$hashKey": "object:663",
+          "$hashKey": "object:663",
           "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
           "min": "0",
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Cloudwatch",
+      "fill": 9,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 17,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": false,
+      "linewidth": 0,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "$hashKey": "object:2046",
+          "alias": "{{metric}}",
+          "dimensions": {},
+          "metricName": "AuthorizationFailureCount",
+          "namespace": "CloudTrailMetrics",
+          "period": "",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "$hashKey": "object:2230",
+          "alias": "{{metric}}",
+          "dimensions": {},
+          "metricName": "ConsoleSignInFailureCount",
+          "namespace": "CloudTrailMetrics",
+          "period": "",
+          "refId": "B",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "$hashKey": "object:2252",
+          "alias": "{{metric}}",
+          "dimensions": {},
+          "metricName": "IAMPolicyEventCount",
+          "namespace": "CloudTrailMetrics",
+          "period": "",
+          "refId": "C",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "$hashKey": "object:2274",
+          "alias": "{{metric}}",
+          "dimensions": {},
+          "metricName": "SecurityGroupEventCount",
+          "namespace": "CloudTrailMetrics",
+          "period": "",
+          "refId": "D",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CloudTrail Security Events [Rate]",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
           "show": true
         }
       ]
@@ -795,7 +1212,8 @@ output "dcp_dashboard_json" {
   "timezone": "",
   "title": "DCP Health [${upper(var.deployment_stage)}]",
   "uid": "v4-0_FWiz",
-  "version": 2
+  "version": 3
 }
+
 EOF
 }
