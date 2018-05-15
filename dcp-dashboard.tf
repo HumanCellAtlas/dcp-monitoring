@@ -90,7 +90,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Minimum"
           ]
@@ -188,7 +188,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Minimum"
           ]
@@ -286,7 +286,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Minimum"
           ]
@@ -384,7 +384,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Minimum"
           ]
@@ -482,7 +482,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Minimum"
           ]
@@ -580,7 +580,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Minimum"
           ]
@@ -630,7 +630,7 @@ output "dcp_dashboard_json" {
       "dashLength": 10,
       "dashes": false,
       "datasource": "Cloudwatch",
-      "description": "Graph metrics at the following address to drill down: https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#metricsV2:graph=~(view~'timeSeries~stacked~false~region~'us-east-1~start~'-PT1H~end~'P0D);search=errors;namespace=Logs;dimensions=CountType,LogGroup",
+      "description": "Graph metrics at the following address to drill down: https://console.aws.amazon.com/cloudwatch/home?region=${var.aws_region}#metricsV2:graph=~(view~'timeSeries~stacked~false~region~'${var.aws_region}~start~'-PT1H~end~'P0D);search=errors;namespace=Logs;dimensions=CountType,LogGroup",
       "fill": 4,
       "gridPos": {
         "h": 8,
@@ -671,7 +671,7 @@ output "dcp_dashboard_json" {
           "namespace": "Logs",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Sum"
           ]
@@ -757,7 +757,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Billing",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Maximum"
           ]
@@ -767,116 +767,6 @@ output "dcp_dashboard_json" {
       "timeFrom": "30d",
       "timeShift": null,
       "title": "Spend [Sum per Month]",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ]
-    },
-    {
-      "aliasColors": {
-        "FailedInvocations_Sum": "#bf1b00"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Cloudwatch",
-      "description": "Events meant to trigger processes in the system",
-      "fill": 3,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 16
-      },
-      "id": 15,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 0,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "$hashKey": "object:1963",
-          "alias": "FailedInvocations_Sum",
-          "fill": 0,
-          "linewidth": 2,
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "$hashKey": "object:1866",
-          "alias": "",
-          "dimensions": {},
-          "metricName": "Invocations",
-          "namespace": "AWS/Events",
-          "period": "",
-          "refId": "A",
-          "region": "us-east-1",
-          "statistics": [
-            "Sum"
-          ]
-        },
-        {
-          "$hashKey": "object:1917",
-          "alias": "",
-          "dimensions": {},
-          "metricName": "FailedInvocations",
-          "namespace": "AWS/Events",
-          "period": "",
-          "refId": "B",
-          "region": "us-east-1",
-          "statistics": [
-            "Sum"
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "CloudWatch Events",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -932,7 +822,7 @@ output "dcp_dashboard_json" {
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 12,
+        "x": 0,
         "y": 16
       },
       "id": 13,
@@ -979,7 +869,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Sum"
           ]
@@ -991,7 +881,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Sum"
           ]
@@ -1003,7 +893,7 @@ output "dcp_dashboard_json" {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Sum"
           ]
@@ -1048,6 +938,259 @@ output "dcp_dashboard_json" {
       ]
     },
     {
+      "aliasColors": {
+        "3xx": "#3f2b5b",
+        "4xx": "#ef843c",
+        "5xx": "#bf1b00",
+        "By Type_Sum": "#bf1b00",
+        "Errors": "#bf1b00",
+        "HTTP-2xx": "#7eb26d",
+        "HTTP-3xx": "#5195ce",
+        "HTTP-4xx": "#f2c96d",
+        "HTTP-5xx": "#bf1b00",
+        "Maximum": "#bf1b00",
+        "Minimum": "#629e51",
+        "Throttles": "#eab839",
+        "errors": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Cloudwatch",
+      "description": "Rates of invocation, errors, and throttles in our AWS account",
+      "fill": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 21,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Throttles",
+          "fill": 3,
+          "linewidth": 3,
+          "yaxis": 2
+        },
+        {
+          "alias": "Errors",
+          "fill": 0,
+          "linewidth": 3,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "$$hashKey": "object:167",
+          "$hashKey": "object:137",
+          "alias": "{{stat}}",
+          "dimensions": {},
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "",
+          "refId": "A",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Maximum"
+          ]
+        },
+        {
+          "$$hashKey": "object:168",
+          "alias": "{{stat}}",
+          "dimensions": {},
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "",
+          "refId": "B",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "$$hashKey": "object:169",
+          "alias": "{{stat}}",
+          "dimensions": {},
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "",
+          "refId": "C",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Minimum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Lambda Duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$hashKey": "object:662",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$hashKey": "object:663",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {
+        "FailedInvocations_Sum": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Cloudwatch",
+      "description": "Events meant to trigger processes in the system",
+      "fill": 3,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "id": 15,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 0,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$hashKey": "object:1963",
+          "alias": "FailedInvocations_Sum",
+          "fill": 0,
+          "linewidth": 2,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "$hashKey": "object:1866",
+          "alias": "",
+          "dimensions": {},
+          "metricName": "Invocations",
+          "namespace": "AWS/Events",
+          "period": "",
+          "refId": "A",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "$hashKey": "object:1917",
+          "alias": "",
+          "dimensions": {},
+          "metricName": "FailedInvocations",
+          "namespace": "AWS/Events",
+          "period": "",
+          "refId": "B",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CloudWatch Events",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ]
+    },
+    {
       "aliasColors": {},
       "bars": true,
       "dashLength": 10,
@@ -1056,8 +1199,8 @@ output "dcp_dashboard_json" {
       "fill": 9,
       "gridPos": {
         "h": 8,
-        "w": 24,
-        "x": 0,
+        "w": 12,
+        "x": 12,
         "y": 24
       },
       "id": 17,
@@ -1091,7 +1234,7 @@ output "dcp_dashboard_json" {
           "namespace": "CloudTrailMetrics",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Sum"
           ]
@@ -1104,7 +1247,7 @@ output "dcp_dashboard_json" {
           "namespace": "CloudTrailMetrics",
           "period": "",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Sum"
           ]
@@ -1117,7 +1260,7 @@ output "dcp_dashboard_json" {
           "namespace": "CloudTrailMetrics",
           "period": "",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Sum"
           ]
@@ -1130,7 +1273,7 @@ output "dcp_dashboard_json" {
           "namespace": "CloudTrailMetrics",
           "period": "",
           "refId": "D",
-          "region": "us-east-1",
+          "region": "${var.aws_region}",
           "statistics": [
             "Sum"
           ]
@@ -1212,8 +1355,7 @@ output "dcp_dashboard_json" {
   "timezone": "",
   "title": "DCP Health [${upper(var.deployment_stage)}]",
   "uid": "v4-0_FWiz",
-  "version": 3
+  "version": 2
 }
-
 EOF
 }
