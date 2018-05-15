@@ -32,4 +32,3 @@ resource "aws_cloudwatch_metric_alarm" "dcp" {
     HealthCheckId = "${aws_route53_health_check.dcp.id}"
   }
 }
-
