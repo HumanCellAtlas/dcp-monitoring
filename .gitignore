@@ -119,3 +119,5 @@ grafana.ini
 all.yaml
 dcp.json
 dss.json
+
+terraform.*
