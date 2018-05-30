@@ -4,7 +4,7 @@ resource "aws_route53_health_check" "dss" {
   type              = "HTTPS"
   resource_path     = "/internal/application_secrets"
   failure_threshold = "3"
-  request_interval  = "30"
+  request_interval  = "60"
   cloudwatch_alarm_region = "${var.aws_region}"
 
   tags = {
