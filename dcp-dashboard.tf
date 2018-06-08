@@ -4,6 +4,7 @@ output "dcp_dashboard_json" {
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:2329",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -17,6 +18,7 @@ output "dcp_dashboard_json" {
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
+  "iteration": 1528476276053,
   "links": [],
   "panels": [
     {
@@ -137,7 +139,7 @@ output "dcp_dashboard_json" {
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
+        "w": 9,
         "x": 6,
         "y": 0
       },
@@ -235,8 +237,8 @@ output "dcp_dashboard_json" {
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 12,
+        "w": 9,
+        "x": 15,
         "y": 0
       },
       "id": 18,
@@ -334,8 +336,8 @@ output "dcp_dashboard_json" {
       "gridPos": {
         "h": 4,
         "w": 6,
-        "x": 18,
-        "y": 0
+        "x": 6,
+        "y": 4
       },
       "id": 3,
       "interval": null,
@@ -432,7 +434,7 @@ output "dcp_dashboard_json" {
       "gridPos": {
         "h": 4,
         "w": 6,
-        "x": 6,
+        "x": 12,
         "y": 4
       },
       "id": 5,
@@ -530,7 +532,7 @@ output "dcp_dashboard_json" {
       "gridPos": {
         "h": 4,
         "w": 6,
-        "x": 12,
+        "x": 18,
         "y": 4
       },
       "id": 4,
@@ -608,20 +610,6 @@ output "dcp_dashboard_json" {
       "valueName": "current"
     },
     {
-      "content": "# ¯\\\\\\_(ツ)_/¯",
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 18,
-        "y": 4
-      },
-      "id": 20,
-      "links": [],
-      "mode": "markdown",
-      "title": "Your service here!",
-      "type": "text"
-    },
-    {
       "aliasColors": {
         "By Type_Sum": "#bf1b00",
         "errors": "#bf1b00"
@@ -667,9 +655,10 @@ output "dcp_dashboard_json" {
           "dimensions": {
             "CountType": "errors"
           },
+          "highResolution": false,
           "metricName": "By Type",
           "namespace": "Logs",
-          "period": "",
+          "period": "$interval",
           "refId": "A",
           "region": "${var.aws_region}",
           "statistics": [
@@ -711,7 +700,11 @@ output "dcp_dashboard_json" {
           "min": null,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
@@ -753,9 +746,10 @@ output "dcp_dashboard_json" {
           "dimensions": {
             "Currency": "USD"
           },
+          "highResolution": false,
           "metricName": "EstimatedCharges",
           "namespace": "AWS/Billing",
-          "period": "",
+          "period": "$interval",
           "refId": "A",
           "region": "${var.aws_region}",
           "statistics": [
@@ -797,7 +791,127 @@ output "dcp_dashboard_json" {
           "min": 0,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "FailedInvocations_Sum": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Cloudwatch",
+      "description": "Events meant to trigger processes in the system",
+      "fill": 3,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 15,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 0,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$hashKey": "object:1963",
+          "alias": "FailedInvocations_Sum",
+          "fill": 0,
+          "linewidth": 2,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "$hashKey": "object:1866",
+          "alias": "",
+          "dimensions": {},
+          "highResolution": false,
+          "metricName": "Invocations",
+          "namespace": "AWS/Events",
+          "period": "$interval",
+          "refId": "A",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "$hashKey": "object:1917",
+          "alias": "",
+          "dimensions": {},
+          "highResolution": false,
+          "metricName": "FailedInvocations",
+          "namespace": "AWS/Events",
+          "period": "$interval",
+          "refId": "B",
+          "region": "${var.aws_region}",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CloudWatch Events",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {
@@ -822,7 +936,7 @@ output "dcp_dashboard_json" {
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
+        "x": 12,
         "y": 16
       },
       "id": 13,
@@ -865,9 +979,10 @@ output "dcp_dashboard_json" {
           "$hashKey": "object:137",
           "alias": "{{metric}}",
           "dimensions": {},
+          "highResolution": false,
           "metricName": "Invocations",
           "namespace": "AWS/Lambda",
-          "period": "",
+          "period": "$interval",
           "refId": "A",
           "region": "${var.aws_region}",
           "statistics": [
@@ -877,9 +992,10 @@ output "dcp_dashboard_json" {
         {
           "alias": "{{metric}}",
           "dimensions": {},
+          "highResolution": false,
           "metricName": "Errors",
           "namespace": "AWS/Lambda",
-          "period": "",
+          "period": "$interval",
           "refId": "B",
           "region": "${var.aws_region}",
           "statistics": [
@@ -889,9 +1005,10 @@ output "dcp_dashboard_json" {
         {
           "alias": "{{metric}}",
           "dimensions": {},
+          "highResolution": false,
           "metricName": "Throttles",
           "namespace": "AWS/Lambda",
-          "period": "",
+          "period": "$interval",
           "refId": "C",
           "region": "${var.aws_region}",
           "statistics": [
@@ -935,260 +1052,11 @@ output "dcp_dashboard_json" {
           "min": "0",
           "show": true
         }
-      ]
-    },
-    {
-      "aliasColors": {
-        "3xx": "#3f2b5b",
-        "4xx": "#ef843c",
-        "5xx": "#bf1b00",
-        "By Type_Sum": "#bf1b00",
-        "Errors": "#bf1b00",
-        "HTTP-2xx": "#7eb26d",
-        "HTTP-3xx": "#5195ce",
-        "HTTP-4xx": "#f2c96d",
-        "HTTP-5xx": "#bf1b00",
-        "Maximum": "#bf1b00",
-        "Minimum": "#629e51",
-        "Throttles": "#eab839",
-        "errors": "#bf1b00"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Cloudwatch",
-      "description": "Rates of invocation, errors, and throttles in our AWS account",
-      "fill": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 16
-      },
-      "id": 21,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "connected",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Throttles",
-          "fill": 3,
-          "linewidth": 3,
-          "yaxis": 2
-        },
-        {
-          "alias": "Errors",
-          "fill": 0,
-          "linewidth": 3,
-          "yaxis": 2
-        }
       ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "$$hashKey": "object:167",
-          "$hashKey": "object:137",
-          "alias": "{{stat}}",
-          "dimensions": {},
-          "metricName": "Duration",
-          "namespace": "AWS/Lambda",
-          "period": "",
-          "refId": "A",
-          "region": "${var.aws_region}",
-          "statistics": [
-            "Maximum"
-          ]
-        },
-        {
-          "$$hashKey": "object:168",
-          "alias": "{{stat}}",
-          "dimensions": {},
-          "metricName": "Duration",
-          "namespace": "AWS/Lambda",
-          "period": "",
-          "refId": "B",
-          "region": "${var.aws_region}",
-          "statistics": [
-            "Average"
-          ]
-        },
-        {
-          "$$hashKey": "object:169",
-          "alias": "{{stat}}",
-          "dimensions": {},
-          "metricName": "Duration",
-          "namespace": "AWS/Lambda",
-          "period": "",
-          "refId": "C",
-          "region": "${var.aws_region}",
-          "statistics": [
-            "Minimum"
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Lambda Duration",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$hashKey": "object:662",
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "$hashKey": "object:663",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        }
-      ]
-    },
-    {
-      "aliasColors": {
-        "FailedInvocations_Sum": "#bf1b00"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Cloudwatch",
-      "description": "Events meant to trigger processes in the system",
-      "fill": 3,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 24
-      },
-      "id": 15,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 0,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "$hashKey": "object:1963",
-          "alias": "FailedInvocations_Sum",
-          "fill": 0,
-          "linewidth": 2,
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "$hashKey": "object:1866",
-          "alias": "",
-          "dimensions": {},
-          "metricName": "Invocations",
-          "namespace": "AWS/Events",
-          "period": "",
-          "refId": "A",
-          "region": "${var.aws_region}",
-          "statistics": [
-            "Sum"
-          ]
-        },
-        {
-          "$hashKey": "object:1917",
-          "alias": "",
-          "dimensions": {},
-          "metricName": "FailedInvocations",
-          "namespace": "AWS/Events",
-          "period": "",
-          "refId": "B",
-          "region": "${var.aws_region}",
-          "statistics": [
-            "Sum"
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "CloudWatch Events",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        }
-      ]
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
@@ -1200,7 +1068,7 @@ output "dcp_dashboard_json" {
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 12,
+        "x": 0,
         "y": 24
       },
       "id": 17,
@@ -1230,9 +1098,10 @@ output "dcp_dashboard_json" {
           "$hashKey": "object:2046",
           "alias": "{{metric}}",
           "dimensions": {},
+          "highResolution": false,
           "metricName": "AuthorizationFailureCount",
           "namespace": "CloudTrailMetrics",
-          "period": "",
+          "period": "$interval",
           "refId": "A",
           "region": "${var.aws_region}",
           "statistics": [
@@ -1243,9 +1112,10 @@ output "dcp_dashboard_json" {
           "$hashKey": "object:2230",
           "alias": "{{metric}}",
           "dimensions": {},
+          "highResolution": false,
           "metricName": "ConsoleSignInFailureCount",
           "namespace": "CloudTrailMetrics",
-          "period": "",
+          "period": "$interval",
           "refId": "B",
           "region": "${var.aws_region}",
           "statistics": [
@@ -1256,9 +1126,10 @@ output "dcp_dashboard_json" {
           "$hashKey": "object:2252",
           "alias": "{{metric}}",
           "dimensions": {},
+          "highResolution": false,
           "metricName": "IAMPolicyEventCount",
           "namespace": "CloudTrailMetrics",
-          "period": "",
+          "period": "$interval",
           "refId": "C",
           "region": "${var.aws_region}",
           "statistics": [
@@ -1269,9 +1140,10 @@ output "dcp_dashboard_json" {
           "$hashKey": "object:2274",
           "alias": "{{metric}}",
           "dimensions": {},
+          "highResolution": false,
           "metricName": "SecurityGroupEventCount",
           "namespace": "CloudTrailMetrics",
-          "period": "",
+          "period": "$interval",
           "refId": "D",
           "region": "${var.aws_region}",
           "statistics": [
@@ -1313,7 +1185,312 @@ output "dcp_dashboard_json" {
           "min": null,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "status!=ok": "#bf1b00",
+        "status=not_ok": "#bf1b00",
+        "sum(status=not_ok)": "#890f02"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "gcp-hca-monitoring",
+      "fill": 7,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 20,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 0,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$hashKey": "object:816",
+          "alias": "status=ok",
+          "yaxis": 2
+        },
+        {
+          "$hashKey": "object:817",
+          "alias": "status!=ok",
+          "fill": 0,
+          "linewidth": 2,
+          "yaxis": 2
+        },
+        {
+          "alias": "project=human-cell-atlas-travis-test, status=timeout",
+          "yaxis": 1
+        },
+        {
+          "alias": "sum(status=not_ok)",
+          "yaxis": 2
+        },
+        {
+          "alias": "status!=ok",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "$hashKey": "object:160",
+          "aggregation": {
+            "alignmentPeriod": "$interval",
+            "crossSeriesReducer": "REDUCE_SUM",
+            "groupByFields": [
+              "metric.labels.status",
+              "resource.labels.project_id"
+            ],
+            "perSeriesAligner": "ALIGN_RATE"
+          },
+          "alias": "project={{resource.labels.project_id}}, status={{metric.labels.status}}",
+          "filter": "",
+          "format": "time_series",
+          "metricType": "cloudfunctions.googleapis.com/function/execution_count",
+          "mode": "monitoring",
+          "projectId": "",
+          "refId": "A",
+          "seriesFilter": {
+            "mode": "NONE",
+            "param": "",
+            "type": "NONE"
+          }
+        },
+        {
+          "$hashKey": "object:697",
+          "aggregation": {
+            "alignmentPeriod": "$interval",
+            "crossSeriesReducer": "REDUCE_SUM",
+            "groupByFields": [
+              "metric.labels.status"
+            ],
+            "perSeriesAligner": "ALIGN_RATE"
+          },
+          "alias": "status!=ok",
+          "filter": "metric.labels.status!=\"ok\"",
+          "format": "time_series",
+          "metricType": "cloudfunctions.googleapis.com/function/execution_count",
+          "mode": "monitoring",
+          "projectId": "",
+          "refId": "C",
+          "seriesFilter": {
+            "mode": "NONE",
+            "param": "",
+            "type": "NONE"
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "GCP CloudFunction [Rate-$interval]",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "cards": {
+        "cardPadding": 0,
+        "cardRound": null
+      },
+      "color": {
+        "cardColor": "#7eb26d",
+        "colorScale": "sqrt",
+        "colorScheme": "interpolateSpectral",
+        "exponent": 0.25,
+        "mode": "spectrum"
+      },
+      "dataFormat": "tsbuckets",
+      "datasource": "gcp-hca-monitoring",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 32
+      },
+      "heatmap": {},
+      "highlightCards": true,
+      "id": 22,
+      "legend": {
+        "show": true
+      },
+      "links": [],
+      "targets": [
+        {
+          "$hashKey": "object:242",
+          "aggregation": {
+            "alignmentPeriod": "$interval",
+            "crossSeriesReducer": "REDUCE_SUM",
+            "groupByFields": [],
+            "perSeriesAligner": "ALIGN_DELTA"
+          },
+          "alias": "{{bucket}}",
+          "filter": "",
+          "format": "time_series",
+          "metricType": "cloudfunctions.googleapis.com/function/execution_times",
+          "mode": "monitoring",
+          "projectId": "",
+          "refId": "A",
+          "seriesFilter": {
+            "mode": "NONE",
+            "param": "",
+            "type": "NONE"
+          }
+        }
+      ],
+      "title": "GCP CloudFunction Execution Times [Distribution-10m]",
+      "tooltip": {
+        "show": true,
+        "showHistogram": false
+      },
+      "type": "heatmap",
+      "xAxis": {
+        "show": true
+      },
+      "xBucketNumber": null,
+      "xBucketSize": null,
+      "yAxis": {
+        "decimals": 1,
+        "format": "ns",
+        "logBase": 1,
+        "max": null,
+        "min": "0",
+        "show": true,
+        "splitFactor": null
+      },
+      "yBucketBound": "auto",
+      "yBucketNumber": null,
+      "yBucketSize": null
+    },
+    {
+      "cards": {
+        "cardPadding": 0,
+        "cardRound": null
+      },
+      "color": {
+        "cardColor": "#7eb26d",
+        "colorScale": "sqrt",
+        "colorScheme": "interpolateSpectral",
+        "exponent": 0.25,
+        "mode": "spectrum"
+      },
+      "dataFormat": "tsbuckets",
+      "datasource": "gcp-hca-monitoring",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 32
+      },
+      "heatmap": {},
+      "highlightCards": true,
+      "id": 23,
+      "legend": {
+        "show": true
+      },
+      "links": [],
+      "targets": [
+        {
+          "$hashKey": "object:242",
+          "aggregation": {
+            "alignmentPeriod": "$interval",
+            "crossSeriesReducer": "REDUCE_SUM",
+            "groupByFields": [],
+            "perSeriesAligner": "ALIGN_DELTA"
+          },
+          "alias": "{{bucket}}",
+          "filter": "",
+          "format": "time_series",
+          "metricType": "cloudfunctions.googleapis.com/function/user_memory_bytes",
+          "mode": "monitoring",
+          "projectId": "",
+          "refId": "A",
+          "seriesFilter": {
+            "mode": "NONE",
+            "param": "",
+            "type": "NONE"
+          }
+        }
+      ],
+      "title": "GCP CloudFunction Memory Usage [Distribution-10m]",
+      "tooltip": {
+        "show": true,
+        "showHistogram": false
+      },
+      "type": "heatmap",
+      "xAxis": {
+        "show": true
+      },
+      "xBucketNumber": null,
+      "xBucketSize": null,
+      "yAxis": {
+        "decimals": 1,
+        "format": "bytes",
+        "logBase": 1,
+        "max": null,
+        "min": "0",
+        "show": true,
+        "splitFactor": null
+      },
+      "yBucketBound": "auto",
+      "yBucketNumber": null,
+      "yBucketSize": null
     }
   ],
   "refresh": "1m",
@@ -1321,7 +1498,45 @@ output "dcp_dashboard_json" {
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "auto": false,
+        "auto_count": 30,
+        "auto_min": "10s",
+        "current": {
+          "text": "300s",
+          "value": "300s"
+        },
+        "hide": 0,
+        "label": "interval",
+        "name": "interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "60s",
+            "value": "60s"
+          },
+          {
+            "selected": true,
+            "text": "300s",
+            "value": "300s"
+          },
+          {
+            "selected": false,
+            "text": "1800s",
+            "value": "1800s"
+          },
+          {
+            "selected": false,
+            "text": "auto",
+            "value": "auto"
+          }
+        ],
+        "query": "60s,300s,1800s,auto",
+        "refresh": 2,
+        "type": "interval"
+      }
+    ]
   },
   "time": {
     "from": "now-6h",
@@ -1355,7 +1570,7 @@ output "dcp_dashboard_json" {
   "timezone": "",
   "title": "DCP Health [${upper(var.deployment_stage)}]",
   "uid": "v4-0_FWiz",
-  "version": 2
+  "version": 23
 }
 EOF
 }
