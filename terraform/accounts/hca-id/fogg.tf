@@ -15,7 +15,7 @@ terraform {
 
   backend "s3" {
     bucket  = "org-humancellatlas-634134578715-terraform"
-    key     = "terraform/metrics/accounts/hca-id.tfstate"
+    key     = "terraform/dcp-observability/accounts/hca-id.tfstate"
     encrypt = true
     region  = "us-east-1"
     profile = "hca-id"
@@ -24,7 +24,7 @@ terraform {
 
 variable "project" {
   type    = "string"
-  default = "metrics"
+  default = "dcp-observability"
 }
 
 variable "region" {
@@ -57,7 +57,7 @@ data "terraform_remote_state" "global" {
 
   config {
     bucket  = "org-humancellatlas-634134578715-terraform"
-    key     = "terraform/metrics/global.tfstate"
+    key     = "terraform/dcp-observability/global.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
   }

@@ -2,9 +2,10 @@
 # Make improvements in fogg, so that everyone can benefit.
 
 provider "aws" {
-  version = "~> 1.27.0"
-  region  = "us-east-1"
-  profile = "hca-id"
+  version             = "~> 1.27.0"
+  region              = "us-east-1"
+  profile             = "hca"
+  allowed_account_ids = [861229788715]
 }
 
 # Aliased Providers (for doing things in every region).
@@ -15,7 +16,7 @@ terraform {
   backend "s3" {
     bucket = "org-humancellatlas-634134578715-terraform"
 
-    key = "terraform/dcp-observability/global.tfstate"
+    key = "terraform/dcp-observability/envs/integration/components/health-checks.tfstate"
 
     encrypt = true
     region  = "us-east-1"
@@ -25,7 +26,7 @@ terraform {
 
 variable "env" {
   type    = "string"
-  default = ""
+  default = "integration"
 }
 
 variable "project" {
@@ -40,12 +41,12 @@ variable "region" {
 
 variable "component" {
   type    = "string"
-  default = "global"
+  default = "health-checks"
 }
 
 variable "aws_profile" {
   type    = "string"
-  default = "hca-id"
+  default = "hca"
 }
 
 variable "owner" {
@@ -58,9 +59,31 @@ variable "tags" {
 
   default = {
     project   = "dcp-observability"
-    env       = ""
-    service   = "global"
+    env       = "integration"
+    service   = "health-checks"
     owner     = "mweiden@chanzuckerberg.com"
     managedBy = "terraform"
+  }
+}
+
+data "terraform_remote_state" "global" {
+  backend = "s3"
+
+  config {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/global.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
+data "terraform_remote_state" "env-dashboards" {
+  backend = "s3"
+
+  config {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/envs/integration/components/env-dashboards.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
   }
 }

@@ -8,7 +8,7 @@
     "extra_vars": {},
     "infra_s3_bucket": "org-humancellatlas-634134578715-terraform",
     "owner": "mweiden@chanzuckerberg.com",
-    "project": "metrics",
+    "project": "dcp-observability",
     "terraform_version": "0.11.7"
   },
   "accounts": {
@@ -26,15 +26,22 @@
   },
   "modules": {
     "health-checks": {},
-    "dashboards": {}
+    "account-dashboards": {},
+    "env-dashboards": {}
   },
   "envs": {
     "dev": {
       "account_id": 861229788715,
       "aws_profile_provider": "hca",
       "components": {
-        "dashboards": {
-          "module_source": "terraform/modules/dashboards"
+        "health-checks": {
+          "module_source": "terraform/modules/health-checks"
+        },
+        "account-dashboards": {
+          "module_source": "terraform/modules/account-dashboards"
+        },
+        "env-dashboards": {
+          "module_source": "terraform/modules/env-dashboards"
         }
       }
     },
@@ -42,8 +49,11 @@
       "account_id": 861229788715,
       "aws_profile_provider": "hca",
       "components": {
-        "dashboards": {
-          "module_source": "terraform/modules/dashboards"
+        "health-checks": {
+          "module_source": "terraform/modules/health-checks"
+        },
+        "env-dashboards": {
+          "module_source": "terraform/modules/env-dashboards"
         }
       }
     },
@@ -51,8 +61,11 @@
       "account_id": 861229788715,
       "aws_profile_provider": "hca",
       "components": {
-        "dashboards": {
-          "module_source": "terraform/modules/dashboards"
+        "health-checks": {
+          "module_source": "terraform/modules/health-checks"
+        },
+        "env-dashboards": {
+          "module_source": "terraform/modules/env-dashboards"
         }
       }
     },
@@ -60,8 +73,14 @@
       "account_id": 109067257620,
       "aws_profile_provider": "hca-prod",
       "components": {
-        "dashboards": {
-          "module_source": "terraform/modules/dashboards"
+        "health-checks": {
+          "module_source": "terraform/modules/health-checks"
+        },
+        "account-dashboards": {
+          "module_source": "terraform/modules/account-dashboards"
+        },
+        "env-dashboards": {
+          "module_source": "terraform/modules/env-dashboards"
         }
       }
     }
