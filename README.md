@@ -24,4 +24,6 @@ Once this is complete you can deploy into that environment with `make apply`.
 
 ## Use
 
-For use, see the `README.md` in each terraform module.
+For module use, see the `README.md` in each terraform module.
+
+To upload modules and datasources to grafana, use `./grafana-cli`. Execute `./grafana-cli -h` for usage details.

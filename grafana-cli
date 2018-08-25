@@ -4,11 +4,36 @@ import json
 import requests
 import sys
 
-cli = argparse.ArgumentParser(description=__doc__)
-cli.add_argument('--user', dest="user", type=str, required=True)
-cli.add_argument('--password', dest="password", type=str, required=True)
-cli.add_argument('--env', dest="env", choices=["dev", "integration", "staging", "prod"], required=True)
-cli.add_argument('command', choices=["dashboard", "datasource"])
+name = sys.argv[0].split('/')[-1]
+cli = argparse.ArgumentParser(
+    description=f"`{name}` is an admin tool for CRU operations on Grafana dashboards and datasources."
+)
+cli.add_argument(
+    '--user',
+    dest="user",
+    type=str,
+    required=True,
+    help="Grafana admin username"
+)
+cli.add_argument(
+    '--password',
+    dest="password",
+    type=str,
+    required=True,
+    help="Grafana admin password"
+)
+cli.add_argument(
+    '--env',
+    dest="env",
+    choices=["dev", "integration", "staging", "prod"],
+    required=True,
+    help="Deployment environment"
+)
+cli.add_argument(
+    'command',
+    choices=["dashboard", "datasource"],
+    help="The data type to be uploaded"
+)
 options = cli.parse_args(sys.argv[1:])
 
 stdin = ''.join(sys.stdin)
