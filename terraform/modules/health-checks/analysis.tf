@@ -14,7 +14,7 @@ resource "aws_route53_health_check" "analysis" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "analysis" {
-  alarm_name          = "ANALYSIS"
+  alarm_name          = "analysis-${var.env}"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = "2"
   metric_name         = "HealthCheckStatus"

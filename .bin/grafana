@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+import argparse
+import json
+import requests
+import sys
+
+cli = argparse.ArgumentParser(description=__doc__)
+cli.add_argument('--user', dest="user", type=str, required=True)
+cli.add_argument('--password', dest="password", type=str, required=True)
+cli.add_argument('--env', dest="env", choices=["dev", "integration", "staging", "prod"], required=True)
+cli.add_argument('command', choices=["dashboard", "datasource"])
+options = cli.parse_args(sys.argv[1:])
+
+stdin = ''.join(sys.stdin)
+
+domain = {
+    "dev": ".dev",
+    "integration": ".dev",
+    "staging": ".dev",
+    "prod": "",
+}[options.env]
+
+
+def log_response(response, url):
+    print("{} {}".format(response.status_code, url))
+    print(json.dumps(json.loads(response.content), sort_keys=True, indent=4))
+
+
+base_url = "https://{}:{}@metrics{}.data.humancellatlas.org/api/".format(
+    options.user,
+    options.password,
+    domain
+)
+
+if options.command == "datasource":
+    url = base_url + "datasources"
+    body = stdin
+    response = requests.delete(
+        url + "/name/" + json.loads(stdin)['name'],
+        headers={
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    )
+    log_response(response, url)
+elif options.command == "dashboard":
+    url = base_url + "dashboards/db"
+    body = '{"dashboard":' + stdin + ', "overwrite": true}'
+
+response = requests.post(
+    url,
+    data=body,
+    headers={
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    }
+)
+
+log_response(response, url)
