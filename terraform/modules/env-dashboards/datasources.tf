@@ -1,6 +1,6 @@
 locals {
   gcp_analysis = "gcp-analysis"
-  aws_upload = "aws-upload"
+  aws_upload   = "aws-upload"
 }
 
 output "datasources" {

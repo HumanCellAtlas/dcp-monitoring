@@ -1,7 +1,7 @@
 locals {
-  aws_cloudwatch_data_source_name = "account-cloudwatch"
-  aws_logs_data_source_name = "account-elasticsearch"
-  gcp_log_project_datasource_name = "gcp-logs-project"
+  aws_cloudwatch_data_source_name        = "account-cloudwatch"
+  aws_logs_data_source_name              = "account-elasticsearch"
+  gcp_log_project_datasource_name        = "gcp-logs-project"
   gcp_monitoring_project_datasource_name = "gcp-monitoring-project"
 }
 
@@ -12,7 +12,8 @@ resource "aws_iam_user" "grafana_datasource" {
 resource "aws_iam_policy" "grafana_datasource" {
   name        = "grafana-datasource"
   description = "Credentials for grafana to access CloudWatch Metrics and Logs ElasticSearch"
-  policy      =  <<EOF
+
+  policy = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
