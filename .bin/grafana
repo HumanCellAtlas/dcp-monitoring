@@ -35,25 +35,38 @@ base_url = "https://{}:{}@metrics{}.data.humancellatlas.org/api/".format(
 if options.command == "datasource":
     url = base_url + "datasources"
     body = stdin
-    response = requests.delete(
+    response = requests.get(
         url + "/name/" + json.loads(stdin)['name'],
         headers={
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         }
     )
+    id = json.loads(response.content).get('id')
     log_response(response, url)
+    url += f"/{id}" if id else ""
+    method = "PUT" if id else "POST"
+    response = requests.request(
+        method,
+        url,
+        data=body,
+        headers={
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    )
+
 elif options.command == "dashboard":
     url = base_url + "dashboards/db"
     body = '{"dashboard":' + stdin + ', "overwrite": true}'
 
-response = requests.post(
-    url,
-    data=body,
-    headers={
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    }
-)
+    response = requests.post(
+        url,
+        data=body,
+        headers={
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    )
 
 log_response(response, url)
