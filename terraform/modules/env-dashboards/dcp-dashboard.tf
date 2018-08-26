@@ -1,5 +1,5 @@
-output "dcp_dashboard" {
-  value = <<EOF
+locals {
+  dcp_dashboard = <<EOF
 {
   "annotations": {
     "list": [
