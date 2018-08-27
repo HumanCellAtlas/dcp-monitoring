@@ -6,11 +6,11 @@ locals {
 }
 
 resource "aws_iam_user" "grafana_datasource" {
-  name = "grafana-datasource"
+  name = "grafana-cloudwatch-datasource"
 }
 
 resource "aws_iam_policy" "grafana_datasource" {
-  name        = "grafana-datasource"
+  name        = "grafana-cloudwatch-datasource"
   description = "Credentials for grafana to access CloudWatch Metrics and Logs ElasticSearch"
 
   policy = <<EOF
@@ -25,39 +25,6 @@ resource "aws_iam_policy" "grafana_datasource" {
                 "cloudwatch:GetMetricStatistics"
             ],
             "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "es:DescribeElasticsearchDomain",
-                "es:DescribeElasticsearchDomainConfig",
-                "es:DescribeElasticsearchDomains",
-                "es:ESHttpGet",
-                "es:ESHttpHead",
-                "es:ListTags"
-            ],
-            "Resource": [
-                "arn:aws:es:${var.region}:${data.aws_caller_identity.current.account_id}:domain/hca-logs"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "es:ListDomainNames",
-                "es:ListElasticsearchInstanceTypes",
-                "es:DescribeElasticsearchInstanceTypeLimits",
-                "es:ListElasticsearchVersions"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "AllowReadingTagsFromEC2",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:DescribeTags",
-                "ec2:DescribeInstances"
-            ],
-            "Resource": "*"
         }
     ]
 }
@@ -65,7 +32,7 @@ EOF
 }
 
 resource "aws_iam_policy_attachment" "grafana_datasource" {
-  name       = "grafana-datasource"
+  name       = "grafana-cloudwatch-datasource"
   users      = ["${aws_iam_user.grafana_datasource.name}"]
   policy_arn = "${aws_iam_policy.grafana_datasource.arn}"
 }
