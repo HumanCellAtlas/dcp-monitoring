@@ -2,7 +2,8 @@ output "dashboards" {
   value = <<EOF
 [
     ${local.logs_dashboard},
-    ${local.account_dashboard}
+    ${local.account_dashboard},
+    ${local.error_dashboard}
 ]
 EOF
 }
@@ -17,6 +18,10 @@ output "aws_logs_data_source_name" {
 
 output "gcp_log_project_datasource_name" {
   value = "${local.gcp_log_project_datasource_name}"
+}
+
+output "gcp_monitoring_project_datasource_name" {
+  value = "${local.gcp_monitoring_project_datasource}"
 }
 
 output "datasources" {
