@@ -1,5 +1,5 @@
-output "dss_dashboard" {
-  value = <<EOF
+locals {
+  dss_dashboard = <<EOF
 {
   "annotations": {
     "list": [

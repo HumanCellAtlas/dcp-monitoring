@@ -1,5 +1,5 @@
-output "account_dashboard" {
-  value = <<EOF
+locals {
+  account_dashboard = <<EOF
 {
   "annotations": {
     "list": [
