@@ -1,10 +1,3 @@
-locals {
-  aws_cloudwatch_data_source_name        = "account-cloudwatch"
-  aws_logs_data_source_name              = "account-elasticsearch"
-  gcp_log_project_datasource_name        = "gcp-logs-project"
-  gcp_monitoring_project_datasource_name = "gcp-monitoring-project"
-}
-
 resource "aws_iam_user" "grafana_datasource" {
   name = "grafana-cloudwatch-datasource"
 }
@@ -42,6 +35,10 @@ resource "aws_iam_access_key" "grafana_datasource" {
 }
 
 locals {
+  aws_cloudwatch_data_source_name        = "account-cloudwatch"
+  aws_logs_data_source_name              = "account-elasticsearch"
+  gcp_log_project_datasource_name        = "gcp-logs-project"
+  gcp_monitoring_project_datasource_name = "gcp-monitoring-project"
 
   aws_cloudwatch_datasource = <<EOF
 {

@@ -1,9 +1,7 @@
 locals {
   gcp_analysis_datasource_name = "gcp-analysis-${var.env}"
   aws_upload   = "aws-upload"
-}
 
-locals {
   gcp_analysis_datasource = <<EOF
 {
   "name": "${local.gcp_analysis_datasource_name}",
