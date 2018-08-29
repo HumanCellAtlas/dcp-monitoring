@@ -14,7 +14,7 @@ Further, this repository templates all of this configuration usint [terraform](h
 
 `dcp-monitoring` defines terraform modules that are templated on two dimensions: cloud accounts and environments.
 
-`./fogg.json` defines which modules are deployed to which environments.
+`./fogg.json` defines which modules are deployed to which accounts and environments.
 
 ## Development
 
