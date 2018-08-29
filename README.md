@@ -28,7 +28,7 @@ Once that you've specified that a terraform code for deployments be generated in
 
 Once this is complete you can deploy into that environment with `make apply`.
 
-### Developing new dashboards and Grafana datasources
+### Developing new Grafana dashboards and datasources
 
 `dcp-monitoring` enables uploading metric dashboards templated by cloud account and deployment environment. Importantly, you don't need to use `dcp-monitoring` to develop dashboards. You can simply edit them by hand in either the [dev](https://metrics.dev.data.humancellatlas.org/) or [prod](https://metrics.data.humancellatlas.org/) Grafana deployments. Do use `dcp-monitoring` if you would like to generalize your dashboards across accounts and environments.
 
