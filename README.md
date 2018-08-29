@@ -1,6 +1,6 @@
 # Data Coordination Platform Monitoring
 
-This repository configures the following for component applications of the [Human Cell Atlas](https://www.humancellatlas.org/) [Data Coordination Platform (DCP)](https://www.humancellatlas.org/data-sharing).
+`dcp-monitoring` configures the following for component applications of the [Human Cell Atlas](https://www.humancellatlas.org/) [Data Coordination Platform (DCP)](https://www.humancellatlas.org/data-sharing).
 
 * Health checks
 * Log-based metric configuration
