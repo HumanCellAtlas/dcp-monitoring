@@ -10,6 +10,12 @@ This repository configures the following for component applications of the [Huma
 
 Further, this repository templates all of this configuration usint [terraform](https://www.terraform.io/) and [`fogg`](https://github.com/chanzuckerberg/fogg) to generalize this configuration for multiple clouds (AWS, GCP) and deployment environments (`dev`, `integration`, `staging`, and `prod`).
 
+## Design
+
+`dcp-monitoring` defines terraform modules that are templated on two dimensions: cloud accounts and environments.
+
+`./fogg.json` defines which modules are deployed to which environments.
+
 ## Development
 
 ### Developing or changing a new module
