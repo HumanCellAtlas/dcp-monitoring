@@ -8,7 +8,7 @@ This repository configures the following for component applications of the [Huma
 * [Grafana](https://grafana.com/) metrics [data sources](http://docs.grafana.org/features/datasources/) (for more see https://github.com/HumanCellAtlas/metrics)
 * Metric [dashboards](https://grafana.com/dashboards)
 
-Further, this repository templates all of this configuration usint [terraforom](https://www.terraform.io/) and [`fogg`](https://github.com/chanzuckerberg/fogg) to generalize this configuration for multiple clouds (AWS, GCP) and deployment environments (`dev`, `integration`, `staging`, and `prod`).
+Further, this repository templates all of this configuration usint [terraform](https://www.terraform.io/) and [`fogg`](https://github.com/chanzuckerberg/fogg) to generalize this configuration for multiple clouds (AWS, GCP) and deployment environments (`dev`, `integration`, `staging`, and `prod`).
 
 ## Development
 
