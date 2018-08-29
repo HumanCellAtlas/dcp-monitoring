@@ -39,7 +39,7 @@ Here are the steps to deploying a dashboard via `dcp-monitoring`.
 1. Create a file of the format `<sys_name>-dashboard.tf`
 1. Go to Grafana and create a dashboard for one account or environment
 1. Go to the Grafana settings and copy the JSON in it.
-1. Put the JSON in a local variable `<sys_name>-dashboard.tf`; remove the `"id"` key; for environment dashboards, namespace the `"uid"` key by `var.env`
+1. Put the JSON in a local variable `<sys_name>-dashboard.tf`; remove the `"id"` key; for environment dashboards, namespace the `"uid"` key with `var.env` and the `"title"` key with the suffix ` [${upper(var.env)}]`
 1. Define the data sources you need that you might need according to the [Grafana data source API](http://docs.grafana.org/http_api/data_source/) in `datasources.tf`; define one variable for the name of the datasource of the format `<cloud>_<name>_datasource_name` and one variable of the format `<cloud>_<name>_datasource` with the JSON for the data source
 1. Replace `datasource` keys in your dashboard json with the name of your new data sources
 1. Add your dashboard and datasource json to the `datasources` and `dashboards` output arrays; add the `<cloud>_<name>_datasource_name` variable as an output
