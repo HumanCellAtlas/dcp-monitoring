@@ -128,3 +128,9 @@ EOF
 ### Uploading to Grafana
 
 To upload modules and datasources to grafana, use `./upload-to-grafana`. Execute `./upload-to-grafana -h` for usage details.
+
+## Copyright
+
+Copyright 2017-2018, [The Human Cell Atlas Consortium](https://www.humancellatlas.org/)
+
+For license, see [LICENSE](LICENSE).
