@@ -2,7 +2,7 @@
 
 `dcp-monitoring` configures the following for component applications of the [Human Cell Atlas](https://www.humancellatlas.org/) [Data Coordination Platform (DCP)](https://www.humancellatlas.org/data-sharing).
 
-* Health checks
+* [Health checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html)
 * Log-based metric configuration
 * Alerting
 * [Grafana](https://grafana.com/) metrics [data sources](http://docs.grafana.org/features/datasources/) (for more see https://github.com/HumanCellAtlas/metrics)
