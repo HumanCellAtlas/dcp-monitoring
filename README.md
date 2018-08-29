@@ -4,7 +4,7 @@
 
 * [Health checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html)
 * Log-based metric configuration
-* Alerting
+* [Alerts (AKA Alarms)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#CloudWatchAlarms)
 * [Grafana](https://grafana.com/) metrics [data sources](http://docs.grafana.org/features/datasources/) (for more see https://github.com/HumanCellAtlas/metrics)
 * Metric [dashboards](https://grafana.com/dashboards)
 
