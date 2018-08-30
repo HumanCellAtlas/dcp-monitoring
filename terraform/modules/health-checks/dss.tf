@@ -36,4 +36,3 @@ EOF
     HealthCheckId = "${aws_route53_health_check.dss.id}"
   }
 }
-
