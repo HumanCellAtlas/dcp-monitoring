@@ -1,6 +1,6 @@
 locals {
   gcp_analysis_datasource_name = "gcp-analysis-${var.env}"
-  aws_upload   = "aws-upload"
+  aws_upload                   = "aws-upload"
 
   gcp_analysis_datasource = <<EOF
 {
