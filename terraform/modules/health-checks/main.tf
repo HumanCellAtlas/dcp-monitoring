@@ -10,3 +10,7 @@ terraform {
     key = "health-check/app.tfstate"
   }
 }
+
+data "aws_sns_queue" "alarms" {
+  name = "cloudwatch-alarms"
+}

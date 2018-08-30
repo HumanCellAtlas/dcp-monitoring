@@ -22,9 +22,15 @@ resource "aws_cloudwatch_metric_alarm" "dss" {
   statistic           = "Minimum"
   period              = "120"
 
-  alarm_actions = [
-    "arn:aws:sns:${var.region}:${data.aws_caller_identity.current.account_id}:cloudwatch-alarms",
-  ]
+  alarm_description = <<EOF
+{
+  "slack_channel": "data-store-eng",
+  "info": "[${var.aws_profile}:${var.env}] GET https://${aws_route53_health_check.dss.fqdn}"
+}
+EOF
+
+  alarm_actions = ["${data.aws_sns_queue.alarms.arn}"]
+  ok_actions    = ["${data.aws_sns_queue.alarms.arn}"]
 
   dimensions {
     HealthCheckId = "${aws_route53_health_check.dss.id}"

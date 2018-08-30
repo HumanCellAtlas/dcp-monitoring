@@ -25,9 +25,15 @@ resource "aws_cloudwatch_metric_alarm" "dcp" {
   statistic           = "Minimum"
   period              = "120"
 
-  alarm_actions = [
-    "arn:aws:sns:${var.region}:${data.aws_caller_identity.current.account_id}:cloudwatch-alarms",
-  ]
+  alarm_description = <<EOF
+{
+  "slack_channel": "dcp-ops",
+  "info": "[${var.aws_profile}:${var.env}] Aggregate DCP component health. Check <https://console.aws.amazon.com/cloudwatch/home?region=${var.region}#alarm:alarmFilter=ANY|CloudWatch Alarms> for more info."
+}
+EOF
+
+  alarm_actions = ["${data.aws_sns_queue.alarms.arn}"]
+  ok_actions    = ["${data.aws_sns_queue.alarms.arn}"]
 
   dimensions {
     HealthCheckId = "${aws_route53_health_check.dcp.id}"
