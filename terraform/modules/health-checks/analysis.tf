@@ -30,8 +30,8 @@ resource "aws_cloudwatch_metric_alarm" "analysis" {
 }
 EOF
 
-  alarm_actions = ["${data.aws_sns_queue.alarms.arn}"]
-  ok_actions    = ["${data.aws_sns_queue.alarms.arn}"]
+  alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
     HealthCheckId = "${aws_route53_health_check.analysis.id}"

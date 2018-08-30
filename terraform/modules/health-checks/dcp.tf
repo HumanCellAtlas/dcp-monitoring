@@ -32,8 +32,8 @@ resource "aws_cloudwatch_metric_alarm" "dcp" {
 }
 EOF
 
-  alarm_actions = ["${data.aws_sns_queue.alarms.arn}"]
-  ok_actions    = ["${data.aws_sns_queue.alarms.arn}"]
+  alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
     HealthCheckId = "${aws_route53_health_check.dcp.id}"
