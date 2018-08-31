@@ -1,5 +1,5 @@
 locals {
-upload_dashboard = <<EOF
+  upload_dashboard = <<EOF
 {
   "annotations": {
     "list": [
@@ -28,7 +28,7 @@ upload_dashboard = <<EOF
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "upload-db-${var.env}",
+      "datasource": "${local.upload_db_datasource_name}",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -121,7 +121,7 @@ upload_dashboard = <<EOF
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "upload-db-${var.env}",
+      "datasource": "${local.upload_db_datasource_name}",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -212,7 +212,7 @@ upload_dashboard = <<EOF
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "upload-db-${var.env}",
+      "datasource": "${local.upload_db_datasource_name}",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -658,7 +658,7 @@ upload_dashboard = <<EOF
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "upload-db-${var.env}",
+      "datasource": "${local.upload_db_datasource_name}",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -971,7 +971,7 @@ upload_dashboard = <<EOF
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "upload-db-${var.env}",
+      "datasource": "${local.upload_db_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1052,7 +1052,7 @@ upload_dashboard = <<EOF
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "upload-db-${var.env}",
+      "datasource": "${local.upload_db_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1133,7 +1133,7 @@ upload_dashboard = <<EOF
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "upload-db-${var.env}",
+      "datasource": "${local.upload_db_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1214,7 +1214,7 @@ upload_dashboard = <<EOF
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "upload-db-${var.env}",
+      "datasource": "${local.upload_db_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1295,7 +1295,7 @@ upload_dashboard = <<EOF
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "upload-db-${var.env}",
+      "datasource": "${local.upload_db_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1376,7 +1376,7 @@ upload_dashboard = <<EOF
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "upload-db-${var.env}",
+      "datasource": "${local.upload_db_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1444,7 +1444,7 @@ upload_dashboard = <<EOF
           "op": "=",
           "text": "N/A",
           "value": "null"
-        }""
+        }
       ],
       "valueName": "avg"
     }

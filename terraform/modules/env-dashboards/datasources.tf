@@ -1,7 +1,7 @@
 locals {
   gcp_analysis_datasource_name = "gcp-analysis-${var.env}"
   aws_upload                   = "aws-upload"
-  upload_db_datasource_name = "upload-db-${var.env}"
+  upload_db_datasource_name    = "upload-db-${var.env}"
 
   gcp_analysis_datasource = <<EOF
 {
@@ -20,7 +20,7 @@ EOF
 
   upload_db_datasource = <<EOF
 {
-  "name": "${local.upload_datasource_name}",
+  "name": "${local.upload_db_datasource_name}",
   "type": "postgres",
   "url": "REDACTED",
   "user": "uploaddev",

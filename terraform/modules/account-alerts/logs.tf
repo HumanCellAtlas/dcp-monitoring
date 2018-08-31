@@ -23,7 +23,6 @@ EOF
   }
 }
 
-
 resource "aws_cloudwatch_metric_alarm" "logs_free_space" {
   alarm_name          = "logs-free-space-${var.aws_profile}"
   comparison_operator = "LessThanThreshold"
@@ -46,6 +45,6 @@ EOF
 
   dimensions {
     DomainName = "hca-logs"
-    ClientId = "${data.aws_caller_identity.current.account_id}"
+    ClientId   = "${data.aws_caller_identity.current.account_id}"
   }
 }

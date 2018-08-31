@@ -2,6 +2,10 @@ output "gcp_analysis_datasource_name" {
   value = "${local.gcp_analysis_datasource_name}"
 }
 
+output "upload_db_datasource_name" {
+  value = "${local.upload_db_datasource_name}"
+}
+
 output "datasources" {
   value = <<EOF
 [

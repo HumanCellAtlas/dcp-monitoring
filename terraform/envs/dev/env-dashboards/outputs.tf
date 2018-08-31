@@ -12,3 +12,7 @@ output "datasources" {
 output "gcp_analysis_datasource_name" {
   value = "${module.env-dashboards.gcp_analysis_datasource_name}"
 }
+
+output "upload_db_datasource_name" {
+  value = "${module.env-dashboards.upload_db_datasource_name}"
+}

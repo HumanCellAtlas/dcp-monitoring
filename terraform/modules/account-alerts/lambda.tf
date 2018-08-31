@@ -19,7 +19,6 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 }
 
-
 resource "aws_cloudwatch_metric_alarm" "lambda_throttles" {
   alarm_name          = "lambda-throttles-${var.aws_profile}"
   comparison_operator = "GreaterThanThreshold"
