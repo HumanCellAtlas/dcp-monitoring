@@ -1,10 +1,8 @@
-# Health Checks & Alerts
+# Health Checks
 
-This module generates health checks and alerts for DCP component applications in a given deployment environment.
+This module generates health checks for DCP component applications in a given deployment environment.
 
 It outputs health check IDs that can be used in visualizations of DCP health status.
-
-Currently, alerts are sent to an SQS queue for [propagating alerts to slack](https://github.com/HumanCellAtlas/logs/tree/master/apps/cwl_to_slack).
 
 <!-- START -->
 
@@ -24,7 +22,6 @@ Currently, alerts are sent to an SQS queue for [propagating alerts to slack](htt
 | dcp_health_check_id |  |
 | dss_health_check_id |  |
 | ingest_health_check_id |  |
-| logs_health_check_id |  |
 | upload_health_check_id |  |
 
 <!-- END -->
