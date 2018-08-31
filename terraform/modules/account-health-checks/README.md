@@ -1,8 +1,8 @@
 # Health Checks
 
-This module generates health checks for DCP component applications in a given deployment environment.
+This module generates health checks for applications that are deployed account-wide, as opposed to into a deployment environment.
 
-It outputs health check IDs that can be used in visualizations of DCP health status.
+It outputs health check IDs that can be used in visualizations of application health status.
 
 <!-- START -->
 
