@@ -77,6 +77,17 @@ data "terraform_remote_state" "global" {
   }
 }
 
+data "terraform_remote_state" "account-alerts" {
+  backend = "s3"
+
+  config {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/envs/dev/components/account-alerts.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
 data "terraform_remote_state" "account-dashboards" {
   backend = "s3"
 
@@ -88,12 +99,34 @@ data "terraform_remote_state" "account-dashboards" {
   }
 }
 
-data "terraform_remote_state" "health-checks" {
+data "terraform_remote_state" "account-health-checks" {
   backend = "s3"
 
   config {
     bucket  = "org-humancellatlas-634134578715-terraform"
-    key     = "terraform/dcp-observability/envs/dev/components/health-checks.tfstate"
+    key     = "terraform/dcp-observability/envs/dev/components/account-health-checks.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
+data "terraform_remote_state" "env-alerts" {
+  backend = "s3"
+
+  config {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/envs/dev/components/env-alerts.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
+data "terraform_remote_state" "env-health-checks" {
+  backend = "s3"
+
+  config {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/envs/dev/components/env-health-checks.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
   }

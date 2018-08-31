@@ -25,9 +25,13 @@
     }
   },
   "modules": {
-    "health-checks": {},
-    "metrics": {},
+    "account-health-checks": {},
+    "account-metrics": {},
+    "account-alerts": {},
     "account-dashboards": {},
+    "env-health-checks": {},
+    "env-metrics": {},
+    "env-alerts": {},
     "env-dashboards": {}
   },
   "envs": {
@@ -35,11 +39,20 @@
       "account_id": 861229788715,
       "aws_profile_provider": "hca",
       "components": {
-        "health-checks": {
-          "module_source": "terraform/modules/health-checks"
+        "account-health-checks": {
+          "module_source": "terraform/modules/account-health-checks"
+        },
+        "account-alerts": {
+          "module_source": "terraform/modules/account-alerts"
         },
         "account-dashboards": {
           "module_source": "terraform/modules/account-dashboards"
+        },
+        "env-health-checks": {
+          "module_source": "terraform/modules/env-health-checks"
+        },
+        "env-alerts": {
+          "module_source": "terraform/modules/env-alerts"
         },
         "env-dashboards": {
           "module_source": "terraform/modules/env-dashboards"
@@ -50,8 +63,11 @@
       "account_id": 861229788715,
       "aws_profile_provider": "hca",
       "components": {
-        "health-checks": {
-          "module_source": "terraform/modules/health-checks"
+        "env-health-checks": {
+          "module_source": "terraform/modules/env-health-checks"
+        },
+        "env-alerts": {
+          "module_source": "terraform/modules/env-alerts"
         },
         "env-dashboards": {
           "module_source": "terraform/modules/env-dashboards"
@@ -62,8 +78,11 @@
       "account_id": 861229788715,
       "aws_profile_provider": "hca",
       "components": {
-        "health-checks": {
-          "module_source": "terraform/modules/health-checks"
+        "env-health-checks": {
+          "module_source": "terraform/modules/env-health-checks"
+        },
+        "env-alerts": {
+          "module_source": "terraform/modules/env-alerts"
         },
         "env-dashboards": {
           "module_source": "terraform/modules/env-dashboards"
@@ -74,11 +93,20 @@
       "account_id": 109067257620,
       "aws_profile_provider": "hca-prod",
       "components": {
-        "health-checks": {
-          "module_source": "terraform/modules/health-checks"
+        "account-health-checks": {
+          "module_source": "terraform/modules/account-health-checks"
+        },
+        "account-alerts": {
+          "module_source": "terraform/modules/account-alerts"
         },
         "account-dashboards": {
           "module_source": "terraform/modules/account-dashboards"
+        },
+        "env-health-checks": {
+          "module_source": "terraform/modules/env-health-checks"
+        },
+        "env-alerts": {
+          "module_source": "terraform/modules/env-alerts"
         },
         "env-dashboards": {
           "module_source": "terraform/modules/env-dashboards"

@@ -7,9 +7,9 @@ locals {
 
   gcp_analysis_project_id = ""
 
-  analysis_health_check_id = "${data.terraform_remote_state.health-checks.analysis_health_check_id}"
-  dcp_health_check_id      = "${data.terraform_remote_state.health-checks.dcp_health_check_id}"
-  dss_health_check_id      = "${data.terraform_remote_state.health-checks.dss_health_check_id}"
-  ingest_health_check_id   = "${data.terraform_remote_state.health-checks.ingest_health_check_id}"
-  upload_health_check_id   = "${data.terraform_remote_state.health-checks.upload_health_check_id}"
+  analysis_health_check_id = "${data.terraform_remote_state.env-health-checks.analysis_health_check_id}"
+  dcp_health_check_id      = "${data.terraform_remote_state.env-health-checks.dcp_health_check_id}"
+  dss_health_check_id      = "${data.terraform_remote_state.env-health-checks.dss_health_check_id}"
+  ingest_health_check_id   = "${data.terraform_remote_state.env-health-checks.ingest_health_check_id}"
+  upload_health_check_id   = "${data.terraform_remote_state.env-health-checks.upload_health_check_id}"
 }

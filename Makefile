@@ -2,7 +2,7 @@
 # Make improvements in fogg, so that everyone can benefit.
 
 ENVS=dev integration prod staging
-MODULES=account-dashboards env-dashboards health-checks metrics
+MODULES=account-alerts account-dashboards account-health-checks account-metrics env-alerts env-dashboards env-health-checks env-metrics
 ACCOUNTS=hca-id hca-prod humancellatlas
 
 figlet_docker = docker run -it --rm mbentley/figlet
