@@ -7,62 +7,65 @@ import subprocess
 
 NAME = sys.argv[0].split('/')[-1]
 RELATIVE_PATH = '/'.join(sys.argv[0].split('/')[:-1])
+DOMAIN_MAP = {
+    "dev": ".dev",
+    "integration": ".dev",
+    "staging": ".dev",
+    "prod": "",
+}
 
-cli = argparse.ArgumentParser(
+with open(RELATIVE_PATH + '/fogg.json', 'r') as fh:
+    DASHBOARD_MODULE_NAMES = [m for m in json.load(fh)['modules'].keys() if 'dashboards' in m]
+
+CLI = argparse.ArgumentParser(
     description=f"`{NAME}` is an admin tool for CRU operations on Grafana dashboards and datasources."
 )
-cli.add_argument(
+CLI.add_argument(
     '--user',
     dest="user",
     type=str,
     required=True,
     help="Grafana admin username"
 )
-cli.add_argument(
+CLI.add_argument(
     '--password',
     dest="password",
     type=str,
     required=True,
     help="Grafana admin password"
 )
-cli.add_argument(
+CLI.add_argument(
     '--env',
     dest="env",
     choices=["dev", "integration", "staging", "prod"],
     required=True,
     help="Deployment environment"
 )
-
-with open(RELATIVE_PATH + '/fogg.json', 'r') as fh:
-    module_names = [m for m in json.load(fh)['modules'].keys() if 'dashboards' in m]
-
-cli.add_argument(
+CLI.add_argument(
     'module',
-    choices=module_names,
+    choices=DASHBOARD_MODULE_NAMES,
     help="Deployment environment"
 )
 
-options = cli.parse_args(sys.argv[1:])
-
-domain = {
-    "dev": ".dev",
-    "integration": ".dev",
-    "staging": ".dev",
-    "prod": "",
-}[options.env]
-
-base_url = "https://{}:{}@metrics{}.data.humancellatlas.org/api/".format(
-    options.user,
-    options.password,
-    domain
-)
 
 def log_response(response, url):
+    """
+    log the response from a JSON http API in a formatted way
+    :param response: response from a `requests` request
+    :param url: url requested
+    :return:
+    """
     print("{} {}".format(response.status_code, url))
     print(json.dumps(json.loads(response.content), sort_keys=True, indent=4))
 
 
 def upload_datasource(base_url, datasource):
+    """
+    upload a Grafana data source to a Grafana API
+    :param base_url: base url for the API, should end in .../api/
+    :param datasource: JSON for the data source
+    :return:
+    """
     url = base_url + "datasources"
     response = requests.get(
         url + "/name/" + datasource['name'],
@@ -88,6 +91,15 @@ def upload_datasource(base_url, datasource):
 
 
 def upload_dashboard(base_url, dashboard):
+    """
+    upload a Grafana dashboard to a Grafana API
+    :param base_url: base url for the API, should end in .../api/
+    :param dashboard: JSON for the dashboard
+    :return:
+    """
+    if 'id' in dashboard:
+        del dashboard['id']
+
     url = base_url + "dashboards/db"
     body = '{"dashboard":' + json.dumps(dashboard) + ', "overwrite": true}'
 
@@ -103,19 +115,36 @@ def upload_dashboard(base_url, dashboard):
 
 
 def get_terraform_output(env, module, output_name):
+    """
+    get terraform output for a module deployment in a specific env
+    :param env: the deployment environment
+    :param module: the module deployed in that environment
+    :param output_name: the name of the output
+    :return: terraform output json deserialized into a dict
+    """
     cmd = f"cd {RELATIVE_PATH}/terraform/envs/{env}/{module} && terraform output {output_name}"
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
     out, err = p.communicate()
     return json.loads(out)
 
 
-datasources = get_terraform_output(options.env, options.module, 'datasources')
+if __name__ == '__main__':
+    options = CLI.parse_args(sys.argv[1:])
 
-for datasource in datasources:
-    upload_datasource(base_url, datasource)
+    domain = DOMAIN_MAP[options.env]
 
+    base_url = "https://{}:{}@metrics{}.data.humancellatlas.org/api/".format(
+        options.user,
+        options.password,
+        domain
+    )
 
-dashboards = get_terraform_output(options.env, options.module, 'dashboards')
+    datasources = get_terraform_output(options.env, options.module, 'datasources')
 
-for dashboard in dashboards:
-    upload_dashboard(base_url, dashboard)
+    for datasource in datasources:
+        upload_datasource(base_url, datasource)
+
+    dashboards = get_terraform_output(options.env, options.module, 'dashboards')
+
+    for dashboard in dashboards:
+        upload_dashboard(base_url, dashboard)
