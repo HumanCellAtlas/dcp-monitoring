@@ -34,7 +34,7 @@ cli.add_argument(
 )
 
 with open(RELATIVE_PATH + '/fogg.json', 'r') as fh:
-    module_names = json.load(fh)['modules'].keys()
+    module_names = [m for m in json.load(fh)['modules'].keys() if 'dashboards' in m]
 
 cli.add_argument(
     'module',

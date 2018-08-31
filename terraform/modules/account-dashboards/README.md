@@ -24,11 +24,11 @@ An important data source on the account level is that of the [centralized loggin
 
 | Name | Description |
 |------|-------------|
-| account_dashboard |  |
 | aws_cloudwatch_data_source_name |  |
 | aws_logs_data_source_name |  |
+| dashboards |  |
 | datasources |  |
 | gcp_log_project_datasource_name |  |
-| logs_dashboard |  |
+| gcp_monitoring_project_datasource_name |  |
 
 <!-- END -->

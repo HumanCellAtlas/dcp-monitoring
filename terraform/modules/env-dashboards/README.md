@@ -28,8 +28,8 @@ This module takes health check identifiers and account-wide data sources as inpu
 
 | Name | Description |
 |------|-------------|
+| dashboards |  |
 | datasources |  |
-| dcp_dashboard |  |
-| dss_dashboard |  |
+| gcp_analysis_datasource_name |  |
 
 <!-- END -->
