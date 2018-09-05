@@ -28,7 +28,7 @@ locals {
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${local.upload_db_datasource_name}",
+      "datasource": "${local.aws_upload_datasource_name}",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -121,7 +121,7 @@ locals {
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${local.upload_db_datasource_name}",
+      "datasource": "${local.aws_upload_datasource_name}",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -212,7 +212,7 @@ locals {
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${local.upload_db_datasource_name}",
+      "datasource": "${local.aws_upload_datasource_name}",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -344,7 +344,7 @@ locals {
         {
           "alias": "Invocations(sum/hr)",
           "dimensions": {
-            "FunctionName": "upload-api-dev"
+            "FunctionName": "upload-api-${var.env}"
           },
           "highResolution": false,
           "metricName": "Invocations",
@@ -359,7 +359,7 @@ locals {
         {
           "alias": "Errors(sum/hr)",
           "dimensions": {
-            "FunctionName": "upload-api-dev"
+            "FunctionName": "upload-api-${var.env}"
           },
           "highResolution": false,
           "metricName": "Errors",
@@ -461,7 +461,7 @@ locals {
         {
           "alias": "Invocations(sum/hr)",
           "dimensions": {
-            "FunctionName": "upload-checksum-daemon-dev"
+            "FunctionName": "dcp-upload-csum-${var.env}"
           },
           "highResolution": false,
           "metricName": "Invocations",
@@ -476,7 +476,7 @@ locals {
         {
           "alias": "Errors(sum/hr)",
           "dimensions": {
-            "FunctionName": "upload-checksum-daemon-dev"
+            "FunctionName": "dcp-upload-csum-${var.env}"
           },
           "highResolution": false,
           "metricName": "Errors",
@@ -658,7 +658,7 @@ locals {
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${local.upload_db_datasource_name}",
+      "datasource": "${local.aws_upload_datasource_name}",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -785,7 +785,7 @@ locals {
         {
           "alias": "avg_duration",
           "dimensions": {
-            "FunctionName": "upload-api-dev"
+            "FunctionName": "upload-api-${var.env}"
           },
           "highResolution": false,
           "metricName": "Duration",
@@ -800,7 +800,7 @@ locals {
         {
           "alias": "max_duration",
           "dimensions": {
-            "FunctionName": "upload-api-dev"
+            "FunctionName": "upload-api-${var.env}"
           },
           "highResolution": false,
           "metricName": "Duration",
@@ -894,7 +894,7 @@ locals {
         {
           "alias": "avg_duration",
           "dimensions": {
-            "FunctionName": "upload-checksum-daemon-dev"
+            "FunctionName": "dcp-upload-csum-${var.env}"
           },
           "highResolution": false,
           "metricName": "Duration",
@@ -909,7 +909,7 @@ locals {
         {
           "alias": "max_duration",
           "dimensions": {
-            "FunctionName": "upload-checksum-daemon-dev"
+            "FunctionName": "dcp-upload-csum-${var.env}"
           },
           "highResolution": false,
           "metricName": "Duration",
@@ -971,7 +971,7 @@ locals {
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${local.upload_db_datasource_name}",
+      "datasource": "${local.aws_upload_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1052,7 +1052,7 @@ locals {
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${local.upload_db_datasource_name}",
+      "datasource": "${local.aws_upload_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1133,7 +1133,7 @@ locals {
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${local.upload_db_datasource_name}",
+      "datasource": "${local.aws_upload_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1214,7 +1214,7 @@ locals {
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${local.upload_db_datasource_name}",
+      "datasource": "${local.aws_upload_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1295,7 +1295,7 @@ locals {
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${local.upload_db_datasource_name}",
+      "datasource": "${local.aws_upload_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {
@@ -1376,7 +1376,7 @@ locals {
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${local.upload_db_datasource_name}",
+      "datasource": "${local.aws_upload_datasource_name}",
       "description": "Filtered by created_at",
       "format": "none",
       "gauge": {

@@ -2,15 +2,15 @@ output "gcp_analysis_datasource_name" {
   value = "${local.gcp_analysis_datasource_name}"
 }
 
-output "upload_db_datasource_name" {
-  value = "${local.upload_db_datasource_name}"
+output "aws_upload_datasource_name" {
+  value = "${local.aws_upload_datasource_name}"
 }
 
 output "datasources" {
   value = <<EOF
 [
   ${local.gcp_analysis_datasource},
-  ${local.upload_db_datasource}
+  ${local.aws_upload_datasource}
 ]
 EOF
 }

@@ -31,6 +31,6 @@ This module takes health check identifiers and account-wide data sources as inpu
 | dashboards |  |
 | datasources |  |
 | gcp_analysis_datasource_name |  |
-| upload_db_datasource_name |  |
+| aws_upload_datasource_name |  |
 
 <!-- END -->
