@@ -12,6 +12,7 @@ resource "aws_cloudwatch_metric_alarm" "dss" {
 {
   "slack_channel": "data-store-eng",
   "environment": "${var.env}"
+  "description": "DCP Data Storage Service availability healthcheck"
 }
 EOF
 

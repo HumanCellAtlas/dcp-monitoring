@@ -11,7 +11,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_low_disk" {
   alarm_description = <<EOF
 {
   "slack_channel": "dcp-ops",
-  "environment": "${var.env}"
+  "description": "AWS Relational Database Service node low on disk"
 }
 EOF
 
@@ -33,7 +33,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_cpu_high" {
   alarm_description = <<EOF
 {
   "slack_channel": "dcp-ops",
-  "environment": "${var.env}"
+  "description": "AWS Relational Database Service node CPU utilization high"
 }
 EOF
 

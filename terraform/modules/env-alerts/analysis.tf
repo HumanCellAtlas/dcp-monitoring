@@ -11,7 +11,7 @@ resource "aws_cloudwatch_metric_alarm" "analysis" {
   alarm_description = <<EOF
 {
   "slack_channel": "mintteam",
-  "environment": "${var.env}"
+  "description": "DCP Analysis service availability healthcheck"
 }
 EOF
 

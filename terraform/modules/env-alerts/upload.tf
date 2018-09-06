@@ -11,7 +11,7 @@ resource "aws_cloudwatch_metric_alarm" "upload" {
   alarm_description = <<EOF
 {
   "slack_channel": "upload-service",
-  "environment": "${var.env}"
+  "description": "DCP Upload Service availability healthcheck"
 }
 EOF
 
