@@ -11,7 +11,7 @@ resource "aws_cloudwatch_metric_alarm" "ingest" {
   alarm_description = <<EOF
 {
   "slack_channel": "ingestion-service",
-  "environment": "${var.env}"
+  "description": "DCP Ingest Service availability healthcheck"
 }
 EOF
 
