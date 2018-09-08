@@ -10,7 +10,7 @@ resource "aws_cloudwatch_metric_alarm" "lambda_errors" {
 
   alarm_description = <<EOF
 {
-  "slack_channel": "dcp-ops",
+  "slack_channel": "dcp-ops-alerts",
   "description": "Account-wide AWS Lambda Errors"
 }
 EOF
@@ -32,7 +32,7 @@ resource "aws_cloudwatch_metric_alarm" "lambda_throttles" {
 
   alarm_description = <<EOF
 {
-  "slack_channel": "dcp-ops",
+  "slack_channel": "dcp-ops-alerts",
   "description": "Account-wide AWS Lambda Throttles"
 }
 EOF

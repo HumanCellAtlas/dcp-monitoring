@@ -10,7 +10,7 @@ resource "aws_cloudwatch_metric_alarm" "dcp" {
 
   alarm_description = <<EOF
 {
-  "slack_channel": "dcp-ops",
+  "slack_channel": "dcp-ops-alerts",
   "description": "Status of aggregated DCP availability healthchecks"
 }
 EOF
