@@ -13,3 +13,7 @@ variable "aws_profile" {
 variable "logs_health_check_id" {
   type = "string"
 }
+
+variable "metrics_health_check_id" {
+  type = "string"
+}

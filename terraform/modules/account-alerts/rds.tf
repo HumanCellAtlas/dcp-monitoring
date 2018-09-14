@@ -19,7 +19,6 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 }
 
-
 resource "aws_cloudwatch_metric_alarm" "rds_cpu_high" {
   alarm_name          = "rds-cpu-high-${var.aws_profile}"
   comparison_operator = "GreaterThanThreshold"

@@ -4,3 +4,7 @@
 output "logs_health_check_id" {
   value = "${module.account-health-checks.logs_health_check_id}"
 }
+
+output "metrics_health_check_id" {
+  value = "${module.account-health-checks.metrics_health_check_id}"
+}
