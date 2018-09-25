@@ -3,6 +3,7 @@
 set -e
 
 eval "$(jq -r '@sh "DB_SECRET_STRING=\(.db_secret_string)"')"
+DB_SECRET_STRING=${DB_SECRET_STRING#*database_uri\": }
 DB_SECRET_STRING=$(echo $DB_SECRET_STRING | tr ":" ",")
 DB_SECRET_STRING=$(echo $DB_SECRET_STRING | tr "@" ",")
 DB_SECRET_STRING=$(echo $DB_SECRET_STRING | tr "/" ",")

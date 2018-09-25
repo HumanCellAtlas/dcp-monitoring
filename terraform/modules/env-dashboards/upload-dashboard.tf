@@ -351,7 +351,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "3600",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -366,7 +366,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "3600",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -468,7 +468,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "3600",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -483,7 +483,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "3600",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -590,7 +590,7 @@ locals {
           "namespace": "AWS/RDS",
           "period": "600",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -605,7 +605,7 @@ locals {
           "namespace": "AWS/RDS",
           "period": "600",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -792,7 +792,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "3600",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -807,7 +807,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "3600",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -901,7 +901,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "3600",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -916,7 +916,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "3600",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]

@@ -22,12 +22,12 @@ EOF
 {
   "name": "${local.aws_upload_datasource_name}",
   "type": "postgres",
-  "url": "${data.external.upload_db_secrets_processing.result.username}",
+  "url": "${data.external.upload_db_secrets_processing.result.host}",
   "user": "${data.external.upload_db_secrets_processing.result.username}",
   "database": "upload_${var.env}",
   "access": "proxy",
   "secureJsonData": {
-    "password": "${data.external.upload_db_secrets_processing.result.username}"
+    "password": "${data.external.upload_db_secrets_processing.result.password}"
   },
   "jsonData": {
     "access": "proxy",
