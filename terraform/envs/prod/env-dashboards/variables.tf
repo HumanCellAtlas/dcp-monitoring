@@ -4,6 +4,7 @@ locals {
   region      = "${var.region}"
 
   aws_cloudwatch_data_source_name = "account-cloudwatch"
+  aws_logs_data_source_name       = "${data.terraform_remote_state.account-dashboards.aws_logs_data_source_name}"
 
   gcp_analysis_project_id = ""
 
