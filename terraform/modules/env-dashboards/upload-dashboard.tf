@@ -583,7 +583,7 @@ locals {
         {
           "alias": "CPU Utilization(%)",
           "dimensions": {
-            "DBInstanceIdentifier": "upload-cluster-dev-0"
+            "DBInstanceIdentifier": "upload-cluster-${var.env}-0"
           },
           "highResolution": false,
           "metricName": "CPUUtilization",
@@ -598,7 +598,7 @@ locals {
         {
           "alias": "Database Connections",
           "dimensions": {
-            "DBInstanceIdentifier": "upload-cluster-dev-0"
+            "DBInstanceIdentifier": "upload-cluster-${var.env}-0"
           },
           "highResolution": false,
           "metricName": "DatabaseConnections",
