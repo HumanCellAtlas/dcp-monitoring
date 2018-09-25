@@ -2,7 +2,7 @@
 # Make improvements in fogg, so that everyone can benefit.
 
 COMPONENTS=account-alerts account-dashboards account-health-checks env-alerts env-dashboards env-health-checks
-figlet_docker = docker run -it --rm mbentley/figlet
+figlet_docker = docker run --rm mbentley/figlet
 
 all:
 
