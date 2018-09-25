@@ -2,9 +2,10 @@
 # Make improvements in fogg, so that everyone can benefit.
 
 module "account-alerts" {
-  source               = "../../../modules/account-alerts"
-  aws_profile          = "${local.aws_profile}"
-  env                  = "${local.env}"
-  logs_health_check_id = "${local.logs_health_check_id}"
-  region               = "${local.region}"
+  source                  = "../../../modules/account-alerts"
+  aws_profile             = "${local.aws_profile}"
+  env                     = "${local.env}"
+  logs_health_check_id    = "${local.logs_health_check_id}"
+  metrics_health_check_id = "${local.metrics_health_check_id}"
+  region                  = "${local.region}"
 }

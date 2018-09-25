@@ -1,5 +1,5 @@
-resource "aws_cloudwatch_metric_alarm" "ingest" {
-  alarm_name          = "ingest-${var.env}"
+resource "aws_cloudwatch_metric_alarm" "metrics_health" {
+  alarm_name          = "metrics-health-${var.aws_profile}"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = "2"
   metric_name         = "HealthCheckStatus"
@@ -10,8 +10,8 @@ resource "aws_cloudwatch_metric_alarm" "ingest" {
 
   alarm_description = <<EOF
 {
-  "slack_channel": "ingestion-service",
-  "description": "DCP Ingest Service availability healthcheck"
+  "slack_channel": "dcp-security",
+  "description": "Metrics (Grafana) availability healthcheck"
 }
 EOF
 
@@ -19,6 +19,6 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
-    HealthCheckId = "${var.ingest_health_check_id}"
+    HealthCheckId = "${var.metrics_health_check_id}"
   }
 }
