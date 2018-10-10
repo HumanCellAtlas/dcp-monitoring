@@ -1,3 +1,7 @@
+locals {
+  dss_metrics_namespace = "DSS-${upper(var.env)}"
+}
+
 resource "aws_cloudwatch_log_metric_filter" "http_2xx" {
   name           = "dss-http-2xx"
   pattern        = "[Level=*INFO*, Timestamp, Uuid, Module=*dispatch*, RequestInfo!=\"GET /v1/swagger.json\", StatusCode=2*, ...]"
@@ -5,7 +9,7 @@ resource "aws_cloudwatch_log_metric_filter" "http_2xx" {
 
   metric_transformation {
     name      = "HTTP-2xx"
-    namespace = "DSS"
+    namespace = "${local.dss_metrics_namespace}"
     value     = "1"
   }
 }
@@ -17,7 +21,7 @@ resource "aws_cloudwatch_log_metric_filter" "http_3xx" {
 
   metric_transformation {
     name      = "HTTP-3xx"
-    namespace = "DSS"
+    namespace = "${local.dss_metrics_namespace}"
     value     = "1"
   }
 }
@@ -29,7 +33,7 @@ resource "aws_cloudwatch_log_metric_filter" "http_4xx" {
 
   metric_transformation {
     name      = "HTTP-4xx"
-    namespace = "DSS"
+    namespace = "DSS-${upper(var.env)}"
     value     = "1"
   }
 }
@@ -41,7 +45,7 @@ resource "aws_cloudwatch_log_metric_filter" "http_5xx" {
 
   metric_transformation {
     name      = "HTTP-5xx"
-    namespace = "DSS"
+    namespace = "DSS-${upper(var.env)}"
     value     = "1"
   }
 }
