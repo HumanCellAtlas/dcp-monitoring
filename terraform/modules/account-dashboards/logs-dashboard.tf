@@ -584,7 +584,7 @@ locals {
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${local.aws_logs_data_source_name}",
+      "datasource": "${local.gcp_log_project_datasource_name}",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -703,7 +703,7 @@ locals {
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${local.aws_logs_data_source_name}",
+      "datasource": "${local.gcp_log_project_datasource_name}",
       "fill": 1,
       "gridPos": {
         "h": 8,
