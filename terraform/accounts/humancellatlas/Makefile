@@ -4,5 +4,6 @@
 export DOCKER_IMAGE_VERSION :=0.2.1
 export TERRAFORM_VERSION := 0.11.7
 export TFLINT_ENABLED := 0
+export TF_PLUGIN_CACHE_DIR := ../../..//.terraform.d/plugin-cache
 
 include ../../..//scripts/component.mk
