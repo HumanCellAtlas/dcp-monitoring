@@ -29,3 +29,7 @@ variable "ingest_health_check_id" {
 variable "upload_health_check_id" {
   type = "string"
 }
+
+variable "matrix_health_check_id" {
+  type = "string"
+}
