@@ -17,6 +17,10 @@ output "ingest_health_check_id" {
   value = "${module.env-health-checks.ingest_health_check_id}"
 }
 
+output "matrix_health_check_id" {
+  value = "${module.env-health-checks.matrix_health_check_id}"
+}
+
 output "upload_health_check_id" {
   value = "${module.env-health-checks.upload_health_check_id}"
 }
