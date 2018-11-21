@@ -5,6 +5,7 @@ requires python 3.7
 """
 
 import argparse
+import json
 import re
 import sys
 import datetime
@@ -25,7 +26,9 @@ if __name__ == '__main__':
     name = sys.argv[0].split('/')[-1]
 
     end_date = datetime.datetime.utcnow()
-    start_date = end_date - datetime.timedelta(days=7)
+    end_date -= datetime.timedelta(microseconds=end_date.microsecond)
+    end_date -= datetime.timedelta(seconds=end_date.second)
+    start_date = end_date - datetime.timedelta(days=30)
 
     cli = argparse.ArgumentParser(
         description=f"`{name}` determines the availability of your service based on a route53 health check."
@@ -52,7 +55,7 @@ if __name__ == '__main__':
         help="The id of your application's Route53 health check"
     )
     options = cli.parse_args(sys.argv[1:])
-    period = int((options.end_date - options.start_date).total_seconds())
+    period = int((end_date - start_date).total_seconds())
 
     print(f"start date:\t{options.start_date.isoformat()}")
     print(f"end date:\t{options.end_date.isoformat()}")
@@ -61,7 +64,7 @@ if __name__ == '__main__':
     data = cloudwatch.get_metric_data(
         MetricDataQueries=[
             {
-                'Id': "sum",
+                'Id': "avg",
                 'MetricStat': {
                     'Metric': {
                         'Namespace': 'AWS/Route53',
@@ -74,32 +77,15 @@ if __name__ == '__main__':
                         ]
                     },
                     'Period': period,
-                    'Stat': 'Sum',
+                    'Stat': 'Average',
                 },
                 'ReturnData': True
-            },
-            {
-                'Id': "sample_count",
-                'MetricStat': {
-                    'Metric': {
-                        'Namespace': 'AWS/Route53',
-                        'MetricName': 'HealthCheckPercentageHealthy',
-                        'Dimensions': [
-                            {
-                                'Name': 'HealthCheckId',
-                                'Value': options.health_check_id
-                            },
-                        ]
-                    },
-                    'Period': period,
-                    'Stat': 'SampleCount',
-                },
-                'ReturnData': True
-            },
+            }
         ],
         StartTime=options.start_date,
         EndTime=options.end_date
     )['MetricDataResults']
-    metric_sum = next(ele for ele in data if ele['Id'] == 'sum')['Values'][0]
-    metric_sample_count = next(ele for ele in data if ele['Id'] == 'sample_count')['Values'][0]
-    print(f"availability:\t{metric_sum / metric_sample_count}")
+    avg = next(ele for ele in data if ele['Id'] == 'avg')
+    min_ind = avg['Timestamps'].index(min(avg['Timestamps']))
+    availability = avg['Values'][min_ind]
+    print(f"availability:\t{availability}")
