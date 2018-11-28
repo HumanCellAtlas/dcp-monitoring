@@ -46,9 +46,13 @@ Modules that are prefixed with `env` are deployed once per deployment environmen
 
 <a name="deploying"></a>
 ### Deploying into an environment
+
 Once you've specified that a terraform code for deployments be generated in the `terraform/envs` directory for the environments you've specified, you must parameterize each module for each environment by filling out the `variables.tf` file.
 
-Once this is complete you can deploy into that environment with `make apply`.
+Once this is complete you can deploy into that environment with the following steps:
+
+1. `cd terraform/envs/<deployment_env>/<your_module>` to select the environment and module you want to deploy
+1. `make apply` to deploy/apply the changes to that environment
 
 <a name="how-tos"></a>
 ## How-tos
