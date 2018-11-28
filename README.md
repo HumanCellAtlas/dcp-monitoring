@@ -16,9 +16,9 @@ Further, this repository templates all of this configuration usint [terraform](h
 
 `./fogg.json` defines which modules are deployed to which accounts and environments.
 
-## Development
+## Development Overview
 
-### Module Overview
+### Modules
 
 The configuration for health checks, log-based metrics, alerts (alarms) and Grafana dashboards are located in terraform modules in the `terraform/modules` directory.
 
@@ -36,10 +36,12 @@ Modules that are prefixed with `env` are deployed once per deployment environmen
 * `env-dashboards` generates JSON templates for Grafana dashboards (e.g. the [DSS](https://metrics.dev.data.humancellatlas.org/d/dss-dev/dss-dev?refresh=1m&orgId=1) dashboard)
 * `env-metrics` log-based metrics that you can use in CloudWatch Metrics or Grafana
 
-### Deploy into an environment
+### Deploying into an environment
 Once you've specified that a terraform code for deployments be generated in the `terraform/envs` directory for the environments you've specified, you must parameterize each module for each environment by filling out the `variables.tf` file.
 
 Once this is complete you can deploy into that environment with `make apply`.
+
+## How-tos
 
 ### Develop new Grafana dashboards and datasources
 
