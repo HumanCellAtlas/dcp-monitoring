@@ -45,7 +45,7 @@ Modules that are prefixed with `env` are deployed once per deployment environmen
 * `env-metrics` log-based metrics that you can use in CloudWatch Metrics or Grafana
 
 <a name="deploying"></a>
-### Deploying into an environment
+### Deploying a module into an environment
 
 Once you've specified that a terraform code for deployments be generated in the `terraform/envs` directory for the environments you've specified, you must parameterize each module for each environment by filling out the `variables.tf` file.
 
