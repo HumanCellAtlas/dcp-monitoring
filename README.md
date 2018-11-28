@@ -10,6 +10,15 @@
 
 Further, this repository templates all of this configuration usint [terraform](https://www.terraform.io/) and [`fogg`](https://github.com/chanzuckerberg/fogg) to generalize this configuration for multiple clouds (AWS, GCP) and deployment environments (`dev`, `integration`, `staging`, and `prod`).
 
+## Contents
+
+* [Design](#design)
+  * [Modules](#modules)
+  * [Deploying into an environment](#deploying)
+* [How-tos](#how-tos)
+  * [Develop new Grafana dashboards and datasources](#dashboards)
+
+<a name="design"></a>
 ## Design
 
 `dcp-monitoring` defines terraform modules that are templated on two dimensions: cloud accounts and environments.
@@ -18,6 +27,7 @@ Further, this repository templates all of this configuration usint [terraform](h
 
 ## Development Overview
 
+<a name="modules"></a>
 ### Modules
 
 The configuration for health checks, log-based metrics, alerts (alarms) and Grafana dashboards are located in terraform modules in the `terraform/modules` directory.
@@ -36,13 +46,16 @@ Modules that are prefixed with `env` are deployed once per deployment environmen
 * `env-dashboards` generates JSON templates for Grafana dashboards (e.g. the [DSS](https://metrics.dev.data.humancellatlas.org/d/dss-dev/dss-dev?refresh=1m&orgId=1) dashboard)
 * `env-metrics` log-based metrics that you can use in CloudWatch Metrics or Grafana
 
+<a name="deploying"></a>
 ### Deploying into an environment
 Once you've specified that a terraform code for deployments be generated in the `terraform/envs` directory for the environments you've specified, you must parameterize each module for each environment by filling out the `variables.tf` file.
 
 Once this is complete you can deploy into that environment with `make apply`.
 
+<a name="how-tos"></a>
 ## How-tos
 
+<a name="dashboards"></a>
 ### Develop new Grafana dashboards and datasources
 
 `dcp-monitoring` enables uploading metric dashboards templated by cloud account and deployment environment. Importantly, you don't need to use `dcp-monitoring` to develop dashboards. You can simply edit them by hand in either the [dev](https://metrics.dev.data.humancellatlas.org/) or [prod](https://metrics.data.humancellatlas.org/) Grafana deployments. Do use `dcp-monitoring` if you would like to generalize your dashboards across accounts and environments.
