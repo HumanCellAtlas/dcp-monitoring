@@ -18,13 +18,26 @@ Further, this repository templates all of this configuration usint [terraform](h
 
 ## Development
 
-### Develop or change a new module
-Configuration templates are located in `terraform/modules`.
+### Module Overview
 
-To define a module, it must be added to `fogg.json` and `fogg apply` must be run. Once any changes have been applied to the module code, `fogg apply` must be run.
+The configuration for health checks, log-based metrics, alerts (alarms) and Grafana dashboards are located in terraform modules in the `terraform/modules` directory.
+
+Modules that are prefixed with `account` are deployed once per cloud account
+
+* `account-health-checks` configures AWS Route53 health checks (e.g. "The [logs system](https://github.com/HumanCellAtlas/logs) is deployed once per AWS account. Ping `http://logs.data.humancellatlas.org/health` once every 30 seconds from around the world and tell me if it's healthy")
+* `account-alerts` configures alerts (e.g. "Raise an alert if we have lambda errors over X in account 123")
+* `account-dashboards` generates JSON templates for Grafana dashboards (e.g. the [Account Status](https://metrics.dev.data.humancellatlas.org/d/account-dev/account-status-hca?refresh=1m&orgId=1) dashboard)
+* `account-metrics` log-based metrics that you can use in CloudWatch Metrics or Grafana
+
+Modules that are prefixed with `env` are deployed once per deployment environment. The deployment environments are `dev`, `integration`, `staging`, and `prod`.
+
+* `env-health-checks` configures AWS Route53 health checks (e.g. "[DSS](https://github.com/HumanCellAtlas/data-store) is deployed once per development environment. Ping `https://dss.data.humancellatlas.org/internal/health` once every 30 seconds from around the world and tell me if it's healthy")
+* `env-alerts` configures alerts (e.g. "Raise an alert if we have APIGateway errors on DSS over X per minute.")
+* `env-dashboards` generates JSON templates for Grafana dashboards (e.g. the [DSS](https://metrics.dev.data.humancellatlas.org/d/dss-dev/dss-dev?refresh=1m&orgId=1) dashboard)
+* `env-metrics` log-based metrics that you can use in CloudWatch Metrics or Grafana
 
 ### Deploy into an environment
-Once that you've specified that a terraform code for deployments be generated in the `terraform/envs` directory for the environments you've specified. You must parameterize each module for each environment by filling out the `variables.tf` file.
+Once you've specified that a terraform code for deployments be generated in the `terraform/envs` directory for the environments you've specified, you must parameterize each module for each environment by filling out the `variables.tf` file.
 
 Once this is complete you can deploy into that environment with `make apply`.
 
