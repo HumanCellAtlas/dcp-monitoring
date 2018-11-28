@@ -25,8 +25,6 @@ Further, this repository templates all of this configuration usint [terraform](h
 
 `./fogg.json` defines which modules are deployed to which accounts and environments.
 
-## Development Overview
-
 <a name="modules"></a>
 ### Modules
 
