@@ -659,7 +659,7 @@ locals {
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Infrastructural VM Instances Disk I/O Activity",
+      "title": "Infrastructural VM Instances Disk R/W Activity",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -760,7 +760,7 @@ locals {
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Workflow Temporary Worker VMs CPU Utilization",
+      "title": "Volatile Workflow Worker VMs CPU Utilization",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -881,7 +881,7 @@ locals {
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Infrastructural VM Instances Disk R/W Activity",
+      "title": "Volatile Workflow Worker VM Instances Disk R/W Activity",
       "tooltip": {
         "shared": true,
         "sort": 0,
