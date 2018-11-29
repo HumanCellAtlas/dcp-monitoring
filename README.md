@@ -77,6 +77,14 @@ Here are the steps to deploying a dashboard via `dcp-monitoring`.
 1. `cd` to `terraform/envs/<env_you_wish_to_deploy>/<account or env>-dashboards` and then `make apply`
 1. `cd` back to the project root directory and follow the steps oulined in the [Upload to Grafana section](https://github.com/HumanCellAtlas/dcp-monitoring#upload-to-grafana).
 
+#### Datasources from GCP
+
+In order to let Grafana fetch data from the Google Cloud projects, you need to give the grafana service account `Monitoring Viewer` permissions to that Google Project. Note that the grafana service account should already exists in another DCP Google project and it just has to be given the right level of permissions to whichever project you want to connect.
+
+Contact the DCP OPS team to get the specific account email.
+
+In order to give it Monitoring Viewer permission, go to GCloud console and `ADD` the member through `IAM & admin` -> `IAM` section from the side bar.
+
 #### Example dashboard configuration
 
 The following section shows an example dashboard configuration using an AWS CloudWatch 
