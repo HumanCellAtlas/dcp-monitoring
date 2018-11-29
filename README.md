@@ -76,7 +76,7 @@ Here are the steps to deploying a dashboard via `dcp-monitoring`.
 
 In order to let Grafana fetch data from the Google Cloud projects, you need to give the grafana service account `Monitoring Viewer` permissions to that Google Project. Note that the grafana service account should already exists in another DCP Google project and it just has to be given the right level of permissions to whichever project you want to connect.
 
-Contact the DCP OPS team to get the specific account email.
+Contact the DCP OPS team to get the specific service account email.
 
 In order to give it Monitoring Viewer permission, go to GCloud console and `ADD` the member through `IAM & admin` -> `IAM` section from the side bar.
 
