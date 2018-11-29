@@ -85,9 +85,9 @@ Once this is complete you can deploy into that environment with the following st
 
 #### Alarm templates
 
-```json
+```
 resource "aws_cloudwatch_metric_alarm" "matrix" {
-  alarm_name          = "<application_name>-${<'var.aws_profile' for account alerts 'var.env' for env alerts>}"
+  alarm_name = "<application_name>-<optional alert name>-${<'var.aws_profile' for account alerts 'var.env' for env alerts>}"
   ...
 
   alarm_description = <<EOF
@@ -103,7 +103,7 @@ EOF
 ```
 If you are alerting on a health check use the following dimension template.
 
-```json
+```
   dimensions {
     HealthCheckId = "${var.<your health check's id>}"
   }
