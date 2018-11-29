@@ -12,7 +12,7 @@ Further, this repository templates all of this configuration using [terraform](h
 
 ## Contents
 
-* [Concepts & Design](#concepts-and-design)
+* [Concepts and Design](#concepts-and-design)
   * [Modules](#modules)
 * [How-tos](#how-tos)
   * [Deploying a module into an environment](#deploying-a-module-into-an-environment)
