@@ -12,13 +12,13 @@ Further, this repository templates all of this configuration using [terraform](h
 
 ## Contents
 
-* [Concepts and Design](#concepts-and-design)
+* [Concepts and design](#concepts-and-design)
   * [Modules](#modules)
 * [How-tos](#how-tos)
   * [Deploying a module into an environment](#deploying-a-module-into-an-environment)
   * [Develop new Grafana dashboards and datasources](#develop-new-grafana-dashboards-and-datasources)
 
-## Concepts and Design
+## Concepts and design
 
 `dcp-monitoring` defines terraform modules that are templated on two dimensions: cloud accounts and environments.
 
