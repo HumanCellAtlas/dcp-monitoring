@@ -16,6 +16,8 @@ Further, this repository templates all of this configuration using [terraform](h
   * [Modules](#modules)
 * [How-tos](#how-tos)
   * [Deploying a module into an environment](#deploying-a-module-into-an-environment)
+  * [Configure an application health check](#configure-an-application-health-check)
+  * [Configure an alert](#configure-an-alert)
   * [Develop new Grafana dashboards and datasources](#develop-new-grafana-dashboards-and-datasources)
 
 ## Concepts and design
@@ -61,11 +63,62 @@ Once this is complete you can deploy into that environment with the following st
 1. `cd terraform/envs/<deployment_env>/<your_module>` to select the environment and module you want to deploy
 1. `make apply` to deploy/apply the changes to that environment
 
+### Configure an application health check
+
+1. If this dashboard will be deployed once per account, `cd` to `terraform/modules/account-health-checks`
+1. If this dashboard will be deployed once per environment, `cd` to `terrraform/modules/env-health-checks`
+1. Create a file of the format `<application_name>.tf`
+1. Add your health checks using the [`aws_route53_health_check`](https://www.terraform.io/docs/providers/aws/r/route53_health_check.html) terraform resource
+1. Add your health check's id to `outputs.tf` following the format of the other outputs
+1. If your application is user facing or supports user-facing features of DCP, add your health check's id to the `child_healthchecks` aggregation in `dcp.tf`
+1. `cd` back to the project root directory
+1. Follow the instructions outlined in the [Deploying a module into an environment](#deploying-a-module-into-an-environment) section to deploy your health check
+
+### Configure an alert
+
+1. If this dashboard will be deployed once per account, `cd` to `terraform/modules/account-alerts`
+1. If this dashboard will be deployed once per environment, `cd` to `terrraform/modules/env-alerts`
+1. Create a file of the format `<application_name>.tf`
+1. Add your alerts using the [`aws_cloudwatch_metric_alarm`](https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_alarm.html) terraform resource. Each of your alarms _must_ follow the alarm template below.
+1. `cd` back to the root project directory and `fogg apply`
+1. Follow the instructions outlined in the [Deploying a module into an environment](#deploying-a-module-into-an-environment) section to deploy your alert
+
+#### Alarm templates
+
+```json
+resource "aws_cloudwatch_metric_alarm" "matrix" {
+  alarm_name          = "<application_name>-${<'var.aws_profile' for account alerts 'var.env' for env alerts>}"
+  ...
+
+  alarm_description = <<EOF
+{
+  "slack_channel": "<your slack channel>",
+  "description": "<description of failure state>"
+}
+EOF
+
+  alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
+}
+```
+If you are alerting on a health check use the following dimension template.
+
+```json
+  dimensions {
+    HealthCheckId = "${var.<your health check's id>}"
+  }
+```
+
+1. Add your health check's id to `outputs.tf` following the format of the other outputs
+1. If your application is user facing or supports user-facing features of DCP, add your health check's id to the `child_healthchecks` aggregation in `dcp.tf`
+1. `cd` back to the project root directory
+1. Follow the instructions outlined in the [Deploying a module into an environment](#deploying-a-module-into-an-environment) section to deploy your health check
+
 ### Develop new Grafana dashboards and datasources
 
 Use `dcp-monitoring` if you would like to template your dashboard across deployment environments and accounts and upload them to our Grafana deployments ([dev](https://metrics.dev.data.humancellatlas.org/) or [prod](https://metrics.data.humancellatlas.org/).
 
-You don't need to use `dcp-monitoring` to develop dashboards. You can simply edit them by hand in either the of Grafana deployments. The changes you make on Grafana will not appear in this repo and be reusable to other deployments of your software, however.
+Note, you don't _need_ to use `dcp-monitoring` to develop dashboards. You can simply edit them by hand in either the of Grafana deployments. The changes you make on Grafana will not appear in this repo and be reusable to other deployments of your software, however.
 
 Here are the steps to deploying a dashboard via `dcp-monitoring`.
 
@@ -79,7 +132,7 @@ Here are the steps to deploying a dashboard via `dcp-monitoring`.
 1. Replace `datasource` keys in your dashboard json with the name of your new data sources
 1. Add your dashboard and datasource json to the `datasources` and `dashboards` output arrays; add the `<cloud>_<name>_datasource_name` variable as an output
 1. `cd` to the project root directory `fogg apply`
-1. `cd` to `terraform/envs/<env_you_wish_to_deploy>/<account or env>-dashboards` and then `make apply`
+1. Follow the instructions outlined in the [Deploying a module into an environment](#deploying-a-module-into-an-environment) section to generate the templated JSON for your dashboard deployment
 1. `cd` back to the project root directory and follow the steps oulined in the [Upload to Grafana section](https://github.com/HumanCellAtlas/dcp-monitoring#upload-to-grafana).
 
 #### Datasources from GCP
