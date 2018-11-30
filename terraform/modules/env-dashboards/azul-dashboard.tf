@@ -17,7 +17,6 @@ local {
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": null,
   "iteration": 1543522435614,
   "links": [],
   "panels": [
@@ -65,7 +64,7 @@ local {
           "alias": "Total Requests",
           "dimensions": {
             "ApiName": "azul-service-${var.env}",
-            "Stage": "dev"
+            "Stage": "${var.env}"
           },
           "highResolution": true,
           "metricName": "Count",
@@ -81,7 +80,7 @@ local {
           "alias": "HTTP 4XX",
           "dimensions": {
             "ApiName": "azul-service-${var.env}",
-            "Stage": "dev"
+            "Stage": "${var.env}"
           },
           "highResolution": true,
           "metricName": "4XXError",
@@ -97,7 +96,7 @@ local {
           "alias": "HTTP 5XX",
           "dimensions": {
             "ApiName": "azul-service-${var.env}",
-            "Stage": "dev"
+            "Stage": "${var.env}"
           },
           "highResolution": true,
           "metricName": "5XXError",
@@ -194,7 +193,7 @@ local {
           "alias": "Total Requests",
           "dimensions": {
             "ApiName": "azul-indexer-${var.env}",
-            "Stage": "dev"
+            "Stage": "${var.env}"
           },
           "highResolution": true,
           "metricName": "Count",
@@ -210,7 +209,7 @@ local {
           "alias": "HTTP 4XX",
           "dimensions": {
             "ApiName": "azul-indexer-${var.env}",
-            "Stage": "dev"
+            "Stage": "${var.env}"
           },
           "highResolution": true,
           "metricName": "4XXError",
@@ -226,7 +225,7 @@ local {
           "alias": "HTTP 5XX",
           "dimensions": {
             "ApiName": "azul-indexer-${var.env}",
-            "Stage": "dev"
+            "Stage": "${var.env}"
           },
           "highResolution": true,
           "metricName": "5XXError",
