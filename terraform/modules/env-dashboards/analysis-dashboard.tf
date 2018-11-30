@@ -555,7 +555,7 @@ locals {
       },
       "yaxes": [
         {
-          "format": "short",
+          "format": "percentunit",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -777,7 +777,7 @@ locals {
       },
       "yaxes": [
         {
-          "format": "short",
+          "format": "percentunit",
           "label": null,
           "logBase": 1,
           "max": null,
