@@ -5,23 +5,26 @@ This module generates health checks for DCP component applications in a given de
 It outputs health check IDs that can be used in visualizations of DCP health status.
 
 <!-- START -->
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| aws_profile |  | string | - | yes |
-| env |  | string | - | yes |
-| region |  | string | - | yes |
+| aws\_profile | - | string | - | yes |
+| env | - | string | - | yes |
+| region | - | string | - | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| analysis_health_check_id |  |
-| dcp_health_check_id |  |
-| dss_health_check_id |  |
-| ingest_health_check_id |  |
-| upload_health_check_id |  |
+| analysis\_health\_check\_id | - |
+| azul\_indexer\_health\_check\_id | - |
+| azul\_webservice\_health\_check\_id | - |
+| data\_browser\_health\_check\_id | - |
+| dcp\_health\_check\_id | - |
+| dss\_health\_check\_id | - |
+| ingest\_health\_check\_id | - |
+| matrix\_health\_check\_id | - |
+| upload\_health\_check\_id | - |
 
 <!-- END -->

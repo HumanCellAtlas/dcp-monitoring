@@ -7,30 +7,29 @@ This module takes health check identifiers and account-wide data sources as inpu
 * Data sources specific to this environment
 
 <!-- START -->
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| analysis_health_check_id |  | string | - | yes |
-| aws_cloudwatch_data_source_name |  | string | - | yes |
-| aws_logs_data_source_name |  | string | - | yes |
-| aws_profile |  | string | - | yes |
-| dcp_health_check_id |  | string | - | yes |
-| dss_health_check_id |  | string | - | yes |
-| env |  | string | - | yes |
-| gcp_analysis_project_id |  | string | - | yes |
-| ingest_health_check_id |  | string | - | yes |
-| region |  | string | - | yes |
-| upload_health_check_id |  | string | - | yes |
+| analysis\_health\_check\_id | - | string | - | yes |
+| aws\_cloudwatch\_data\_source\_name | - | string | - | yes |
+| aws\_logs\_data\_source\_name | - | string | - | yes |
+| aws\_profile | - | string | - | yes |
+| dcp\_health\_check\_id | - | string | - | yes |
+| dss\_health\_check\_id | - | string | - | yes |
+| env | - | string | - | yes |
+| gcp\_analysis\_project\_id | - | string | - | yes |
+| ingest\_health\_check\_id | - | string | - | yes |
+| region | - | string | - | yes |
+| upload\_health\_check\_id | - | string | - | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| dashboards |  |
-| datasources |  |
-| gcp_analysis_datasource_name |  |
-| aws_upload_datasource_name |  |
+| aws\_upload\_datasource\_name | - |
+| dashboards | - |
+| datasources | - |
+| gcp\_analysis\_datasource\_name | - |
 
 <!-- END -->

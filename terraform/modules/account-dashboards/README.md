@@ -8,27 +8,26 @@ This repository takes cloud account-level information and generates the below.
 An important data source on the account level is that of the [centralized logging infrastructure](https://github.com/HumanCellAtlas/logs).
 
 <!-- START -->
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| aws_profile |  | string | - | yes |
-| env |  | string | - | yes |
-| gcp_logs_project_id |  | string | - | yes |
-| gcp_monitoring_project_id |  | string | - | yes |
-| logs_health_check_id |  | string | - | yes |
-| region |  | string | - | yes |
+| aws\_profile | - | string | - | yes |
+| env | - | string | - | yes |
+| gcp\_logs\_project\_id | - | string | - | yes |
+| gcp\_monitoring\_project\_id | - | string | - | yes |
+| logs\_health\_check\_id | - | string | - | yes |
+| region | - | string | - | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| aws_cloudwatch_data_source_name |  |
-| aws_logs_data_source_name |  |
-| dashboards |  |
-| datasources |  |
-| gcp_log_project_datasource_name |  |
-| gcp_monitoring_project_datasource_name |  |
+| aws\_cloudwatch\_data\_source\_name | - |
+| aws\_logs\_data\_source\_name | - |
+| dashboards | - |
+| datasources | - |
+| gcp\_log\_project\_datasource\_name | - |
+| gcp\_monitoring\_project\_datasource\_name | - |
 
 <!-- END -->
