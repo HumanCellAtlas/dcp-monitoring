@@ -20,7 +20,8 @@ output "dashboards" {
 [
   ${local.dcp_dashboard},
   ${local.dss_dashboard},
-  ${local.upload_dashboard}
+  ${local.upload_dashboard},
+  ${local.azul_dashboard}
 ]
 EOF
 }

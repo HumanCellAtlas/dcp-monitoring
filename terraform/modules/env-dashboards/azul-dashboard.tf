@@ -1,4 +1,4 @@
-local {
+locals {
     azul_dashboard = <<EOF
 {
   "annotations": {
