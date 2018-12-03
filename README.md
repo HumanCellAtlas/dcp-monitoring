@@ -10,6 +10,8 @@
 
 Further, this repository templates all of this configuration using [terraform](https://www.terraform.io/) and [`fogg`](https://github.com/chanzuckerberg/fogg) to generalize this configuration for multiple clouds (AWS, GCP) and deployment environments (`dev`, `integration`, `staging`, and `prod`).
 
+The term "monitoring" is used here as [defined in the Google SRE handbook](https://landing.google.com/sre/sre-book/chapters/monitoring-distributed-systems/).
+
 ## Contents
 
 * [Concepts and design](#concepts-and-design)
