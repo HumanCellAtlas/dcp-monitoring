@@ -6,7 +6,7 @@ locals {
   aws_cloudwatch_data_source_name = "account-cloudwatch"
   aws_logs_data_source_name       = "${data.terraform_remote_state.account-dashboards.aws_logs_data_source_name}"
 
-  gcp_analysis_project_id = ""
+  gcp_analysis_project_id = "hca-dcp-pipelines-prod"
 
   analysis_health_check_id = "${data.terraform_remote_state.env-health-checks.analysis_health_check_id}"
   dcp_health_check_id      = "${data.terraform_remote_state.env-health-checks.dcp_health_check_id}"
