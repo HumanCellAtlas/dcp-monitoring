@@ -13,4 +13,5 @@ locals {
   dss_health_check_id      = "${data.terraform_remote_state.env-health-checks.dss_health_check_id}"
   ingest_health_check_id   = "${data.terraform_remote_state.env-health-checks.ingest_health_check_id}"
   upload_health_check_id   = "${data.terraform_remote_state.env-health-checks.upload_health_check_id}"
+  matrix_health_check_id   = "${data.terraform_remote_state.env-health-checks.matrix_health_check_id}"
 }
