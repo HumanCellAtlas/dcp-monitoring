@@ -744,7 +744,7 @@ locals {
             "perSeriesAligner": "ALIGN_NONE"
           },
           "alias": "GCE VM Instance: {{metric.labels.instance_name}}",
-          "filter": "metric.labels.instance_name=starts_with(\"ggp-\")",
+          "filter": "metric.labels.instance_name=starts_with(\"ggp-\") OR metric.labels.instance_name=starts_with(\"google-pipelines-worker-\")",
           "format": "time_series",
           "metricType": "compute.googleapis.com/instance/cpu/utilization",
           "mode": "monitoring",
@@ -871,6 +871,46 @@ locals {
           "mode": "monitoring",
           "projectId": "",
           "refId": "B",
+          "seriesFilter": {
+            "mode": "NONE",
+            "param": "",
+            "type": "NONE"
+          }
+        },
+        {
+          "aggregation": {
+            "alignmentPeriod": "$interval",
+            "crossSeriesReducer": "REDUCE_NONE",
+            "groupByFields": [],
+            "perSeriesAligner": "ALIGN_NONE"
+          },
+          "alias": "Read Operations on VM Instance: {{metric.labels.instance_name}}",
+          "filter": "metric.labels.device_name!=starts_with(\"disk-1\") AND metric.labels.instance_name=starts_with(\"google-pipelines-worker-\")",
+          "format": "time_series",
+          "metricType": "compute.googleapis.com/instance/disk/read_ops_count",
+          "mode": "monitoring",
+          "projectId": "",
+          "refId": "C",
+          "seriesFilter": {
+            "mode": "NONE",
+            "param": "",
+            "type": "NONE"
+          }
+        },
+        {
+          "aggregation": {
+            "alignmentPeriod": "",
+            "crossSeriesReducer": "REDUCE_NONE",
+            "groupByFields": [],
+            "perSeriesAligner": "ALIGN_NONE"
+          },
+          "alias": "Write Operations on VM Instance: {{metric.labels.instance_name}}",
+          "filter": "metric.labels.device_name!=starts_with(\"disk-1\") AND metric.labels.instance_name=starts_with(\"google-pipelines-worker-\")",
+          "format": "time_series",
+          "metricType": "compute.googleapis.com/instance/disk/write_ops_count",
+          "mode": "monitoring",
+          "projectId": "",
+          "refId": "D",
           "seriesFilter": {
             "mode": "NONE",
             "param": "",
