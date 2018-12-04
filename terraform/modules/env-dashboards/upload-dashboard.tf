@@ -21,6 +21,502 @@ locals {
   "links": [],
   "panels": [
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 21,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "5XX Errors",
+          "yaxis": 2
+        },
+        {
+          "alias": "4XX Errors",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Count",
+          "dimensions": {
+            "ApiName": "upload.lambdas.api_server",
+            "Stage": "${var.env}"
+          },
+          "hide": false,
+          "highResolution": false,
+          "metricName": "Count",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "4XX Errors",
+          "dimensions": {
+            "ApiName": "upload.lambdas.api_server",
+            "Stage": "${var.env}"
+          },
+          "hide": false,
+          "highResolution": false,
+          "metricName": "4XXError",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "B",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "5XX Errors",
+          "dimensions": {
+            "ApiName": "upload.lambdas.api_server",
+            "Stage": "${var.env}"
+          },
+          "hide": false,
+          "highResolution": false,
+          "metricName": "5XXError",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "C",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Api Gateway Stats [Rate]",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 22,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Total Latency Avg",
+          "dimensions": {
+            "ApiName": "upload.lambdas.api_server",
+            "Stage": "${var.env}"
+          },
+          "hide": false,
+          "highResolution": false,
+          "metricName": "Latency",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "Total Latency Max",
+          "dimensions": {
+            "ApiName": "upload.lambdas.api_server",
+            "Stage": "${var.env}"
+          },
+          "hide": false,
+          "highResolution": false,
+          "metricName": "Latency",
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "refId": "B",
+          "region": "default",
+          "statistics": [
+            "Maximum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Api Gateway Total Latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Database Connections": "#e5ac0e",
+        "Errors": "#890f02",
+        "Errors (sum/30min)": "#bf1b00",
+        "Errors (sum/hr)": "#890f02",
+        "Upload API Dev Errors": "#890f02"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 7
+      },
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "CPUUtilization",
+          "yaxis": 2
+        },
+        {
+          "alias": "Database Connections",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "CPU Utilization(%)",
+          "dimensions": {
+            "DBInstanceIdentifier": "upload-cluster-${var.env}-0"
+          },
+          "hide": false,
+          "highResolution": false,
+          "metricName": "CPUUtilization",
+          "namespace": "AWS/RDS",
+          "period": "",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "Maximum"
+          ]
+        },
+        {
+          "alias": "Database Connections",
+          "dimensions": {
+            "DBInstanceIdentifier": "upload-cluster-${var.env}-0"
+          },
+          "hide": false,
+          "highResolution": false,
+          "metricName": "DatabaseConnections",
+          "namespace": "AWS/RDS",
+          "period": "600",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Database CPU/Connections",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Database Connections": "#e5ac0e",
+        "Errors": "#890f02",
+        "Errors (sum/30min)": "#bf1b00",
+        "Errors (sum/hr)": "#890f02",
+        "Upload API Dev Errors": "#890f02"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 7
+      },
+      "id": 25,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "CPUUtilization",
+          "yaxis": 2
+        },
+        {
+          "alias": "Database Connections",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Free Local Storage",
+          "dimensions": {
+            "DBInstanceIdentifier": "upload-cluster-${var.env}-0"
+          },
+          "hide": false,
+          "highResolution": false,
+          "metricName": "FreeLocalStorage",
+          "namespace": "AWS/RDS",
+          "period": "600",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "Minimum"
+          ]
+        },
+        {
+          "alias": "Freeable Memory",
+          "dimensions": {
+            "DBInstanceIdentifier": "upload-cluster-${var.env}-0"
+          },
+          "hide": false,
+          "highResolution": false,
+          "metricName": "FreeableMemory",
+          "namespace": "AWS/RDS",
+          "period": "600",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Database Memory/Free Space",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "aliasColors": {
         "max_checksum_time": "#e5ac0e",
         "max_checksumming_latency": "#0a437c"
@@ -32,9 +528,9 @@ locals {
       "fill": 1,
       "gridPos": {
         "h": 7,
-        "w": 8,
+        "w": 6,
         "x": 0,
-        "y": 0
+        "y": 14
       },
       "id": 10,
       "legend": {
@@ -125,9 +621,9 @@ locals {
       "fill": 1,
       "gridPos": {
         "h": 7,
-        "w": 8,
-        "x": 8,
-        "y": 0
+        "w": 6,
+        "x": 6,
+        "y": 14
       },
       "id": 9,
       "legend": {
@@ -216,9 +712,100 @@ locals {
       "fill": 1,
       "gridPos": {
         "h": 7,
-        "w": 8,
-        "x": 16,
-        "y": 0
+        "w": 6,
+        "x": 12,
+        "y": 14
+      },
+      "id": 11,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "format": "time_series",
+          "rawSql": "SELECT\n  $__timeGroup(updated_at,'1h'),\n  AVG(size) as avg_file_size\nFROM file\nWHERE $__timeFilter(updated_at)\nGROUP BY time\n",
+          "refId": "A"
+        },
+        {
+          "alias": "",
+          "format": "time_series",
+          "rawSql": "SELECT\n  $__timeGroup(updated_at,'1h'),\n  MAX(size) as max_file_size\nFROM file\nWHERE $__timeFilter(updated_at)\nGROUP BY time\n",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "File Size",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "max_checksum_time": "#e5ac0e"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${local.aws_upload_datasource_name}",
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 18,
+        "y": 14
       },
       "id": 8,
       "legend": {
@@ -313,10 +900,10 @@ locals {
       "datasource": "${var.aws_cloudwatch_data_source_name}",
       "fill": 1,
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 4,
         "x": 0,
-        "y": 7
+        "y": 21
       },
       "id": 2,
       "legend": {
@@ -414,6 +1001,117 @@ locals {
     },
     {
       "aliasColors": {
+        "Duration (avg/30min)": "#629e51",
+        "Duration (max/10min)": "#e5ac0e",
+        "Duration (max/30min)": "#cca300"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "fill": 1,
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 4,
+        "y": 21
+      },
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "avg_duration",
+          "dimensions": {
+            "FunctionName": "upload-api-${var.env}"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "3600",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "max_duration",
+          "dimensions": {
+            "FunctionName": "upload-api-${var.env}"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "3600",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "Maximum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "API lambda duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
         "Errors": "#890f02",
         "Errors(sum/10min)": "#bf1b00",
         "Errors(sum/30min)": "#bf1b00",
@@ -425,10 +1123,10 @@ locals {
       "datasource": "${var.aws_cloudwatch_data_source_name}",
       "fill": 1,
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 4,
-        "x": 4,
-        "y": 7
+        "x": 8,
+        "y": 21
       },
       "id": 3,
       "legend": {
@@ -531,330 +1229,6 @@ locals {
     },
     {
       "aliasColors": {
-        "Database Connections": "#e5ac0e",
-        "Errors": "#890f02",
-        "Errors (sum/30min)": "#bf1b00",
-        "Errors (sum/hr)": "#890f02",
-        "Upload API Dev Errors": "#890f02"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "${var.aws_cloudwatch_data_source_name}",
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 8,
-        "x": 8,
-        "y": 7
-      },
-      "id": 6,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 1,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "CPUUtilization",
-          "yaxis": 2
-        },
-        {
-          "alias": "Database Connections",
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "CPU Utilization(%)",
-          "dimensions": {
-            "DBInstanceIdentifier": "upload-cluster-${var.env}-0"
-          },
-          "highResolution": false,
-          "metricName": "CPUUtilization",
-          "namespace": "AWS/RDS",
-          "period": "600",
-          "refId": "A",
-          "region": "${var.region}",
-          "statistics": [
-            "Average"
-          ]
-        },
-        {
-          "alias": "Database Connections",
-          "dimensions": {
-            "DBInstanceIdentifier": "upload-cluster-${var.env}-0"
-          },
-          "highResolution": false,
-          "metricName": "DatabaseConnections",
-          "namespace": "AWS/RDS",
-          "period": "600",
-          "refId": "B",
-          "region": "${var.region}",
-          "statistics": [
-            "Average"
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Database Health",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "percent",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "max_checksum_time": "#e5ac0e"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "${local.aws_upload_datasource_name}",
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 8,
-        "x": 16,
-        "y": 7
-      },
-      "id": 11,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 1,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "",
-          "format": "time_series",
-          "rawSql": "SELECT\n  $__timeGroup(updated_at,'1h'),\n  AVG(size) as avg_file_size\nFROM file\nWHERE $__timeFilter(updated_at)\nGROUP BY time\n",
-          "refId": "A"
-        },
-        {
-          "alias": "",
-          "format": "time_series",
-          "rawSql": "SELECT\n  $__timeGroup(updated_at,'1h'),\n  MAX(size) as max_file_size\nFROM file\nWHERE $__timeFilter(updated_at)\nGROUP BY time\n",
-          "refId": "B"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "File Size",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "bytes",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "Duration (avg/30min)": "#629e51",
-        "Duration (max/10min)": "#e5ac0e",
-        "Duration (max/30min)": "#cca300"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "${var.aws_cloudwatch_data_source_name}",
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 4,
-        "x": 0,
-        "y": 14
-      },
-      "id": 4,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 1,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "avg_duration",
-          "dimensions": {
-            "FunctionName": "upload-api-${var.env}"
-          },
-          "highResolution": false,
-          "metricName": "Duration",
-          "namespace": "AWS/Lambda",
-          "period": "3600",
-          "refId": "A",
-          "region": "${var.region}",
-          "statistics": [
-            "Average"
-          ]
-        },
-        {
-          "alias": "max_duration",
-          "dimensions": {
-            "FunctionName": "upload-api-${var.env}"
-          },
-          "highResolution": false,
-          "metricName": "Duration",
-          "namespace": "AWS/Lambda",
-          "period": "3600",
-          "refId": "B",
-          "region": "${var.region}",
-          "statistics": [
-            "Maximum"
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "API lambda duration",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "ms",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
         "Duration (max/30min)": "#e5ac0e"
       },
       "bars": false,
@@ -863,10 +1237,10 @@ locals {
       "datasource": "${var.aws_cloudwatch_data_source_name}",
       "fill": 1,
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 4,
-        "x": 4,
-        "y": 14
+        "x": 12,
+        "y": 21
       },
       "id": 5,
       "legend": {
@@ -963,6 +1337,232 @@ locals {
       }
     },
     {
+      "aliasColors": {
+        "Errors": "#890f02",
+        "Errors(sum/10min)": "#bf1b00",
+        "Errors(sum/30min)": "#bf1b00",
+        "Errors(sum/hr)": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "fill": 1,
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 16,
+        "y": 21
+      },
+      "id": 26,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Errors(sum/10min)",
+          "yaxis": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Invocations(sum/hr)",
+          "dimensions": {
+            "FunctionName": "dcp-upload-batch-watcher-${var.env}"
+          },
+          "highResolution": false,
+          "metricName": "Invocations",
+          "namespace": "AWS/Lambda",
+          "period": "3600",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "Errors(sum/hr)",
+          "dimensions": {
+            "FunctionName": "dcp-upload-batch-watcher-${var.env}"
+          },
+          "highResolution": false,
+          "metricName": "Errors",
+          "namespace": "AWS/Lambda",
+          "period": "3600",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Batch watcher stats",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Duration (max/30min)": "#e5ac0e"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "fill": 1,
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 20,
+        "y": 21
+      },
+      "id": 27,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "avg_duration",
+          "dimensions": {
+            "FunctionName": "dcp-upload-batch-watcher-${var.env}"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "3600",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "max_duration",
+          "dimensions": {
+            "FunctionName": "dcp-upload-batch-watcher-${var.env}"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "3600",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "Maximum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Batch watcher duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "cacheTimeout": null,
       "colorBackground": false,
       "colorValue": false,
@@ -983,9 +1583,9 @@ locals {
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 8,
-        "y": 14
+        "w": 6,
+        "x": 0,
+        "y": 27
       },
       "id": 14,
       "interval": null,
@@ -1064,9 +1664,9 @@ locals {
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 12,
-        "y": 14
+        "w": 6,
+        "x": 6,
+        "y": 27
       },
       "id": 15,
       "interval": null,
@@ -1145,9 +1745,9 @@ locals {
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 16,
-        "y": 14
+        "w": 6,
+        "x": 12,
+        "y": 27
       },
       "id": 16,
       "interval": null,
@@ -1226,9 +1826,90 @@ locals {
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 8,
-        "y": 17
+        "w": 6,
+        "x": 18,
+        "y": 27
+      },
+      "id": 23,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "count",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "SELECT\n  count(*)\nFROM checksum\nWHERE $__timeFilter(created_at) and status = 'FAILED'",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Checksums Failed",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${local.aws_upload_datasource_name}",
+      "description": "Filtered by created_at",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 0,
+        "y": 30
       },
       "id": 13,
       "interval": null,
@@ -1307,9 +1988,9 @@ locals {
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 12,
-        "y": 17
+        "w": 6,
+        "x": 6,
+        "y": 30
       },
       "id": 17,
       "interval": null,
@@ -1388,9 +2069,9 @@ locals {
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 16,
-        "y": 17
+        "w": 6,
+        "x": 12,
+        "y": 30
       },
       "id": 18,
       "interval": null,
@@ -1437,6 +2118,87 @@ locals {
       ],
       "thresholds": "",
       "title": "Validations Completed",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${local.aws_upload_datasource_name}",
+      "description": "Filtered by created_at",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 18,
+        "y": 30
+      },
+      "id": 24,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "count",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "SELECT\n  count(*)\nFROM validation\nWHERE $__timeFilter(created_at) and status = 'FAILED'",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Validations Failed",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
