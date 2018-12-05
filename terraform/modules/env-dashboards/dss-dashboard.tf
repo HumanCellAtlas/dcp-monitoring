@@ -4,7 +4,7 @@ locals {
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:267",
+        "$hashKey": "object:267",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -18,7 +18,7 @@ locals {
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1528477993463,
+  "iteration": 1543973320001,
   "links": [],
   "panels": [
     {
@@ -516,7 +516,7 @@ locals {
           "alias": "{{metric}}",
           "dimensions": {},
           "metricName": "HTTP-5xx",
-          "namespace": "${module.metrics.dss_metrics_namespace}",
+          "namespace": "DSS-DEV",
           "period": "",
           "refId": "A",
           "region": "${var.region}",
@@ -529,7 +529,7 @@ locals {
           "alias": "{{metric}}",
           "dimensions": {},
           "metricName": "HTTP-4xx",
-          "namespace": "${module.metrics.dss_metrics_namespace}",
+          "namespace": "DSS-DEV",
           "period": "",
           "refId": "B",
           "region": "${var.region}",
@@ -542,7 +542,7 @@ locals {
           "alias": "{{metric}}",
           "dimensions": {},
           "metricName": "HTTP-3xx",
-          "namespace": "${module.metrics.dss_metrics_namespace}",
+          "namespace": "DSS-DEV",
           "period": "",
           "refId": "C",
           "region": "${var.region}",
@@ -555,7 +555,7 @@ locals {
           "alias": "{{metric}}",
           "dimensions": {},
           "metricName": "HTTP-2xx",
-          "namespace": "${module.metrics.dss_metrics_namespace}",
+          "namespace": "DSS-DEV",
           "period": "",
           "refId": "D",
           "region": "${var.region}",
@@ -607,90 +607,13 @@ locals {
       }
     },
     {
-      "cards": {
-        "cardPadding": null,
-        "cardRound": null
-      },
-      "color": {
-        "cardColor": "#bf1b00",
-        "colorScale": "sqrt",
-        "colorScheme": "interpolateSpectral",
-        "exponent": 0.5,
-        "mode": "spectrum"
-      },
-      "dataFormat": "timeseries",
-      "datasource": "${var.aws_cloudwatch_data_source_name}",
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 16
-      },
-      "heatmap": {},
-      "highlightCards": true,
-      "id": 22,
-      "legend": {
-        "show": false
-      },
-      "links": [
-        {
-          "includeVars": true,
-          "keepTime": false,
-          "params": "_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:'2018-06-07T17:53:49.378Z',mode:absolute,to:'2018-06-09T06:59:59.999Z'))&_a=(columns:!(_source),index:'*',interval:auto,query:(match_all:()),sort:!('@timestamp',desc))&from=$__interval",
-          "targetBlank": true,
-          "title": "kibana",
-          "type": "absolute",
-          "url": "https://logs.data.humancellatlas.org/_plugin/kibana/app/kibana#/discover"
-        }
-      ],
-      "targets": [
-        {
-          "dimensions": {
-            "ApiName": "dss"
-          },
-          "hide": false,
-          "highResolution": true,
-          "metricName": "Latency",
-          "namespace": "AWS/ApiGateway",
-          "period": "",
-          "refId": "A",
-          "region": "${var.region}",
-          "statistics": [
-            "Average"
-          ]
-        }
-      ],
-      "title": "API Gateway Latencies [BinAverage]",
-      "tooltip": {
-        "show": true,
-        "showHistogram": true
-      },
-      "transparent": false,
-      "type": "heatmap",
-      "xAxis": {
-        "show": true
-      },
-      "xBucketNumber": null,
-      "xBucketSize": null,
-      "yAxis": {
-        "decimals": null,
-        "format": "dtdurationms",
-        "logBase": 2,
-        "max": null,
-        "min": null,
-        "show": true,
-        "splitFactor": 4
-      },
-      "yBucketBound": "auto",
-      "yBucketNumber": null,
-      "yBucketSize": null
-    },
-    {
       "aliasColors": {
         "4XXError": "#ef843c",
         "5XXError": "#bf1b00",
         "Maximum": "#bf1b00",
-        "Minimum": "#508642"
+        "Minimum": "#508642",
+        "p50.00": "#629e51",
+        "p99.00": "#bf1b00"
       },
       "bars": false,
       "dashLength": 10,
@@ -699,8 +622,8 @@ locals {
       "fill": 0,
       "gridPos": {
         "h": 8,
-        "w": 12,
-        "x": 12,
+        "w": 24,
+        "x": 0,
         "y": 16
       },
       "id": 17,
@@ -743,13 +666,14 @@ locals {
             "ApiName": "dss",
             "Stage": "${var.env}"
           },
+          "highResolution": false,
           "metricName": "Latency",
           "namespace": "AWS/ApiGateway",
           "period": "",
           "refId": "A",
           "region": "${var.region}",
           "statistics": [
-            "Maximum"
+            "p99.00"
           ]
         },
         {
@@ -758,13 +682,14 @@ locals {
             "ApiName": "dss",
             "Stage": "${var.env}"
           },
+          "highResolution": false,
           "metricName": "Latency",
           "namespace": "AWS/ApiGateway",
           "period": "",
           "refId": "B",
           "region": "${var.region}",
           "statistics": [
-            "Average"
+            "p95.00"
           ]
         },
         {
@@ -773,13 +698,14 @@ locals {
             "ApiName": "dss",
             "Stage": "${var.env}"
           },
+          "highResolution": false,
           "metricName": "Latency",
           "namespace": "AWS/ApiGateway",
           "period": "",
           "refId": "C",
           "region": "${var.region}",
           "statistics": [
-            "Minimum"
+            "p50.00"
           ]
         }
       ],
@@ -810,7 +736,7 @@ locals {
       },
       "yaxes": [
         {
-          "format": "short",
+          "format": "ms",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -971,6 +897,7 @@ locals {
             "ClientId": "${data.aws_caller_identity.current.account_id}",
             "DomainName": "dss-index-${var.env}"
           },
+          "highResolution": false,
           "metricName": "FreeStorageSpace",
           "namespace": "AWS/ES",
           "period": "",
@@ -986,6 +913,7 @@ locals {
             "ClientId": "${data.aws_caller_identity.current.account_id}",
             "DomainName": "dss-index-${var.env}"
           },
+          "highResolution": false,
           "metricName": "FreeStorageSpace",
           "namespace": "AWS/ES",
           "period": "",
@@ -1002,7 +930,8 @@ locals {
           "fill": true,
           "line": true,
           "op": "lt",
-          "value": 50000
+          "value": 10000,
+          "yaxis": "left"
         }
       ],
       "timeFrom": null,
@@ -1023,7 +952,7 @@ locals {
       },
       "yaxes": [
         {
-          "format": "short",
+          "format": "decmbytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1525,7 +1454,7 @@ locals {
   "timezone": "",
   "title": "DSS [${upper(var.env)}]",
   "uid": "dss-${var.env}",
-  "version": 15
+  "version": 43
 }
 EOF
 }
