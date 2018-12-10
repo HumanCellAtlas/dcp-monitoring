@@ -23,6 +23,528 @@ locals {
   "panels": [
     {
       "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 40,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "",
+          "dimensions": {},
+          "highResolution": false,
+          "metricName": "Matrix Request",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "3600",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": "",
+      "title": "Requests",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 4,
+        "y": 0
+      },
+      "id": 41,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "",
+          "dimensions": {},
+          "highResolution": false,
+          "metricName": "Matrix Cache Hit",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "3600",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": "",
+      "title": "Cache Hit",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 0
+      },
+      "id": 42,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "",
+          "dimensions": {},
+          "highResolution": false,
+          "metricName": "Matrix Cache Miss",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "3600",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": "",
+      "title": "Cache Miss",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 12,
+        "y": 0
+      },
+      "id": 43,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "",
+          "dimensions": {},
+          "highResolution": false,
+          "metricName": "Matrix Conversion Request",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "3600",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": "",
+      "title": "Conversion Request",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "id": 44,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "",
+          "dimensions": {},
+          "highResolution": false,
+          "metricName": "Matrix Conversion Completion",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "3600",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": "",
+      "title": "Conversion Completion",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 20,
+        "y": 0
+      },
+      "id": 45,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "",
+          "dimensions": {},
+          "highResolution": false,
+          "metricName": "Matrix Request Completion",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "3600",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": "",
+      "title": "Request Completion",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
       "colorBackground": true,
       "colorValue": false,
       "colors": [
@@ -43,7 +565,7 @@ locals {
         "h": 8,
         "w": 5,
         "x": 0,
-        "y": 0
+        "y": 3
       },
       "id": 11,
       "interval": null,
@@ -132,7 +654,7 @@ locals {
         "h": 8,
         "w": 19,
         "x": 5,
-        "y": 0
+        "y": 3
       },
       "id": 13,
       "legend": {
@@ -291,7 +813,7 @@ locals {
         "h": 9,
         "w": 6,
         "x": 0,
-        "y": 8
+        "y": 11
       },
       "id": 15,
       "legend": {
@@ -428,7 +950,7 @@ locals {
         "h": 9,
         "w": 6,
         "x": 6,
-        "y": 8
+        "y": 11
       },
       "id": 17,
       "legend": {
@@ -567,7 +1089,7 @@ locals {
         "h": 9,
         "w": 6,
         "x": 12,
-        "y": 8
+        "y": 11
       },
       "id": 18,
       "legend": {
@@ -704,7 +1226,7 @@ locals {
         "h": 9,
         "w": 6,
         "x": 18,
-        "y": 8
+        "y": 11
       },
       "id": 19,
       "legend": {
@@ -841,7 +1363,7 @@ locals {
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 17
+        "y": 20
       },
       "id": 21,
       "legend": {
@@ -978,7 +1500,7 @@ locals {
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 17
+        "y": 20
       },
       "id": 22,
       "legend": {
@@ -1092,7 +1614,7 @@ locals {
         "h": 9,
         "w": 5,
         "x": 0,
-        "y": 26
+        "y": 29
       },
       "id": 25,
       "legend": {
@@ -1212,7 +1734,7 @@ locals {
         "h": 9,
         "w": 5,
         "x": 5,
-        "y": 26
+        "y": 29
       },
       "id": 26,
       "legend": {
@@ -1332,7 +1854,7 @@ locals {
         "h": 9,
         "w": 5,
         "x": 10,
-        "y": 26
+        "y": 29
       },
       "id": 27,
       "legend": {
@@ -1452,7 +1974,7 @@ locals {
         "h": 9,
         "w": 5,
         "x": 15,
-        "y": 26
+        "y": 29
       },
       "id": 28,
       "legend": {
@@ -1573,7 +2095,7 @@ locals {
         "h": 9,
         "w": 4,
         "x": 20,
-        "y": 26
+        "y": 29
       },
       "id": 29,
       "legend": {
@@ -1694,7 +2216,7 @@ locals {
         "h": 9,
         "w": 5,
         "x": 0,
-        "y": 35
+        "y": 38
       },
       "id": 30,
       "legend": {
@@ -1815,7 +2337,7 @@ locals {
         "h": 9,
         "w": 5,
         "x": 5,
-        "y": 35
+        "y": 38
       },
       "id": 35,
       "legend": {
@@ -1936,7 +2458,7 @@ locals {
         "h": 9,
         "w": 5,
         "x": 10,
-        "y": 35
+        "y": 38
       },
       "id": 36,
       "legend": {
@@ -2057,7 +2579,7 @@ locals {
         "h": 9,
         "w": 5,
         "x": 15,
-        "y": 35
+        "y": 38
       },
       "id": 37,
       "legend": {
@@ -2178,7 +2700,7 @@ locals {
         "h": 9,
         "w": 4,
         "x": 20,
-        "y": 35
+        "y": 38
       },
       "id": 38,
       "legend": {
