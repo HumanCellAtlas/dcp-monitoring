@@ -4,7 +4,6 @@ locals {
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:376",
         "$hashKey": "object:406",
         "builtIn": 1,
         "datasource": "-- Grafana --",
@@ -19,7 +18,8 @@ locals {
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1528478703638,
+  "id": 32,
+  "iteration": 1544654173804,
   "links": [],
   "panels": [
     {
@@ -257,7 +257,7 @@ locals {
       "steppedLine": false,
       "targets": [
         {
-          "$$hashKey": "object:454",
+          "$hashKey": "object:454",
           "alias": "Firehose-CWL-Processor",
           "bucketAggs": [
             {
@@ -283,7 +283,7 @@ locals {
           "timeField": "@timestamp"
         },
         {
-          "$$hashKey": "object:455",
+          "$hashKey": "object:455",
           "alias": "log-retention-policy-enforcer",
           "bucketAggs": [
             {
@@ -309,7 +309,7 @@ locals {
           "timeField": "@timestamp"
         },
         {
-          "$$hashKey": "object:456",
+          "$hashKey": "object:456",
           "alias": "gcp-to-cwl-exporter",
           "bucketAggs": [
             {
@@ -335,7 +335,7 @@ locals {
           "timeField": "@timestamp"
         },
         {
-          "$$hashKey": "object:457",
+          "$hashKey": "object:457",
           "alias": "cwl_firehose_subscriber",
           "bucketAggs": [
             {
@@ -361,7 +361,7 @@ locals {
           "timeField": "@timestamp"
         },
         {
-          "$$hashKey": "object:458",
+          "$hashKey": "object:458",
           "alias": "es-idx-manager",
           "bucketAggs": [
             {
@@ -433,7 +433,7 @@ locals {
       "dashLength": 10,
       "dashes": false,
       "datasource": "${local.aws_cloudwatch_data_source_name}",
-      "fill": 7,
+      "fill": 2,
       "gridPos": {
         "h": 8,
         "w": 12,
@@ -451,16 +451,16 @@ locals {
         "values": false
       },
       "lines": true,
-      "linewidth": 0,
+      "linewidth": 1,
       "links": [],
       "nullPointMode": "null as zero",
       "percentage": false,
-      "pointradius": 5,
+      "pointradius": 0.5,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
-      "stack": true,
+      "stack": false,
       "steppedLine": false,
       "targets": [
         {
@@ -580,6 +580,645 @@ locals {
       }
     },
     {
+      "aliasColors": {
+        "Firehose-CWL-Processor-p25.00": "#629e51",
+        "Firehose-CWL-Processor-p99.00": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${local.aws_cloudwatch_data_source_name}",
+      "fill": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 17,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "Firehose-CWL-Processor"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "p50.00"
+          ]
+        },
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "Firehose-CWL-Processor"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "p99.00"
+          ]
+        },
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "Firehose-CWL-Processor"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "C",
+          "region": "${var.region}",
+          "statistics": [
+            "p25.00"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Firehose-CWL-Processor Latencies",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Firehose-CWL-Processor-p25.00": "#629e51",
+        "Firehose-CWL-Processor-p99.00": "#bf1b00",
+        "gcp-to-cwl-exporter-p25.00": "#629e51",
+        "gcp-to-cwl-exporter-p99.00": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${local.aws_cloudwatch_data_source_name}",
+      "fill": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 19,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "gcp-to-cwl-exporter"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "p50.00"
+          ]
+        },
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "gcp-to-cwl-exporter"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "p99.00"
+          ]
+        },
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "gcp-to-cwl-exporter"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "C",
+          "region": "${var.region}",
+          "statistics": [
+            "p25.00"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "gcp-to-cwl-exporter Latencies",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Firehose-CWL-Processor-p25.00": "#629e51",
+        "Firehose-CWL-Processor-p99.00": "#bf1b00",
+        "cwl_firehose_subscriber-p25.00": "#629e51",
+        "cwl_firehose_subscriber-p99.00": "#bf1b00",
+        "gcp-to-cwl-exporter-p25.00": "#629e51",
+        "gcp-to-cwl-exporter-p99.00": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${local.aws_cloudwatch_data_source_name}",
+      "fill": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 24
+      },
+      "id": 21,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "log-retention-policy-enforcer"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "p50.00"
+          ]
+        },
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "log-retention-policy-enforcer"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "p99.00"
+          ]
+        },
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "log-retention-policy-enforcer"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "C",
+          "region": "${var.region}",
+          "statistics": [
+            "p25.00"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "log-retention-policy-enforcer Latencies",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Firehose-CWL-Processor-p25.00": "#629e51",
+        "Firehose-CWL-Processor-p99.00": "#bf1b00",
+        "cwl_firehose_subscriber-p25.00": "#629e51",
+        "cwl_firehose_subscriber-p99.00": "#bf1b00",
+        "gcp-to-cwl-exporter-p25.00": "#629e51",
+        "gcp-to-cwl-exporter-p99.00": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${local.aws_cloudwatch_data_source_name}",
+      "fill": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 24
+      },
+      "id": 22,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "es-idx-manager"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "p50.00"
+          ]
+        },
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "es-idx-manager"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "p99.00"
+          ]
+        },
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "es-idx-manager"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "C",
+          "region": "${var.region}",
+          "statistics": [
+            "p25.00"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "es-idx-manager Latencies",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Firehose-CWL-Processor-p25.00": "#629e51",
+        "Firehose-CWL-Processor-p99.00": "#bf1b00",
+        "cwl_firehose_subscriber-p25.00": "#629e51",
+        "cwl_firehose_subscriber-p99.00": "#bf1b00",
+        "gcp-to-cwl-exporter-p25.00": "#629e51",
+        "gcp-to-cwl-exporter-p99.00": "#bf1b00"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${local.aws_cloudwatch_data_source_name}",
+      "fill": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 24
+      },
+      "id": 20,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "cwl_firehose_subscriber"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "p50.00"
+          ]
+        },
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "cwl_firehose_subscriber"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "p99.00"
+          ]
+        },
+        {
+          "alias": "{{FunctionName}}-{{stat}}",
+          "dimensions": {
+            "FunctionName": "cwl_firehose_subscriber"
+          },
+          "highResolution": false,
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "C",
+          "region": "${var.region}",
+          "statistics": [
+            "p25.00"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "cwl_firehose_subscriber Latencies",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -590,7 +1229,7 @@ locals {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 16
+        "y": 32
       },
       "id": 11,
       "legend": {
@@ -709,7 +1348,7 @@ locals {
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 16
+        "y": 32
       },
       "id": 12,
       "legend": {
@@ -830,7 +1469,7 @@ locals {
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 24
+        "y": 40
       },
       "id": 6,
       "legend": {
@@ -924,7 +1563,7 @@ locals {
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 24
+        "y": 40
       },
       "id": 8,
       "legend": {
@@ -1045,7 +1684,7 @@ locals {
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 24
+        "y": 40
       },
       "id": 10,
       "legend": {
@@ -1148,8 +1787,8 @@ locals {
         "auto_count": 30,
         "auto_min": "10s",
         "current": {
-          "text": "5m",
-          "value": "5m"
+          "text": "1m",
+          "value": "1m"
         },
         "hide": 0,
         "label": "interval",
@@ -1161,12 +1800,12 @@ locals {
             "value": "$__auto_interval_interval"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "1m",
             "value": "1m"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "5m",
             "value": "5m"
           },
@@ -1254,7 +1893,7 @@ locals {
   "timezone": "",
   "title": "Logs [${upper(var.aws_profile)}]",
   "uid": "logs-${var.aws_profile}",
-  "version": 14
+  "version": 18
 }
 EOF
 }
