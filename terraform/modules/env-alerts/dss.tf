@@ -1,7 +1,8 @@
 resource "aws_cloudwatch_metric_alarm" "dss" {
   alarm_name          = "dss-${var.env}"
   comparison_operator = "LessThanThreshold"
-  evaluation_periods  = "2"
+  evaluation_periods  = "3"
+  datapoints_to_alarm = "2"
   metric_name         = "HealthCheckStatus"
   threshold           = "1.0"
   namespace           = "AWS/Route53"
@@ -11,7 +12,7 @@ resource "aws_cloudwatch_metric_alarm" "dss" {
   alarm_description = <<EOF
 {
   "slack_channel": "data-store-eng",
-  "environment": "${var.env}"
+  "environment": "${var.env}",
   "description": "DCP Data Storage Service availability healthcheck"
 }
 EOF
@@ -21,5 +22,61 @@ EOF
 
   dimensions {
     HealthCheckId = "${var.dss_health_check_id}"
+  }
+}
+
+resource "aws_cloudwatch_metric_alarm" "dss_es_jvm_memory_pressure" {
+  alarm_name          = "dss-es-jvm-memory-pressure-${var.env}"
+  comparison_operator = "GreaterThanThreshold"
+  evaluation_periods  = "3"
+  datapoints_to_alarm = "2"
+  metric_name         = "JVMMemoryPressure"
+  threshold           = "80"
+  namespace           = "AWS/ES"
+  statistic           = "Maximum"
+  period              = "120"
+
+  alarm_description = <<EOF
+{
+  "slack_channel": "data-store-eng",
+  "environment": "${var.env}",
+  "description": "Elasticsearch JVM memory pressure is high!"
+}
+EOF
+
+  alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
+
+  dimensions {
+    DomainName = "dss-index-${var.env}"
+    ClientId = "${data.aws_caller_identity.current.account_id}"
+  }
+}
+
+resource "aws_cloudwatch_metric_alarm" "dss_es_storage_space" {
+  alarm_name          = "dss-es-storage-space-${var.env}"
+  comparison_operator = "LessThanThreshold"
+  evaluation_periods  = "3"
+  datapoints_to_alarm = "2"
+  metric_name         = "FreeStorageSpace"
+  threshold           = "5000"
+  namespace           = "AWS/ES"
+  statistic           = "Minimum"
+  period              = "120"
+
+  alarm_description = <<EOF
+{
+  "slack_channel": "data-store-eng",
+  "environment": "${var.env}",
+  "description": "Elasticsearch shard storage is low!"
+}
+EOF
+
+  alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
+
+  dimensions {
+    DomainName = "dss-index-${var.env}"
+    ClientId = "${data.aws_caller_identity.current.account_id}"
   }
 }
