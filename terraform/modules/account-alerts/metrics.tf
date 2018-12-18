@@ -1,7 +1,8 @@
 resource "aws_cloudwatch_metric_alarm" "metrics_health" {
   alarm_name          = "metrics-health-${var.aws_profile}"
   comparison_operator = "LessThanThreshold"
-  evaluation_periods  = "2"
+  evaluation_periods  = "3"
+  datapoints_to_alarm = "2"
   metric_name         = "HealthCheckStatus"
   threshold           = "1.0"
   namespace           = "AWS/Route53"
