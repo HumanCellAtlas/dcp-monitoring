@@ -18,7 +18,7 @@ locals {
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1543885117046,
+  "iteration": 1547148328805,
   "links": [],
   "panels": [
     {
@@ -89,7 +89,7 @@ locals {
           "namespace": "dcp-matrix-service-${var.env}",
           "period": "3600",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -176,7 +176,7 @@ locals {
           "namespace": "dcp-matrix-service-${var.env}",
           "period": "3600",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -263,7 +263,7 @@ locals {
           "namespace": "dcp-matrix-service-${var.env}",
           "period": "3600",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -350,7 +350,7 @@ locals {
           "namespace": "dcp-matrix-service-${var.env}",
           "period": "3600",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -437,7 +437,7 @@ locals {
           "namespace": "dcp-matrix-service-${var.env}",
           "period": "3600",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -524,7 +524,7 @@ locals {
           "namespace": "dcp-matrix-service-${var.env}",
           "period": "3600",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -848,7 +848,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -863,7 +863,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -878,7 +878,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "C",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -893,7 +893,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "D",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -985,7 +985,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -1001,7 +1001,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -1016,7 +1016,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "C",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -1032,7 +1032,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "D",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -1124,7 +1124,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -1139,7 +1139,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -1154,7 +1154,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "C",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -1169,7 +1169,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "D",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -1261,7 +1261,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -1276,7 +1276,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -1291,7 +1291,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "C",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -1306,7 +1306,7 @@ locals {
           "namespace": "AWS/DynamoDB",
           "period": "",
           "refId": "D",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -1409,7 +1409,7 @@ locals {
           "namespace": "AWS/ApiGateway",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -1426,7 +1426,7 @@ locals {
           "namespace": "AWS/ApiGateway",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -1443,7 +1443,7 @@ locals {
           "namespace": "AWS/ApiGateway",
           "period": "",
           "refId": "C",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -1537,7 +1537,7 @@ locals {
           "namespace": "AWS/ApiGateway",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -1554,7 +1554,7 @@ locals {
           "namespace": "AWS/ApiGateway",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -1659,7 +1659,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -1674,7 +1674,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -1779,7 +1779,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -1794,7 +1794,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -1899,7 +1899,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -1914,7 +1914,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -2019,7 +2019,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -2035,7 +2035,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -2140,7 +2140,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -2155,7 +2155,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Sum"
           ]
@@ -2261,7 +2261,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -2276,7 +2276,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -2382,7 +2382,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -2397,7 +2397,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -2503,7 +2503,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -2518,7 +2518,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -2624,7 +2624,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -2639,7 +2639,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -2745,7 +2745,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "A",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Average"
           ]
@@ -2760,7 +2760,7 @@ locals {
           "namespace": "AWS/Lambda",
           "period": "",
           "refId": "B",
-          "region": "default",
+          "region": "${var.region}",
           "statistics": [
             "Maximum"
           ]
@@ -2794,6 +2794,796 @@ locals {
         },
         {
           "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "description": "loom, csv, mtx",
+      "fill": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 5,
+        "x": 0,
+        "y": 47
+      },
+      "id": 51,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 3,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "0-499 bundles",
+          "dimensions": {
+            "Number of Bundles": "0-499"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "500-999 bundles",
+          "dimensions": {
+            "Number of Bundles": "500-999"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "1000-1499 bundles",
+          "dimensions": {
+            "Number of Bundles": "1000-1499"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "C",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "1500-1999 bundles ",
+          "dimensions": {
+            "Number of Bundles": "1500-1999"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "D",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "2000-2499 bundles",
+          "dimensions": {
+            "Number of Bundles": "2000-2499"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "E",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Average Request Duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "s",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "description": "",
+      "fill": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 5,
+        "x": 5,
+        "y": 47
+      },
+      "id": 50,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 3,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "0-499 bundles",
+          "dimensions": {
+            "Number of Bundles": "0-499",
+            "Output Format": "zarr"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "500-999 bundles",
+          "dimensions": {
+            "Number of Bundles": "500-999",
+            "Output Format": "zarr"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "1000-1499 bundles",
+          "dimensions": {
+            "Number of Bundles": "1000-1499",
+            "Output Format": "zarr"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "C",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "1500-1999 bundles ",
+          "dimensions": {
+            "Number of Bundles": "1500-1999",
+            "Output Format": "zarr"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "D",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "2000-2499 bundles",
+          "dimensions": {
+            "Number of Bundles": "2000-2499",
+            "Output Format": "zarr"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "E",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Zarr Request Duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "s",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "description": "",
+      "fill": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 5,
+        "x": 10,
+        "y": 47
+      },
+      "id": 48,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 3,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "0-499 bundles",
+          "dimensions": {
+            "Number of Bundles": "0-499",
+            "Output Format": "loom"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "500-999 bundles",
+          "dimensions": {
+            "Number of Bundles": "500-999",
+            "Output Format": "loom"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "1000-1499 bundles",
+          "dimensions": {
+            "Number of Bundles": "1000-1499",
+            "Output Format": "loom"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "C",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "1500-1999 bundles ",
+          "dimensions": {
+            "Number of Bundles": "1500-1999",
+            "Output Format": "loom"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "D",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "2000-2499 bundles",
+          "dimensions": {
+            "Number of Bundles": "2000-2499",
+            "Output Format": "loom"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "E",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Loom Request Duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "s",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "description": "",
+      "fill": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 5,
+        "x": 15,
+        "y": 47
+      },
+      "id": 47,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 3,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "0-499 bundles",
+          "dimensions": {
+            "Number of Bundles": "0-499",
+            "Output Format": "csv"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "500-999 bundles",
+          "dimensions": {
+            "Number of Bundles": "500-999",
+            "Output Format": "csv"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "1000-1499 bundles",
+          "dimensions": {
+            "Number of Bundles": "1000-1499",
+            "Output Format": "csv"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "C",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "1500-1999 bundles ",
+          "dimensions": {
+            "Number of Bundles": "1500-1999",
+            "Output Format": "csv"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "D",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "2000-2499 bundles",
+          "dimensions": {
+            "Number of Bundles": "2000-2499",
+            "Output Format": "csv"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "E",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Csv Request Duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "s",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
+      "description": "",
+      "fill": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 4,
+        "x": 20,
+        "y": 47
+      },
+      "id": 49,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 3,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "0-499 bundles",
+          "dimensions": {
+            "Number of Bundles": "0-499",
+            "Output Format": "mtx"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "A",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "500-999 bundles",
+          "dimensions": {
+            "Number of Bundles": "500-999",
+            "Output Format": "mtx"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "B",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "1000-1499 bundles",
+          "dimensions": {
+            "Number of Bundles": "1000-1499",
+            "Output Format": "mtx"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "C",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "1500-1999 bundles ",
+          "dimensions": {
+            "Number of Bundles": "1500-1999",
+            "Output Format": "mtx"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "D",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "2000-2499 bundles",
+          "dimensions": {
+            "Number of Bundles": "2000-2499",
+            "Output Format": "mtx"
+          },
+          "highResolution": false,
+          "metricName": "Matrix Request Duration",
+          "namespace": "dcp-matrix-service-${var.env}",
+          "period": "",
+          "refId": "E",
+          "region": "${var.region}",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Mtx Request Duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "s",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
