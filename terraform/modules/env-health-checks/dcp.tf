@@ -4,13 +4,11 @@ resource "aws_route53_health_check" "dcp" {
   child_health_threshold = 4
 
   child_healthchecks = [
-    "${aws_route53_health_check.azul_indexer.id}",
-    "${aws_route53_health_check.azul_webservice.id}",
-    "${aws_route53_health_check.data_browser.id}",
     "${aws_route53_health_check.dss.id}",
     "${aws_route53_health_check.ingest.id}",
     "${aws_route53_health_check.upload.id}",
     "${aws_route53_health_check.analysis.id}",
+    "${data.external.azul_health_check_id.result}.${var.env}"
   ]
 
   tags = {

@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+from terraform_external_data import terraform_external_data
+
+import boto3
+
+
+@terraform_external_data
+def fetch_composite_azul_id(stage):
+    client = boto3.client('route53')
+    route53_list_health = client.list_health_checks()
+    health_checks = route53_list_health["HealthChecks"]
+    for health_check in health_checks:
+        try:
+            var = health_check["CallerReference"]
+        except KeyError:
+            continue
+        else:
+            if var.startswith(f"azul-composite-{stage['health_check']}"):
+                return {stage["health_check"]: health_check["Id"]}
+    return {stage["health_check"]: ""}
+
+
+if __name__ == '__main__':
+    fetch_composite_azul_id()

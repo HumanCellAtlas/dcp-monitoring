@@ -5,16 +5,8 @@ output "analysis_health_check_id" {
   value = "${module.env-health-checks.analysis_health_check_id}"
 }
 
-output "azul_indexer_health_check_id" {
-  value = "${module.env-health-checks.azul_indexer_health_check_id}"
-}
-
-output "azul_webservice_health_check_id" {
-  value = "${module.env-health-checks.azul_webservice_health_check_id}"
-}
-
-output "data_browser_health_check_id" {
-  value = "${module.env-health-checks.data_browser_health_check_id}"
+output "azul_health_check_id" {
+  value = "${module.env-health-checks.azul_health_check_id}"
 }
 
 output "dcp_health_check_id" {
