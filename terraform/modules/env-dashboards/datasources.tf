@@ -1,3 +1,15 @@
+data "aws_secretsmanager_secret" "config" {
+  name = "dcp-monitoring/_/gcp-credentials.json"
+}
+
+data "aws_secretsmanager_secret_version" "config" {
+  secret_id = "${data.aws_secretsmanager_secret.config.id}"
+}
+
+data "external" "json" {
+  program = ["echo", "${data.aws_secretsmanager_secret_version.config.secret_string}"]
+}
+
 locals {
   gcp_analysis_datasource_name = "gcp-analysis-${var.env}"
   aws_upload                   = "aws-upload"
@@ -6,15 +18,19 @@ locals {
   gcp_analysis_datasource = <<EOF
 {
   "name": "${local.gcp_analysis_datasource_name}",
-  "type": "mtanda-google-stackdriver-datasource",
-  "typeLogoUrl": "public/img/icn-datasource.svg",
+  "type": "stackdriver",
   "access": "proxy",
+  "isDefault": false,
+  "readOnly": false,
   "jsonData": {
-    "access": "proxy",
-    "defaultProjectId": "${var.gcp_analysis_project_id}",
-    "keepCookies": []
+    "authenticationType": "jwt",
+    "tokenUri": "https://accounts.google.com/o/oauth2/token",
+    "defaultProject": "${var.gcp_analysis_project_id}",
+    "clientEmail": "${lookup(data.external.json.result, "client_email")}"
   },
-  "readOnly": false
+  "secureJsonData": {
+    "privateKey": "${replace(lookup(data.external.json.result, "private_key"), "\n", "\\n")}"
+  }
 }
 EOF
 

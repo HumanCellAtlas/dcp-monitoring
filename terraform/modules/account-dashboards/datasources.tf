@@ -34,6 +34,18 @@ resource "aws_iam_access_key" "grafana_datasource" {
   user = "${aws_iam_user.grafana_datasource.name}"
 }
 
+data "aws_secretsmanager_secret" "config" {
+  name = "dcp-monitoring/_/gcp-credentials.json"
+}
+
+data "aws_secretsmanager_secret_version" "config" {
+  secret_id = "${data.aws_secretsmanager_secret.config.id}"
+}
+
+data "external" "json" {
+  program = ["echo", "${data.aws_secretsmanager_secret_version.config.secret_string}"]
+}
+
 locals {
   aws_cloudwatch_data_source_name        = "account-cloudwatch"
   aws_logs_data_source_name              = "account-elasticsearch"
@@ -76,30 +88,38 @@ EOF
   gcp_log_project_datasource = <<EOF
 {
   "name": "${local.gcp_log_project_datasource_name}",
-  "type": "mtanda-google-stackdriver-datasource",
-  "typeLogoUrl": "public/img/icn-datasource.svg",
+  "type": "stackdriver",
   "access": "proxy",
+  "isDefault": false,
+  "readOnly": false,
   "jsonData": {
-    "access": "proxy",
-    "defaultProjectId": "${var.gcp_logs_project_id}",
-    "keepCookies": []
+    "authenticationType": "jwt",
+    "tokenUri": "https://accounts.google.com/o/oauth2/token",
+    "defaultProject": "${var.gcp_logs_project_id}",
+    "clientEmail": "${lookup(data.external.json.result, "client_email")}"
   },
-  "readOnly": false
+  "secureJsonData": {
+    "privateKey": "${replace(lookup(data.external.json.result, "private_key"), "\n", "\\n")}"
+  }
 }
 EOF
 
   gcp_monitoring_project_datasource = <<EOF
 {
   "name": "${local.gcp_monitoring_project_datasource_name}",
-  "type": "mtanda-google-stackdriver-datasource",
-  "typeLogoUrl": "public/img/icn-datasource.svg",
+  "type": "stackdriver",
   "access": "proxy",
+  "isDefault": false,
+  "readOnly": false,
   "jsonData": {
-    "access": "proxy",
-    "defaultProjectId": "${var.gcp_monitoring_project_id}",
-    "keepCookies": []
+    "authenticationType": "jwt",
+    "tokenUri": "https://accounts.google.com/o/oauth2/token",
+    "defaultProject": "${var.gcp_monitoring_project_id}",
+    "clientEmail": "${lookup(data.external.json.result, "client_email")}"
   },
-  "readOnly": false
+  "secureJsonData": {
+    "privateKey": "${replace(lookup(data.external.json.result, "private_key"), "\n", "\\n")}"
+  }
 }
 EOF
 }
