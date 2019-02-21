@@ -33,3 +33,15 @@ variable "upload_health_check_id" {
 variable "matrix_health_check_id" {
   type = "string"
 }
+
+variable "azul_indexer_health_check_id" {
+  type = "string"
+}
+
+variable "azul_webservice_health_check_id" {
+  type = "string"
+}
+
+variable "data_browser_health_check_id" {
+  type = "string"
+}
