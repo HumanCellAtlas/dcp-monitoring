@@ -20,6 +20,7 @@ This module takes health check identifiers and account-wide data sources as inpu
 | env | - | string | - | yes |
 | gcp\_analysis\_project\_id | - | string | - | yes |
 | ingest\_health\_check\_id | - | string | - | yes |
+| matrix\_health\_check\_id | - | string | - | yes |
 | region | - | string | - | yes |
 | upload\_health\_check\_id | - | string | - | yes |
 

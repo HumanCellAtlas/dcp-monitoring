@@ -132,6 +132,28 @@ data "terraform_remote_state" "env-health-checks" {
   }
 }
 
+data "terraform_remote_state" "singleton-alerts" {
+  backend = "s3"
+
+  config {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/envs/prod/components/singleton-alerts.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
+data "terraform_remote_state" "singleton-health-checks" {
+  backend = "s3"
+
+  config {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/envs/prod/components/singleton-health-checks.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
 # remote state for accounts
 
 data "terraform_remote_state" "hca-id" {

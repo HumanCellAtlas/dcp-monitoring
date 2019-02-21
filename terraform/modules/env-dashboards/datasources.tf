@@ -13,7 +13,7 @@ data "external" "json" {
 locals {
   gcp_analysis_datasource_name = "gcp-analysis-${var.env}"
   aws_upload                   = "aws-upload"
-  aws_upload_datasource_name    = "upload-db-${var.env}"
+  aws_upload_datasource_name   = "upload-db-${var.env}"
 
   gcp_analysis_datasource = <<EOF
 {
@@ -64,9 +64,10 @@ data "aws_secretsmanager_secret_version" "upload_db_creds" {
 
 data "external" "upload_db_secrets_processing" {
   program = ["sh", "${path.root}/../../../../terraform/modules/env-dashboards/process_upload_db_secrets.sh"]
-   query = {
+
+  query = {
     # arbitrary map from strings to strings, passed
     # to the external program as the data query.
     db_secret_string = "${data.aws_secretsmanager_secret_version.upload_db_creds.secret_string}"
- }
+  }
 }

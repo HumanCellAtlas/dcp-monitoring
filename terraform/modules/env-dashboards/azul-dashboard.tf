@@ -1,5 +1,5 @@
 locals {
-    azul_dashboard = <<EOF
+  azul_dashboard = <<EOF
 {
   "annotations": {
     "list": [

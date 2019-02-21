@@ -25,6 +25,8 @@
     }
   },
   "modules": {
+    "singleton-health-checks": {},
+    "singleton-alerts": {},
     "account-health-checks": {},
     "account-metrics": {},
     "account-alerts": {},
@@ -93,6 +95,12 @@
       "account_id": 109067257620,
       "aws_profile_provider": "hca-prod",
       "components": {
+        "singleton-health-checks": {
+          "module_source": "terraform/modules/singleton-health-checks"
+        },
+        "singleton-alerts": {
+          "module_source": "terraform/modules/singleton-alerts"
+        },
         "account-health-checks": {
           "module_source": "terraform/modules/account-health-checks"
         },

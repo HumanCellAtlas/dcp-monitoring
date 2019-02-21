@@ -49,7 +49,7 @@ EOF
 
   dimensions {
     DomainName = "dss-index-${var.env}"
-    ClientId = "${data.aws_caller_identity.current.account_id}"
+    ClientId   = "${data.aws_caller_identity.current.account_id}"
   }
 }
 
@@ -77,6 +77,6 @@ EOF
 
   dimensions {
     DomainName = "dss-index-${var.env}"
-    ClientId = "${data.aws_caller_identity.current.account_id}"
+    ClientId   = "${data.aws_caller_identity.current.account_id}"
   }
 }

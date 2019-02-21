@@ -16,7 +16,7 @@ terraform {
   backend "s3" {
     bucket = "org-humancellatlas-634134578715-terraform"
 
-    key = "terraform/dcp-observability/envs/prod/components/env-alerts.tfstate"
+    key = "terraform/dcp-observability/envs/prod/components/singleton-health-checks.tfstate"
 
     encrypt = true
     region  = "us-east-1"
@@ -41,7 +41,7 @@ variable "region" {
 
 variable "component" {
   type    = "string"
-  default = "env-alerts"
+  default = "singleton-health-checks"
 }
 
 variable "aws_profile" {
@@ -60,7 +60,7 @@ variable "tags" {
   default = {
     project   = "dcp-observability"
     env       = "prod"
-    service   = "env-alerts"
+    service   = "singleton-health-checks"
     owner     = "mweiden@chanzuckerberg.com"
     managedBy = "terraform"
   }
@@ -110,6 +110,17 @@ data "terraform_remote_state" "account-health-checks" {
   }
 }
 
+data "terraform_remote_state" "env-alerts" {
+  backend = "s3"
+
+  config {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/envs/prod/components/env-alerts.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
 data "terraform_remote_state" "env-dashboards" {
   backend = "s3"
 
@@ -138,17 +149,6 @@ data "terraform_remote_state" "singleton-alerts" {
   config {
     bucket  = "org-humancellatlas-634134578715-terraform"
     key     = "terraform/dcp-observability/envs/prod/components/singleton-alerts.tfstate"
-    region  = "us-east-1"
-    profile = "hca-id"
-  }
-}
-
-data "terraform_remote_state" "singleton-health-checks" {
-  backend = "s3"
-
-  config {
-    bucket  = "org-humancellatlas-634134578715-terraform"
-    key     = "terraform/dcp-observability/envs/prod/components/singleton-health-checks.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
   }
