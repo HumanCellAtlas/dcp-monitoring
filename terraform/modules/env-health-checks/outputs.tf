@@ -23,5 +23,5 @@ output "matrix_health_check_id" {
 }
 
 output "azul_health_check_id" {
-  value = "${data.external.azul_health_check_id.result}.${var.env}"
+  value = "${lookup(data.external.azul_health_check_id.result, "health_check_id")}"
 }

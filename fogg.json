@@ -1,4 +1,5 @@
 {
+  "docker": false,
   "defaults": {
     "aws_profile_backend": "hca-id",
     "aws_profile_provider": "hca-id",
