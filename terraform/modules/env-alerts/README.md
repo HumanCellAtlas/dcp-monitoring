@@ -11,9 +11,7 @@ Currently, alerts are sent to an SQS queue for [propagating alerts to slack](htt
 |------|-------------|:----:|:-----:|:-----:|
 | analysis\_health\_check\_id | - | string | - | yes |
 | aws\_profile | - | string | - | yes |
-| azul\_indexer\_health\_check\_id | - | string | - | yes |
-| azul\_webservice\_health\_check\_id | - | string | - | yes |
-| data\_browser\_health\_check\_id | - | string | - | yes |
+| azul\_health\_check\_id | - | string | - | yes |
 | dcp\_health\_check\_id | - | string | - | yes |
 | dss\_health\_check\_id | - | string | - | yes |
 | env | - | string | - | yes |
