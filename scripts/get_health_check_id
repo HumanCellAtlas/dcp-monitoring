@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -x
+
+eval "$(jq -r '@sh "CALLER_REFERENCE_PREFIX=\(.caller_reference_prefix)"')"
+
+ID=$(aws route53 list-health-checks | \
+    jq -r ".HealthChecks[] | \
+    select(.CallerReference) | \
+    select(.CallerReference | \
+    startswith(\"$CALLER_REFERENCE_PREFIX\")) | \
+    .Id")
+
+jq -n --arg ID "$ID" '{"health_check_id":$ID}'
