@@ -10,7 +10,7 @@ resource "aws_cloudwatch_metric_alarm" "logs_health" {
 
   alarm_description = <<EOF
 {
-  "slack_channel": "dcp-security",
+  "slack_channel": "dcp-monitoring",
   "description": "Logs Proxy and Elasticsearch availability healthcheck"
 }
 EOF
@@ -35,7 +35,7 @@ resource "aws_cloudwatch_metric_alarm" "logs_free_space" {
 
   alarm_description = <<EOF
 {
-  "slack_channel": "dcp-security",
+  "slack_channel": "dcp-monitoring",
   "description": "Logs Elasticsearch cluster free space"
 }
 EOF

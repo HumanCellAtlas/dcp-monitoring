@@ -11,7 +11,7 @@ resource "aws_cloudwatch_metric_alarm" "metrics_health" {
 
   alarm_description = <<EOF
 {
-  "slack_channel": "dcp-security",
+  "slack_channel": "dcp-monitoring",
   "description": "Metrics (Grafana) availability healthcheck"
 }
 EOF
