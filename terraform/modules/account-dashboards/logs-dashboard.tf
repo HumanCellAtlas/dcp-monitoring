@@ -1601,7 +1601,7 @@ locals {
           "refId": "A",
           "region": "${var.region}",
           "statistics": [
-            "Sum"
+            "Maximum"
           ]
         },
         {
