@@ -9,6 +9,7 @@ resource "aws_route53_health_check" "dcp" {
     "${aws_route53_health_check.upload.id}",
     "${aws_route53_health_check.analysis.id}",
     "${lookup(data.external.azul_health_check_id.result, "health_check_id")}",
+    "${lookup(data.external.data_browser_and_portal_health_check_id.result, "health_check_id")}",
   ]
 
   tags = {
