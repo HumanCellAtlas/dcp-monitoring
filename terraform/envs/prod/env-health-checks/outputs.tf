@@ -9,6 +9,10 @@ output "azul_health_check_id" {
   value = "${module.env-health-checks.azul_health_check_id}"
 }
 
+output "data_browser_and_portal_health_check_id" {
+  value = "${module.env-health-checks.data_browser_and_portal_health_check_id}"
+}
+
 output "dcp_health_check_id" {
   value = "${module.env-health-checks.dcp_health_check_id}"
 }
