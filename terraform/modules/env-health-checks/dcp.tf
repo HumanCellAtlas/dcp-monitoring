@@ -1,7 +1,7 @@
 // DCP overall system health
 resource "aws_route53_health_check" "dcp" {
   type                   = "CALCULATED"
-  child_health_threshold = 4
+  child_health_threshold = 6
 
   child_healthchecks = [
     "${aws_route53_health_check.dss.id}",
