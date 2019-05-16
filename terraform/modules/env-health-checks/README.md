@@ -19,6 +19,7 @@ It outputs health check IDs that can be used in visualizations of DCP health sta
 |------|-------------|
 | analysis\_health\_check\_id | - |
 | azul\_health\_check\_id | - |
+| data\_browser\_and\_portal\_health\_check\_id | - |
 | dcp\_health\_check\_id | - |
 | dss\_health\_check\_id | - |
 | ingest\_health\_check\_id | - |
