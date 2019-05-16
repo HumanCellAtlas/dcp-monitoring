@@ -10,7 +10,7 @@ provider "aws" {
 # Aliased Providers (for doing things in every region).
 
 terraform {
-  required_version = "~>0.11.7"
+  required_version = "~>0.11.13"
 
   backend "s3" {
     bucket = "org-humancellatlas-634134578715-terraform"

@@ -10,7 +10,7 @@
     "infra_s3_bucket": "org-humancellatlas-634134578715-terraform",
     "owner": "mweiden@chanzuckerberg.com",
     "project": "dcp-observability",
-    "terraform_version": "0.11.7"
+    "terraform_version": "0.11.13"
   },
   "accounts": {
     "hca-id": {},
