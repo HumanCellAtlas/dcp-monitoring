@@ -17,6 +17,7 @@ Currently, alerts are sent to an SQS queue for [propagating alerts to slack](htt
 | env |  | string | n/a | yes |
 | ingest\_health\_check\_id |  | string | n/a | yes |
 | matrix\_health\_check\_id |  | string | n/a | yes |
+| query\_health\_check\_id |  | string | n/a | yes |
 | region |  | string | n/a | yes |
 | upload\_health\_check\_id |  | string | n/a | yes |
 

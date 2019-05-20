@@ -11,6 +11,7 @@ module "env-alerts" {
   env                      = "${local.env}"
   ingest_health_check_id   = "${local.ingest_health_check_id}"
   matrix_health_check_id   = "${local.matrix_health_check_id}"
+  query_health_check_id    = "${local.query_health_check_id}"
   region                   = "${local.region}"
   upload_health_check_id   = "${local.upload_health_check_id}"
 }

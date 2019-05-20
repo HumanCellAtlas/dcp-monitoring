@@ -24,6 +24,7 @@ It outputs health check IDs that can be used in visualizations of DCP health sta
 | dss\_health\_check\_id |  |
 | ingest\_health\_check\_id |  |
 | matrix\_health\_check\_id |  |
+| query\_health\_check\_id |  |
 | upload\_health\_check\_id |  |
 
 <!-- END -->
