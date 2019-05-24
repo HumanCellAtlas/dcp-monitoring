@@ -3,12 +3,12 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| env | - | string | - | yes |
+| env |  | string | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| dss\_metrics\_namespace | - |
+| dss\_metrics\_namespace |  |
 
 <!-- END -->

@@ -12,22 +12,22 @@ An important data source on the account level is that of the [centralized loggin
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| aws\_profile | - | string | - | yes |
-| env | - | string | - | yes |
-| gcp\_logs\_project\_id | - | string | - | yes |
-| gcp\_monitoring\_project\_id | - | string | - | yes |
-| logs\_health\_check\_id | - | string | - | yes |
-| region | - | string | - | yes |
+| aws\_profile |  | string | n/a | yes |
+| env |  | string | n/a | yes |
+| gcp\_logs\_project\_id |  | string | n/a | yes |
+| gcp\_monitoring\_project\_id |  | string | n/a | yes |
+| logs\_health\_check\_id |  | string | n/a | yes |
+| region |  | string | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| aws\_cloudwatch\_data\_source\_name | - |
-| aws\_logs\_data\_source\_name | - |
-| dashboards | - |
-| datasources | - |
-| gcp\_log\_project\_datasource\_name | - |
-| gcp\_monitoring\_project\_datasource\_name | - |
+| aws\_cloudwatch\_data\_source\_name |  |
+| aws\_logs\_data\_source\_name |  |
+| dashboards |  |
+| datasources |  |
+| gcp\_log\_project\_datasource\_name |  |
+| gcp\_monitoring\_project\_datasource\_name |  |
 
 <!-- END -->

@@ -9,15 +9,15 @@ It outputs health check IDs that can be used in visualizations of application he
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| aws\_profile | - | string | - | yes |
-| env | - | string | - | yes |
-| region | - | string | - | yes |
+| aws\_profile |  | string | n/a | yes |
+| env |  | string | n/a | yes |
+| region |  | string | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| logs\_health\_check\_id | - |
-| metrics\_health\_check\_id | - |
+| logs\_health\_check\_id |  |
+| metrics\_health\_check\_id |  |
 
 <!-- END -->

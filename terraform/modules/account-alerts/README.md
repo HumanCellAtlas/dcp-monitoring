@@ -9,10 +9,10 @@ Currently, alerts are sent to an SQS queue for [propagating alerts to slack](htt
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| aws\_profile | - | string | - | yes |
-| env | - | string | - | yes |
-| logs\_health\_check\_id | - | string | - | yes |
-| metrics\_health\_check\_id | - | string | - | yes |
-| region | - | string | - | yes |
+| aws\_profile |  | string | n/a | yes |
+| env |  | string | n/a | yes |
+| logs\_health\_check\_id |  | string | n/a | yes |
+| metrics\_health\_check\_id |  | string | n/a | yes |
+| region |  | string | n/a | yes |
 
 <!-- END -->
