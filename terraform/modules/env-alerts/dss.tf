@@ -81,7 +81,7 @@ EOF
   }
 }
 
-data "aws_sfn_state_machine" dss-sync{
+data "aws_sfn_state_machine" dss-sync {
   name = "dss-sync-sfn-${var.env}"
 }
 
@@ -94,6 +94,7 @@ resource "aws_cloudwatch_metric_alarm" "dss-sync-failure" {
   period              = "120"
   statistic           = "Maximum"
   threshold           = "1"
+
   alarm_description = <<EOF
 {
   "slack_channel": "data-store-eng",
@@ -106,6 +107,6 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
-    StateMachineArn="${data.aws_sfn_state_machine.dss-sync.id}"
+    StateMachineArn = "${data.aws_sfn_state_machine.dss-sync.id}"
   }
 }
