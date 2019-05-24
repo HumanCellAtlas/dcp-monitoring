@@ -80,3 +80,32 @@ EOF
     ClientId   = "${data.aws_caller_identity.current.account_id}"
   }
 }
+
+data "aws_sfn_state_machine" dss-sync{
+  name = "dss-sync-sfn-${var.env}"
+}
+
+resource "aws_cloudwatch_metric_alarm" "dss-sync-failure" {
+  alarm_name          = "dss-sync-alert-${var.env}"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  evaluation_periods  = "1"
+  metric_name         = "ExecutionsFailed"
+  namespace           = "AWS/States"
+  period              = "120"
+  statistic           = "Maximum"
+  threshold           = "1"
+  alarm_description = <<EOF
+{
+  "slack_channel": "data-store-eng",
+  "environment": "${var.env}",
+  "description": "Sync Step-Function Failure!"
+}
+EOF
+
+  alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
+
+  dimensions {
+    StateMachineArn="${data.aws_sfn_state_machine.dss-sync.id}"
+  }
+}
