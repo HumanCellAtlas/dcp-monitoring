@@ -70,7 +70,8 @@ data "terraform_remote_state" "global" {
   backend = "s3"
 
   config {
-    bucket  = "org-humancellatlas-634134578715-terraform"
+    bucket = "org-humancellatlas-634134578715-terraform"
+
     key     = "terraform/dcp-observability/global.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
@@ -81,7 +82,8 @@ data "terraform_remote_state" "env-alerts" {
   backend = "s3"
 
   config {
-    bucket  = "org-humancellatlas-634134578715-terraform"
+    bucket = "org-humancellatlas-634134578715-terraform"
+
     key     = "terraform/dcp-observability/envs/integration/components/env-alerts.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
@@ -92,7 +94,8 @@ data "terraform_remote_state" "env-dashboards" {
   backend = "s3"
 
   config {
-    bucket  = "org-humancellatlas-634134578715-terraform"
+    bucket = "org-humancellatlas-634134578715-terraform"
+
     key     = "terraform/dcp-observability/envs/integration/components/env-dashboards.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
@@ -105,7 +108,8 @@ data "terraform_remote_state" "hca-id" {
   backend = "s3"
 
   config {
-    bucket  = "org-humancellatlas-634134578715-terraform"
+    bucket = "org-humancellatlas-634134578715-terraform"
+
     key     = "terraform/dcp-observability/accounts/hca-id.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
@@ -116,7 +120,8 @@ data "terraform_remote_state" "hca-prod" {
   backend = "s3"
 
   config {
-    bucket  = "org-humancellatlas-634134578715-terraform"
+    bucket = "org-humancellatlas-634134578715-terraform"
+
     key     = "terraform/dcp-observability/accounts/hca-prod.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
@@ -127,7 +132,8 @@ data "terraform_remote_state" "humancellatlas" {
   backend = "s3"
 
   config {
-    bucket  = "org-humancellatlas-634134578715-terraform"
+    bucket = "org-humancellatlas-634134578715-terraform"
+
     key     = "terraform/dcp-observability/accounts/humancellatlas.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
