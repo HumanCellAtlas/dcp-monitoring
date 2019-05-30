@@ -481,7 +481,7 @@ locals{
           "namespace": "AWS/ApiGateway",
           "period": "$interval",
           "refId": "A",
-          "region": "u${var.region}",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "p99.00"
