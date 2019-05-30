@@ -86,7 +86,7 @@ locals{
         {
           "$hashKey": "object:125",
           "dimensions": {
-            "HealthCheckId": "eda03232-8184-4c6a-bb29-243c8d7ceb3b"
+            "HealthCheckId": "${var.query_health_check_id}"
           },
           "expression": "",
           "highResolution": false,
@@ -166,7 +166,7 @@ locals{
           "alias": "{{LogGroup}}",
           "dimensions": {
             "CountType": "errors",
-            "LogGroup": "/aws/lambda/dcpquery-dev-APIHandler"
+            "LogGroup": "/aws/lambda/dcpquery-${var.env}-APIHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -186,7 +186,7 @@ locals{
           "alias": "{{LogGroup}}",
           "dimensions": {
             "CountType": "errors",
-            "LogGroup": "/aws/lambda/dcpquery-dev-AsyncQueryHandler"
+            "LogGroup": "/aws/lambda/dcpquery-${var.env}-AsyncQueryHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -206,7 +206,7 @@ locals{
           "alias": "{{LogGroup}}",
           "dimensions": {
             "CountType": "errors",
-            "LogGroup": "/aws/lambda/dcpquery-dev-BundleEventHandler"
+            "LogGroup": "/aws/lambda/dcpquery-${var.env}-BundleEventHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -624,7 +624,7 @@ locals{
       "targets": [
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-APIHandler"
+            "FunctionName": "dcpquery-${var.env}-APIHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -641,7 +641,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-APIHandler-HI5X1R22ENXJ"
+            "FunctionName": "dcpquery-${var.env}-APIHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -658,7 +658,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-APIHandler-HI5X1R22ENXJ"
+            "FunctionName": "dcpquery-${var.env}-APIHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -766,7 +766,7 @@ locals{
       "targets": [
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-APIHandler"
+            "FunctionName": "dcpquery-${var.env}-APIHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -783,7 +783,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-APIHandler"
+            "FunctionName": "dcpquery-${var.env}-APIHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -800,7 +800,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-APIHandler"
+            "FunctionName": "dcpquery-${var.env}-APIHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -907,7 +907,7 @@ locals{
       "targets": [
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-AsyncQueryHandler"
+            "FunctionName": "dcpquery-${var.env}-AsyncQueryHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -924,7 +924,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-AsyncQueryHandler"
+            "FunctionName": "dcpquery-${var.env}-AsyncQueryHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -941,7 +941,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-AsyncQueryHandler"
+            "FunctionName": "dcpquery-${var.env}-AsyncQueryHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -1049,7 +1049,7 @@ locals{
       "targets": [
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-AsyncQueryHandler"
+            "FunctionName": "dcpquery-${var.env}-AsyncQueryHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -1066,7 +1066,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-AsyncQueryHandler"
+            "FunctionName": "dcpquery-${var.env}-AsyncQueryHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -1083,7 +1083,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-AsyncQueryHandler"
+            "FunctionName": "dcpquery-${var.env}-AsyncQueryHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -1190,7 +1190,7 @@ locals{
       "targets": [
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-BundleEventHandler"
+            "FunctionName": "dcpquery-${var.env}-BundleEventHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -1207,7 +1207,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-BundleEventHandler"
+            "FunctionName": "dcpquery-${var.env}-BundleEventHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -1224,7 +1224,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-BundleEventHandler"
+            "FunctionName": "dcpquery-${var.env}-BundleEventHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -1332,7 +1332,7 @@ locals{
       "targets": [
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-BundleEventHandler-1J6W6PYT007JB"
+            "FunctionName": "dcpquery-${var.env}-BundleEventHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -1349,7 +1349,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-BundleEventHandler-1J6W6PYT007JB"
+            "FunctionName": "dcpquery-${var.env}-BundleEventHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -1366,7 +1366,7 @@ locals{
         },
         {
           "dimensions": {
-            "FunctionName": "dcpquery-dev-BundleEventHandler-1J6W6PYT007JB"
+            "FunctionName": "dcpquery-${var.env}-BundleEventHandler"
           },
           "expression": "",
           "highResolution": false,
@@ -1425,12 +1425,12 @@ locals{
     },
     {
       "aliasColors": {
-        "dcpquery-dev-async-queries": "dark-green",
-        "dcpquery-dev-async-queries_not_visible": "dark-green",
-        "dcpquery-dev-async-queries_visible": "dark-red",
-        "dcpquery-dev-bundle-events": "semi-dark-green",
-        "dcpquery-dev-bundle-events_not_visible": "dark-green",
-        "dcpquery-dev-bundle-events_visible": "dark-red"
+        "dcpquery-${var.env}-async-queries": "dark-green",
+        "dcpquery-${var.env}-async-queries_not_visible": "dark-green",
+        "dcpquery-${var.env}-async-queries_visible": "dark-red",
+        "dcpquery-${var.env}-bundle-events": "semi-dark-green",
+        "dcpquery-${var.env}-bundle-events_not_visible": "dark-green",
+        "dcpquery-${var.env}-bundle-events_visible": "dark-red"
       },
       "bars": false,
       "dashLength": 10,
@@ -1469,7 +1469,7 @@ locals{
         {
           "alias": "{{QueueName}}_visible",
           "dimensions": {
-            "QueueName": "dcpquery-dev-async-queries"
+            "QueueName": "dcpquery-${var.env}-async-queries"
           },
           "expression": "",
           "highResolution": false,
@@ -1487,7 +1487,7 @@ locals{
         {
           "alias": "{{QueueName}}_not_visible",
           "dimensions": {
-            "QueueName": "dcpquery-dev-async-queries"
+            "QueueName": "dcpquery-${var.env}-async-queries"
           },
           "expression": "",
           "highResolution": false,
@@ -1546,12 +1546,12 @@ locals{
     },
     {
       "aliasColors": {
-        "dcpquery-dev-async-queries": "dark-green",
-        "dcpquery-dev-async-queries_not_visible": "dark-green",
-        "dcpquery-dev-async-queries_visible": "dark-red",
-        "dcpquery-dev-bundle-events": "semi-dark-green",
-        "dcpquery-dev-bundle-events_not_visible": "dark-green",
-        "dcpquery-dev-bundle-events_visible": "dark-red"
+        "dcpquery-${var.env}-async-queries": "dark-green",
+        "dcpquery-${var.env}-async-queries_not_visible": "dark-green",
+        "dcpquery-${var.env}-async-queries_visible": "dark-red",
+        "dcpquery-${var.env}-bundle-events": "semi-dark-green",
+        "dcpquery-${var.env}-bundle-events_not_visible": "dark-green",
+        "dcpquery-${var.env}-bundle-events_visible": "dark-red"
       },
       "bars": false,
       "dashLength": 10,
@@ -1590,7 +1590,7 @@ locals{
         {
           "alias": "{{QueueName}}_visible",
           "dimensions": {
-            "QueueName": "dcpquery-dev-bundle-events"
+            "QueueName": "dcpquery-${var.env}-bundle-events"
           },
           "expression": "",
           "highResolution": false,
@@ -1608,7 +1608,7 @@ locals{
         {
           "alias": "{{QueueName}}_not_visible",
           "dimensions": {
-            "QueueName": "dcpquery-dev-bundle-events"
+            "QueueName": "dcpquery-${var.env}-bundle-events"
           },
           "expression": "",
           "highResolution": false,
@@ -1704,7 +1704,7 @@ locals{
         {
           "alias": "{{QueueName}}_max",
           "dimensions": {
-            "QueueName": "dcpquery-dev-async-queries"
+            "QueueName": "dcpquery-${var.env}-async-queries"
           },
           "expression": "",
           "highResolution": false,
@@ -1722,7 +1722,7 @@ locals{
         {
           "alias": "{{QueueName}}_max",
           "dimensions": {
-            "QueueName": "dcpquery-dev-bundle-events"
+            "QueueName": "dcpquery-${var.env}-bundle-events"
           },
           "expression": "",
           "highResolution": false,
@@ -1823,7 +1823,7 @@ locals{
         {
           "alias": "",
           "dimensions": {
-            "BucketName": "org-humancellatlas-dcpquery-dev"
+            "BucketName": "org-humancellatlas-dcpquery-${var.env}"
           },
           "expression": "",
           "highResolution": false,
@@ -1840,7 +1840,7 @@ locals{
         },
         {
           "dimensions": {
-            "BucketName": "org-humancellatlas-dcpquery-dev"
+            "BucketName": "org-humancellatlas-dcpquery-${var.env}"
           },
           "expression": "",
           "highResolution": false,
@@ -2028,7 +2028,7 @@ locals{
       "targets": [
         {
           "dimensions": {
-            "DBClusterIdentifier": "dcpquery-dev"
+            "DBClusterIdentifier": "dcpquery-${var.env}"
           },
           "expression": "",
           "highResolution": false,
@@ -2135,7 +2135,7 @@ locals{
       "targets": [
         {
           "dimensions": {
-            "DBClusterIdentifier": "dcpquery-dev"
+            "DBClusterIdentifier": "dcpquery-${var.env}"
           },
           "expression": "",
           "highResolution": false,
@@ -2152,7 +2152,7 @@ locals{
         },
         {
           "dimensions": {
-            "DBClusterIdentifier": "dcpquery-dev"
+            "DBClusterIdentifier": "dcpquery-${var.env}"
           },
           "expression": "",
           "highResolution": false,
@@ -2169,7 +2169,7 @@ locals{
         },
         {
           "dimensions": {
-            "DBClusterIdentifier": "dcpquery-dev"
+            "DBClusterIdentifier": "dcpquery-${var.env}"
           },
           "expression": "",
           "highResolution": false,
@@ -2273,7 +2273,7 @@ locals{
       "targets": [
         {
           "dimensions": {
-            "DBClusterIdentifier": "dcpquery-dev"
+            "DBClusterIdentifier": "dcpquery-${var.env}"
           },
           "expression": "",
           "highResolution": false,
@@ -2290,7 +2290,7 @@ locals{
         },
         {
           "dimensions": {
-            "DBClusterIdentifier": "dcpquery-dev"
+            "DBClusterIdentifier": "dcpquery-${var.env}"
           },
           "expression": "",
           "highResolution": false,
