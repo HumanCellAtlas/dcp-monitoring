@@ -102,7 +102,7 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
-    StateMachineArn="arn:aws:states:us-east-1:861229788715:stateMachine:dss-sync-sfn-${var.env}"
+    StateMachineArn = "arn:aws:states:us-east-1:861229788715:stateMachine:dss-sync-sfn-${var.env}"
   }
   # Hard-Coded due to no data.aws_sfn support in TF. 
 }
