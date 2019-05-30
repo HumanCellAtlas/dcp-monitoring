@@ -1,5 +1,5 @@
-resource "aws_cloudwatch_metric_alarm" "azul" {
-  alarm_name          = "azul-${var.env}"
+resource "aws_cloudwatch_metric_alarm" "query" {
+  alarm_name          = "query-${var.env}"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = "3"
   datapoints_to_alarm = "2"
@@ -11,9 +11,9 @@ resource "aws_cloudwatch_metric_alarm" "azul" {
 
   alarm_description = <<EOF
 {
-  "slack_channel": "azul-${var.env}",
+  "slack_channel": "query-service",
   "environment": "${var.env}",
-  "description": "Azul availability healthcheck"
+  "description": "DCP Query Service availability healthcheck"
 }
 EOF
 
@@ -21,6 +21,6 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
-    HealthCheckId = "${var.azul_health_check_id}"
+    HealthCheckId = "${var.query_health_check_id}"
   }
 }

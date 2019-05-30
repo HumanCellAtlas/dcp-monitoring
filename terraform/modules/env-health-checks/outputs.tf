@@ -29,3 +29,7 @@ output "azul_health_check_id" {
 output "data_browser_and_portal_health_check_id" {
   value = "${lookup(data.external.data_browser_and_portal_health_check_id.result, "id")}"
 }
+
+output "query_health_check_id" {
+  value = "${aws_route53_health_check.query.id}"
+}

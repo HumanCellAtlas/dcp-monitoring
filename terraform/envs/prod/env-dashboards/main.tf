@@ -13,6 +13,7 @@ module "env-dashboards" {
   gcp_analysis_project_id         = "${local.gcp_analysis_project_id}"
   ingest_health_check_id          = "${local.ingest_health_check_id}"
   matrix_health_check_id          = "${local.matrix_health_check_id}"
+  query_health_check_id           = "${local.query_health_check_id}"
   region                          = "${local.region}"
   upload_health_check_id          = "${local.upload_health_check_id}"
 }
