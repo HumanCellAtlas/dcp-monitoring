@@ -34,6 +34,10 @@ variable "matrix_health_check_id" {
   type = "string"
 }
 
+variable "query_health_check_id" {
+  type = "string"
+}
+
 variable "gcp_analysis_project_id" {
   type = "string"
 }
