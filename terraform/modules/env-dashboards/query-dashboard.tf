@@ -95,7 +95,7 @@ locals{
           "namespace": "AWS/Route53",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Minimum"
@@ -175,7 +175,7 @@ locals{
           "namespace": "Logs",
           "period": "",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -195,7 +195,7 @@ locals{
           "namespace": "Logs",
           "period": "",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -215,7 +215,7 @@ locals{
           "namespace": "Logs",
           "period": "",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -330,7 +330,7 @@ locals{
           "namespace": "AWS/ApiGateway",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -348,7 +348,7 @@ locals{
           "namespace": "AWS/ApiGateway",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -366,7 +366,7 @@ locals{
           "namespace": "AWS/ApiGateway",
           "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -481,7 +481,7 @@ locals{
           "namespace": "AWS/ApiGateway",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "u${var.region}",
           "returnData": false,
           "statistics": [
             "p99.00"
@@ -499,7 +499,7 @@ locals{
           "namespace": "AWS/ApiGateway",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "p95.00"
@@ -517,7 +517,7 @@ locals{
           "namespace": "AWS/ApiGateway",
           "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "p50.00"
@@ -633,7 +633,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -650,7 +650,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -667,7 +667,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -775,7 +775,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Minimum"
@@ -792,7 +792,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Average"
@@ -809,7 +809,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Maximum"
@@ -916,7 +916,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -933,7 +933,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -950,7 +950,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -1058,7 +1058,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Minimum"
@@ -1075,7 +1075,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Average"
@@ -1092,7 +1092,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Maximum"
@@ -1199,7 +1199,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -1216,7 +1216,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -1233,7 +1233,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -1341,7 +1341,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Minimum"
@@ -1358,7 +1358,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Average"
@@ -1375,7 +1375,7 @@ locals{
           "namespace": "AWS/Lambda",
           "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Maximum"
@@ -1478,7 +1478,7 @@ locals{
           "namespace": "AWS/SQS",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Average"
@@ -1496,7 +1496,7 @@ locals{
           "namespace": "AWS/SQS",
           "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Average"
@@ -1599,7 +1599,7 @@ locals{
           "namespace": "AWS/SQS",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Average"
@@ -1617,7 +1617,7 @@ locals{
           "namespace": "AWS/SQS",
           "period": "$interval",
           "refId": "D",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Average"
@@ -1713,7 +1713,7 @@ locals{
           "namespace": "AWS/SQS",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Maximum"
@@ -1731,7 +1731,7 @@ locals{
           "namespace": "AWS/SQS",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Maximum"
@@ -1832,7 +1832,7 @@ locals{
           "namespace": "AWS/S3",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Average"
@@ -1849,7 +1849,7 @@ locals{
           "namespace": "AWS/S3",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Average"
@@ -1942,7 +1942,7 @@ locals{
           "namespace": "AWS/RDS",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Average"
@@ -2037,7 +2037,7 @@ locals{
           "namespace": "AWS/RDS",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Minimum"
@@ -2144,7 +2144,7 @@ locals{
           "namespace": "AWS/RDS",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "p99.00"
@@ -2161,7 +2161,7 @@ locals{
           "namespace": "AWS/RDS",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "p99.00"
@@ -2178,7 +2178,7 @@ locals{
           "namespace": "AWS/RDS",
           "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "p99.00"
@@ -2282,7 +2282,7 @@ locals{
           "namespace": "AWS/RDS",
           "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -2299,7 +2299,7 @@ locals{
           "namespace": "AWS/RDS",
           "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
