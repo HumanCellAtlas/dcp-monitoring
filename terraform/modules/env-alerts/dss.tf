@@ -1,7 +1,3 @@
-data aws_caller_identity current {}
-data "aws_region" "current" {}
-
-
 resource "aws_cloudwatch_metric_alarm" "dss" {
   alarm_name          = "dss-${var.env}"
   comparison_operator = "LessThanThreshold"
@@ -107,6 +103,6 @@ EOF
 
   dimensions {
     # "Terraform does not support ARN lookup for AWS Step Functions"
-    StateMachineArn = "arn:aws:states:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:stateMachine:dss-sync-sfn-${var.env}"
+    StateMachineArn = "arn:aws:states:${var.env}:${data.aws_caller_identity.current.account_id}:stateMachine:dss-sync-sfn-${var.env}"
   }
 }
