@@ -103,6 +103,6 @@ EOF
 
   dimensions {
     # "Terraform does not support ARN lookup for AWS Step Functions"
-    StateMachineArn = "arn:aws:states:${var.env}:${data.aws_caller_identity.current.account_id}:stateMachine:dss-sync-sfn-${var.env}"
+    StateMachineArn = "arn:aws:states:${var.region}:${data.aws_caller_identity.current.account_id}:stateMachine:dss-sync-sfn-${var.env}"
   }
 }
