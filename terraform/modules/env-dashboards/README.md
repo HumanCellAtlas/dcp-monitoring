@@ -21,6 +21,7 @@ This module takes health check identifiers and account-wide data sources as inpu
 | gcp\_analysis\_project\_id |  | string | n/a | yes |
 | ingest\_health\_check\_id |  | string | n/a | yes |
 | matrix\_health\_check\_id |  | string | n/a | yes |
+| query\_health\_check\_id |  | string | n/a | yes |
 | region |  | string | n/a | yes |
 | upload\_health\_check\_id |  | string | n/a | yes |
 
