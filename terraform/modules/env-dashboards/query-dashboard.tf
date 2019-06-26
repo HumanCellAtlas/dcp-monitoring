@@ -1,5 +1,5 @@
-locals{
-   query_dashboard = <<EOF
+locals {
+  query_dashboard = <<EOF
 {
   "annotations": {
     "list": [
