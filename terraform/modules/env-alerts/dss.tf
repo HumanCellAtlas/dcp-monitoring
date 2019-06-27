@@ -99,7 +99,6 @@ resource "aws_cloudwatch_metric_alarm" "dss-sync-failure" {
 EOF
 
   alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
-  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
     # "Terraform does not support ARN lookup for AWS Step Functions"
