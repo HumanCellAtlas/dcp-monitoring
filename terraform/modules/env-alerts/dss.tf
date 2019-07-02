@@ -80,3 +80,28 @@ EOF
     ClientId   = "${data.aws_caller_identity.current.account_id}"
   }
 }
+
+resource "aws_cloudwatch_metric_alarm" "dss-sync-failure" {
+  alarm_name          = "dss-sync-alert-${var.env}"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  evaluation_periods  = "1"
+  metric_name         = "ExecutionsFailed"
+  namespace           = "AWS/States"
+  period              = "120"
+  statistic           = "Maximum"
+  threshold           = "1"
+  alarm_description = <<EOF
+{
+  "slack_channel": "data-store-eng",
+  "environment": "${var.env}",
+  "description": "Sync Step-Function Failure!"
+}
+EOF
+
+  alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
+
+  dimensions {
+    # "Terraform does not support ARN lookup for AWS Step Functions"
+    StateMachineArn = "arn:aws:states:${var.region}:${data.aws_caller_identity.current.account_id}:stateMachine:dss-sync-sfn-${var.env}"
+  }
+}
