@@ -6,6 +6,7 @@ locals {
     "${aws_route53_health_check.upload.id}",
     "${aws_route53_health_check.analysis.id}",
     "${aws_route53_health_check.query.id}",
+    "${aws_route53_health_check.auth.id}",
   ]
 
   child_health_check_ids = ["${concat(
