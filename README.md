@@ -22,6 +22,10 @@ The term "monitoring" is used here as [defined in the Google SRE handbook](https
   * [Configure an alert](#configure-an-alert)
   * [Develop new Grafana dashboards and datasources](#develop-new-grafana-dashboards-and-datasources)
 
+## Requirements
+
+* [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+
 ## Concepts and design
 
 `dcp-monitoring` defines terraform modules that are templated on two dimensions: cloud accounts and environments.
