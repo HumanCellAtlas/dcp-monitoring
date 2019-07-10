@@ -57,10 +57,21 @@ variable "aws_accounts" {
 data "terraform_remote_state" "global" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/global.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
+data "terraform_remote_state" "humancellatlas" {
+  backend = "s3"
+
+  config = {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/accounts/humancellatlas.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
   }
