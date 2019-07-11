@@ -5,6 +5,10 @@ output "analysis_health_check_id" {
   value = "${module.env-health-checks.analysis_health_check_id}"
 }
 
+output "auth_health_check_id" {
+  value = "${module.env-health-checks.auth_health_check_id}"
+}
+
 output "azul_health_check_id" {
   value = "${module.env-health-checks.azul_health_check_id}"
 }

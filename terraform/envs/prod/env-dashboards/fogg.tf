@@ -69,7 +69,7 @@ variable "tags" {
 data "terraform_remote_state" "global" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/global.tfstate"
@@ -81,7 +81,7 @@ data "terraform_remote_state" "global" {
 data "terraform_remote_state" "account-alerts" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/envs/prod/components/account-alerts.tfstate"
@@ -93,7 +93,7 @@ data "terraform_remote_state" "account-alerts" {
 data "terraform_remote_state" "account-dashboards" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/envs/prod/components/account-dashboards.tfstate"
@@ -105,7 +105,7 @@ data "terraform_remote_state" "account-dashboards" {
 data "terraform_remote_state" "account-health-checks" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/envs/prod/components/account-health-checks.tfstate"
@@ -117,7 +117,7 @@ data "terraform_remote_state" "account-health-checks" {
 data "terraform_remote_state" "env-alerts" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/envs/prod/components/env-alerts.tfstate"
@@ -129,7 +129,7 @@ data "terraform_remote_state" "env-alerts" {
 data "terraform_remote_state" "env-health-checks" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/envs/prod/components/env-health-checks.tfstate"
@@ -141,7 +141,7 @@ data "terraform_remote_state" "env-health-checks" {
 data "terraform_remote_state" "singleton-alerts" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/envs/prod/components/singleton-alerts.tfstate"
@@ -153,7 +153,7 @@ data "terraform_remote_state" "singleton-alerts" {
 data "terraform_remote_state" "singleton-health-checks" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/envs/prod/components/singleton-health-checks.tfstate"
@@ -167,7 +167,7 @@ data "terraform_remote_state" "singleton-health-checks" {
 data "terraform_remote_state" "hca-id" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/accounts/hca-id.tfstate"
@@ -179,7 +179,7 @@ data "terraform_remote_state" "hca-id" {
 data "terraform_remote_state" "hca-prod" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/accounts/hca-prod.tfstate"
@@ -191,7 +191,7 @@ data "terraform_remote_state" "hca-prod" {
 data "terraform_remote_state" "humancellatlas" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/accounts/humancellatlas.tfstate"
@@ -205,6 +205,8 @@ variable "aws_accounts" {
   type = "map"
 
   default = {
+    hca-id = 634134578715
+
     hca-prod = 109067257620
 
     humancellatlas = 861229788715

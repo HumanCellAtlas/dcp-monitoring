@@ -1,0 +1,115 @@
+accounts:
+    hca-id:
+        providers:
+            aws: {}
+    hca-prod:
+        backend:
+            profile: hca-id
+        providers:
+            aws:
+                account_id: "109067257620"
+                profile: hca-prod
+    humancellatlas:
+        backend:
+            profile: hca-id
+        providers:
+            aws:
+                account_id: "861229788715"
+                profile: hca
+defaults:
+    backend:
+        bucket: org-humancellatlas-634134578715-terraform
+        profile: hca-id
+        region: us-east-1
+    owner: mweiden@chanzuckerberg.com
+    project: dcp-observability
+    providers:
+        aws:
+            account_id: "634134578715"
+            profile: hca-id
+            region: us-east-1
+            version: 1.27.0
+    terraform_version: 0.11.13
+    tools: {}
+envs:
+    dev:
+        providers:
+            aws:
+                account_id: "861229788715"
+                profile: hca
+        components:
+            account-alerts:
+                module_source: terraform/modules/account-alerts
+            account-dashboards:
+                module_source: terraform/modules/account-dashboards
+            account-health-checks:
+                module_source: terraform/modules/account-health-checks
+            env-alerts:
+                module_source: terraform/modules/env-alerts
+            env-dashboards:
+                module_source: terraform/modules/env-dashboards
+            env-health-checks:
+                module_source: terraform/modules/env-health-checks
+    integration:
+        providers:
+            aws:
+                account_id: "861229788715"
+                profile: hca
+        components:
+            env-alerts:
+                module_source: terraform/modules/env-alerts
+            env-dashboards:
+                module_source: terraform/modules/env-dashboards
+            env-health-checks:
+                module_source: terraform/modules/env-health-checks
+    prod:
+        providers:
+            aws:
+                account_id: "109067257620"
+                profile: hca-prod
+        components:
+            account-alerts:
+                module_source: terraform/modules/account-alerts
+            account-dashboards:
+                module_source: terraform/modules/account-dashboards
+            account-health-checks:
+                module_source: terraform/modules/account-health-checks
+            env-alerts:
+                module_source: terraform/modules/env-alerts
+            env-dashboards:
+                module_source: terraform/modules/env-dashboards
+            env-health-checks:
+                module_source: terraform/modules/env-health-checks
+            singleton-alerts:
+                module_source: terraform/modules/singleton-alerts
+            singleton-health-checks:
+                module_source: terraform/modules/singleton-health-checks
+    staging:
+        providers:
+            aws:
+                account_id: "861229788715"
+                profile: hca
+        components:
+            env-alerts:
+                module_source: terraform/modules/env-alerts
+            env-dashboards:
+                module_source: terraform/modules/env-dashboards
+            env-health-checks:
+                module_source: terraform/modules/env-health-checks
+modules:
+    account-alerts: {}
+    account-dashboards: {}
+    account-health-checks: {}
+    account-metrics: {}
+    env-alerts: {}
+    env-dashboards: {}
+    env-health-checks: {}
+    env-metrics: {}
+    singleton-alerts: {}
+    singleton-health-checks: {}
+plugins:
+    custom_plugins:
+        jq:
+            url: https://github.com/stedolan/jq/releases/download/jq-1.5/jq-osx-amd64
+            format: bin
+version: 2

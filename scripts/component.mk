@@ -6,50 +6,97 @@ SELF_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 include $(SELF_DIR)/common.mk
 
 all:
+.PHONY: all
+
+setup:
+	$(MAKE) -C $(REPO_ROOT) setup
+.PHONY: setup
 
 check: lint check-plan
+.PHONY: check
 
 fmt: terraform
-	$(sh_command) -c 'for f in $(TF); do printf .; terraform fmt $$f; done'; \
-	echo
+	@printf "fmt: ";
+	@for f in $(TF); do printf .; $(terraform_command) fmt $(TF_ARGS) $$f; done
+	@echo
+.PHONY: fmt
 
-lint: terraform-validate lint-terraform-fmt lint-tflint
+lint: lint-terraform-fmt lint-tflint
+.PHONY: lint
 
 lint-tflint: init
-	if (( $$TFLINT_ENABLED )); then \
-    $(sh_command) -c 'tflint' || exit $$?; \
-	fi \
-
-terraform-validate: terraform init
-	$(sh_command) -c 'terraform validate -check-variables=true'
+	@printf "tflint: "
+ifeq ($(TFLINT_ENABLED),1)
+	@tflint || exit $$?;
+else
+	@echo "disabled"
+endif
+.PHONY: lint-tflint
 
 lint-terraform-fmt: terraform
-	$(sh_command) -c 'for f in $(TF); do printf .; terraform fmt --check=true --diff=true $$f || exit $$? ; done'
+	@printf "fmt check: "
+	@for f in $(TF); do \
+		printf . \
+		$(terraform_command) fmt $(TF_ARGS) --check=true --diff=true $$f || exit $$? ; \
+	done
+	@echo
+.PHONY: lint-terraform-fmt
 
-get: ssh-forward terraform
-	$(terraform_command) get --update=true
+ifeq ($(MODE),local)
+plan: init fmt
+	@$(terraform_command) plan $(TF_ARGS) -input=false
+else ifeq ($(MODE),atlantis)
+plan: init lint
+	@$(terraform_command) plan $(TF_ARGS) -input=false -out $(PLANFILE) | scenery
+else
+	@echo "Unknown MODE: $(MODE)"
+	@exit -1
+endif
+.PHONY: plan
 
-plan: terraform fmt get init ssh-forward
-	$(terraform_command) plan
-
-apply: FOGG_DOCKER_FLAGS = -it
-apply: terraform fmt get init ssh-forward
-	$(terraform_command) apply -auto-approve=$(AUTO_APPROVE)
+ifeq ($(MODE),local)
+apply: init
+ifeq ($(ATLANTIS_ENABLED),1)
+ifneq ($(FORCE),1)
+	@echo "`tput bold`This component is configured to be used with atlantis. If you want to override and apply locally, add FORCE=1.`tput sgr0`"
+	exit -1
+endif
+endif
+	@$(terraform_command) apply $(TF_ARGS) -auto-approve=$(AUTO_APPROVE)
+else ifeq ($(MODE),atlantis)
+apply:
+	@$(terraform_command) apply $(TF_ARGS) -auto-approve=true $(PLANFILE)
+else
+	echo "Unknown mode: $(MODE)"
+	exit -1
+endif
+.PHONY: apply
 
 docs:
 	echo
+.PHONY: docs
 
 clean:
 	-rm -rfv .terraform/modules
 	-rm -rfv .terraform/plugins
+.PHONY: clean
 
 test:
+.PHONY: test
 
-init: terraform ssh-forward
-	$(terraform_command) init -input=false
+init: terraform
+ifeq ($(MODE),local)
+	@$(terraform_command) init -input=false
+else ifeq ($(MODE),atlantis)
+	@$(terraform_command) init $(TF_ARGS) -input=false
+else
+	@echo "Unknown MODE: $(MODE)"
+	@exit -1
+endif
+.PHONY: init
 
-check-plan: terraform init get ssh-forward
-	$(terraform_command) plan -detailed-exitcode; \
+check-plan: init
+	@$(terraform_command) plan $(TF_ARGS) -detailed-exitcode; \
 	ERR=$$?; \
 	if [ $$ERR -eq 0 ] ; then \
 		echo "Success"; \
@@ -59,14 +106,8 @@ check-plan: terraform init get ssh-forward
 	elif [ $$ERR -eq 2 ] ; then \
 		echo "Diff";  \
 	fi
+.PHONY: check-plan
 
-ssh-forward:
-ifdef USE_DOCKER
-	bash $(REPO_ROOT)/scripts/docker-ssh-forward.sh
-endif
-
-run: FOGG_DOCKER_FLAGS = -it
 run:
-	$(terraform_command) $(CMD)
-
-.PHONY: all apply clean docs fmt get lint plan run ssh-forward test
+	@$(terraform_command) $(CMD)
+.PHONY: run
