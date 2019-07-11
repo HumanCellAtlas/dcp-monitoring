@@ -2,9 +2,10 @@
 # Make improvements in fogg, so that everyone can benefit.
 
 provider "aws" {
-  version = "~> 1.27.0"
-  region  = "us-east-1"
-  profile = "hca-id"
+  version             = "~> 1.27.0"
+  region              = "us-east-1"
+  profile             = "hca-id"
+  allowed_account_ids = [634134578715]
 }
 
 # Aliased Providers (for doing things in every region).

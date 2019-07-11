@@ -3,9 +3,10 @@
 
 # Default Provider
 provider "aws" {
-  version = "~> 1.27.0"
-  region  = "us-east-1"
-  profile = "hca-id"
+  version             = "~> 1.27.0"
+  region              = "us-east-1"
+  profile             = "hca-id"
+  allowed_account_ids = [634134578715]
 }
 
 # Aliased Providers (for doing things in every region).
@@ -56,10 +57,32 @@ variable "aws_accounts" {
 data "terraform_remote_state" "global" {
   backend = "s3"
 
-  config {
+  config = {
     bucket = "org-humancellatlas-634134578715-terraform"
 
     key     = "terraform/dcp-observability/global.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
+data "terraform_remote_state" "hca-prod" {
+  backend = "s3"
+
+  config = {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/accounts/hca-prod.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
+data "terraform_remote_state" "humancellatlas" {
+  backend = "s3"
+
+  config = {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/accounts/humancellatlas.tfstate"
     region  = "us-east-1"
     profile = "hca-id"
   }

@@ -90,6 +90,7 @@ resource "aws_cloudwatch_metric_alarm" "dss-sync-failure" {
   period              = "120"
   statistic           = "Maximum"
   threshold           = "1"
+
   alarm_description = <<EOF
 {
   "slack_channel": "data-store-eng",
