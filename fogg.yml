@@ -110,6 +110,6 @@ modules:
 plugins:
     custom_plugins:
         jq:
-            url: https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
+            url: https://github.com/stedolan/jq/releases/download/jq-1.5/jq-osx-amd64
             format: bin
 version: 2
