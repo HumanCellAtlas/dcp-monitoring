@@ -2,11 +2,11 @@
 
 OPTION="$1"
 
-eval "$(jq -r '@sh "CALLER_REFERENCE_PREFIX=\(.caller_reference_prefix)"')"
+eval "$(jq -r '@sh "CALLER_REFERENCE_PREFIX=\(.caller_reference_prefix) AWS_PROFILE=\(.aws_profile)"')"
 
 case "$OPTION" in
   --children)
-    IDS=$(aws route53 list-health-checks | \
+    IDS=$(aws route53 list-health-checks --profile "$AWS_PROFILE" | \
       jq -r ".HealthChecks[] | \
       select(.CallerReference) | \
       select(.CallerReference | \
@@ -22,7 +22,7 @@ case "$OPTION" in
     jq -n "$result"
     ;;
   *)
-    aws route53 list-health-checks | \
+    aws route53 list-health-checks --profile "$AWS_PROFILE" | \
       jq ".HealthChecks[] | \
       select(.CallerReference) | \
       select(.CallerReference | \
