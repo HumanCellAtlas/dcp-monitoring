@@ -29,7 +29,7 @@ locals {
         "#629e51",
         "#d44a3a"
       ],
-      "datasource": "account-cloudwatch",
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -89,16 +89,16 @@ locals {
         {
           "$hashKey": "object:125",
           "dimensions": {
-            "HealthCheckId": "0d8f05fa-a108-4fe4-9868-5ddc368b3a5e"
+            "HealthCheckId": "${var.auth_health_check_id}"
           },
           "expression": "",
           "highResolution": false,
           "id": "",
           "metricName": "HealthCheckStatus",
           "namespace": "AWS/Route53",
-          "period": "",
+          "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Minimum"
@@ -133,7 +133,7 @@ locals {
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "account-cloudwatch",
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
       "fill": 3,
       "gridPos": {
         "h": 8,
@@ -189,9 +189,9 @@ locals {
           "id": "",
           "metricName": "Count",
           "namespace": "AWS/ApiGateway",
-          "period": "",
+          "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -208,9 +208,9 @@ locals {
           "id": "",
           "metricName": "4XXError",
           "namespace": "AWS/ApiGateway",
-          "period": "",
+          "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -227,9 +227,9 @@ locals {
           "id": "",
           "metricName": "5XXError",
           "namespace": "AWS/ApiGateway",
-          "period": "",
+          "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -284,7 +284,7 @@ locals {
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "account-cloudwatch",
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
       "fill": 10,
       "gridPos": {
         "h": 8,
@@ -328,9 +328,9 @@ locals {
           "id": "",
           "metricName": "By Log Group, by Type",
           "namespace": "Logs",
-          "period": "",
+          "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -392,7 +392,7 @@ locals {
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "account-cloudwatch",
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
       "fill": 0,
       "gridPos": {
         "h": 8,
@@ -446,9 +446,9 @@ locals {
           "id": "",
           "metricName": "Latency",
           "namespace": "AWS/ApiGateway",
-          "period": "",
+          "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "p99.00"
@@ -465,9 +465,9 @@ locals {
           "id": "",
           "metricName": "Latency",
           "namespace": "AWS/ApiGateway",
-          "period": "",
+          "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "p95.00"
@@ -484,9 +484,9 @@ locals {
           "id": "",
           "metricName": "Latency",
           "namespace": "AWS/ApiGateway",
-          "period": "",
+          "period": "$interval",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "p50.00"
@@ -544,17 +544,15 @@ locals {
     },
     {
       "aliasColors": {
-        "Average": "blue",
         "Errors": "#890f02",
         "Errors_Sum": "#890f02",
-        "Maximum": "dark-red",
-        "P99": "green"
+        "p99.00": "dark-red"
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "account-cloudwatch",
       "description": "The latency of the endpoint \"POST /v1/policies/evaluate\" measured from AWS API Gateway",
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -562,16 +560,12 @@ locals {
         "x": 12,
         "y": 16
       },
-      "hideTimeOverride": false,
       "id": 18,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
         "current": false,
-        "hideEmpty": false,
         "max": false,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": false
@@ -600,7 +594,7 @@ locals {
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Maximum",
+          "alias": "p50.00",
           "dimensions": {
             "ApiName": "fusillade",
             "Method": "POST",
@@ -613,16 +607,16 @@ locals {
           "id": "",
           "metricName": "Latency",
           "namespace": "AWS/ApiGateway",
-          "period": "",
-          "refId": "B",
-          "region": "us-east-1",
+          "period": "$interval",
+          "refId": "A",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
-            "Maximum"
+            "p50.00"
           ]
         },
         {
-          "alias": "P99",
+          "alias": "p95.00",
           "dimensions": {
             "ApiName": "fusillade",
             "Method": "POST",
@@ -635,25 +629,38 @@ locals {
           "id": "",
           "metricName": "Latency",
           "namespace": "AWS/ApiGateway",
-          "period": "",
-          "refId": "C",
-          "region": "us-east-1",
+          "period": "$interval",
+          "refId": "B",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
-            "p99"
+            "p95.00"
+          ]
+        },
+        {
+          "alias": "p99.00",
+          "dimensions": {
+            "ApiName": "fusillade",
+            "Method": "POST",
+            "Resource": "/v1/policies/evaluate",
+            "Stage": "${var.env}"
+          },
+          "expression": "",
+          "hide": false,
+          "highResolution": false,
+          "id": "",
+          "metricName": "Latency",
+          "namespace": "AWS/ApiGateway",
+          "period": "$interval",
+          "refId": "C",
+          "region": "${var.region}",
+          "returnData": false,
+          "statistics": [
+            "p99.00"
           ]
         }
       ],
-      "thresholds": [
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "gt",
-          "value": 500,
-          "yaxis": "left"
-        }
-      ],
+      "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
@@ -698,12 +705,13 @@ locals {
       "aliasColors": {
         "Errors": "#ef843c",
         "Errors_Sum": "#890f02",
-        "Invocations": "#e5ac0e"
+        "Invocations": "#e5ac0e",
+        "p99.00": "dark-red"
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "account-cloudwatch",
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -724,7 +732,7 @@ locals {
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "paceLength": 10,
       "percentage": false,
       "pointradius": 5,
@@ -745,7 +753,7 @@ locals {
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Average",
+          "alias": "p50.00",
           "dimensions": {
             "FunctionName": "fusillade-${var.env}"
           },
@@ -755,16 +763,16 @@ locals {
           "id": "",
           "metricName": "Duration",
           "namespace": "AWS/Lambda",
-          "period": "",
+          "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
-            "Average"
+            "p50"
           ]
         },
         {
-          "alias": "Maximum",
+          "alias": "p95.00",
           "dimensions": {
             "FunctionName": "fusillade-${var.env}"
           },
@@ -773,12 +781,30 @@ locals {
           "id": "",
           "metricName": "Duration",
           "namespace": "AWS/Lambda",
-          "period": "",
+          "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
-            "Maximum"
+            "p95"
+          ]
+        },
+        {
+          "alias": "p99.00",
+          "dimensions": {
+            "FunctionName": "fusillade-${var.env}"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "",
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "period": "$interval",
+          "refId": "C",
+          "region": "${var.region}",
+          "returnData": false,
+          "statistics": [
+            "p99.00"
           ]
         }
       ],
@@ -831,7 +857,7 @@ locals {
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "account-cloudwatch",
+      "datasource": "${var.aws_cloudwatch_data_source_name}",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -883,9 +909,9 @@ locals {
           "id": "",
           "metricName": "Invocations",
           "namespace": "AWS/Lambda",
-          "period": "",
+          "period": "$interval",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -901,9 +927,9 @@ locals {
           "id": "",
           "metricName": "Errors",
           "namespace": "AWS/Lambda",
-          "period": "",
+          "period": "$interval",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${var.region}",
           "returnData": false,
           "statistics": [
             "Sum"
@@ -956,7 +982,46 @@ locals {
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "auto": false,
+        "auto_count": 30,
+        "auto_min": "10s",
+        "current": {
+          "text": "120s",
+          "value": "120s"
+        },
+        "hide": 0,
+        "label": "interval",
+        "name": "interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "60s",
+            "value": "60s"
+          },
+          {
+            "selected": true,
+            "text": "120s",
+            "value": "120s"
+          },
+          {
+            "selected": false,
+            "text": "300s",
+            "value": "300s"
+          },
+          {
+            "selected": false,
+            "text": "600s",
+            "value": "600s"
+          }
+        ],
+        "query": "60s,120s,300s,600s",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
+      }
+    ]
   },
   "time": {
     "from": "now-6h",
@@ -990,7 +1055,7 @@ locals {
   "timezone": "",
   "title": "Auth [${upper(var.env)}]",
   "uid": "auth-${var.env}",
-  "version": 4
+  "version": 6
 }
 EOF
 }
