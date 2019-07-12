@@ -15,4 +15,5 @@ locals {
   upload_health_check_id   = "${data.terraform_remote_state.env-health-checks.upload_health_check_id}"
   matrix_health_check_id   = "${data.terraform_remote_state.env-health-checks.matrix_health_check_id}"
   query_health_check_id    = "${data.terraform_remote_state.env-health-checks.query_health_check_id}"
+  auth_health_check_id     = "${data.terraform_remote_state.env-health-checks.auth_health_check_id}"
 }
