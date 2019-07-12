@@ -4,6 +4,7 @@
 module "env-dashboards" {
   source                          = "../../../modules/env-dashboards"
   analysis_health_check_id        = "${local.analysis_health_check_id}"
+  auth_health_check_id            = "${local.auth_health_check_id}"
   aws_cloudwatch_data_source_name = "${local.aws_cloudwatch_data_source_name}"
   aws_logs_data_source_name       = "${local.aws_logs_data_source_name}"
   aws_profile                     = "${local.aws_profile}"

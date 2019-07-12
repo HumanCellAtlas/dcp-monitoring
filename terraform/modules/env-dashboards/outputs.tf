@@ -23,7 +23,8 @@ output "dashboards" {
   ${local.upload_dashboard},
   ${local.analysis_dashboard},
   ${local.matrix_dashboard},
-  ${local.query_dashboard}
+  ${local.query_dashboard},
+  ${local.auth_dashboard}
 ]
 EOF
 }

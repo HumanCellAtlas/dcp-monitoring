@@ -38,6 +38,10 @@ variable "query_health_check_id" {
   type = "string"
 }
 
+variable "auth_health_check_id" {
+  type = "string"
+}
+
 variable "gcp_analysis_project_id" {
   type = "string"
 }
