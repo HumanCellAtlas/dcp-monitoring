@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import yaml
 import requests
 import sys
 import subprocess
@@ -14,8 +15,8 @@ DOMAIN_MAP = {
     "prod": "",
 }
 
-with open(RELATIVE_PATH + '/fogg.json', 'r') as fh:
-    DASHBOARD_MODULE_NAMES = [m for m in json.load(fh)['modules'].keys() if 'dashboards' in m]
+with open(RELATIVE_PATH + '/fogg.yml', 'r') as fh:
+    DASHBOARD_MODULE_NAMES = [m for m in yaml.load(fh)['modules'].keys() if 'dashboards' in m]
 
 CLI = argparse.ArgumentParser(
     description=f"`{NAME}` is an admin tool for CRU operations on Grafana dashboards and datasources."
