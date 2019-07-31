@@ -28,8 +28,8 @@ defaults:
             account_id: "634134578715"
             profile: hca-id
             region: us-east-1
-            version: 1.27.0
-    terraform_version: 0.11.13
+            version: 2.21.1
+    terraform_version: 0.12.5
     tools: {}
 envs:
     dev:

@@ -16,18 +16,18 @@ resource "aws_cloudwatch_metric_alarm" "rds_low_disk" {
 EOF
 
   alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
-  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions = ["${data.aws_sns_topic.alarms.arn}"]
 }
 
 resource "aws_cloudwatch_metric_alarm" "rds_cpu_high" {
-  alarm_name          = "rds-cpu-high-${var.aws_profile}"
+  alarm_name = "rds-cpu-high-${var.aws_profile}"
   comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = "60"
-  threshold           = "80"
-  namespace           = "AWS/RDS"
-  metric_name         = "CPUUtilization"
-  statistic           = "Minimum"
-  period              = "60"
+  evaluation_periods = "60"
+  threshold = "80"
+  namespace = "AWS/RDS"
+  metric_name = "CPUUtilization"
+  statistic = "Minimum"
+  period = "60"
 
   alarm_description = <<EOF
 {

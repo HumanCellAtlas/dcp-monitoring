@@ -18,7 +18,7 @@ resource "aws_cloudwatch_metric_alarm" "dss" {
 EOF
 
   alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
-  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
     HealthCheckId = "${var.dss_health_check_id}"
@@ -26,15 +26,15 @@ EOF
 }
 
 resource "aws_cloudwatch_metric_alarm" "dss_es_jvm_memory_pressure" {
-  alarm_name          = "dss-es-jvm-memory-pressure-${var.env}"
+  alarm_name = "dss-es-jvm-memory-pressure-${var.env}"
   comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = "3"
+  evaluation_periods = "3"
   datapoints_to_alarm = "2"
-  metric_name         = "JVMMemoryPressure"
-  threshold           = "80"
-  namespace           = "AWS/ES"
-  statistic           = "Maximum"
-  period              = "120"
+  metric_name = "JVMMemoryPressure"
+  threshold = "80"
+  namespace = "AWS/ES"
+  statistic = "Maximum"
+  period = "120"
 
   alarm_description = <<EOF
 {
@@ -73,23 +73,23 @@ resource "aws_cloudwatch_metric_alarm" "dss_es_storage_space" {
 EOF
 
   alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
-  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
     DomainName = "dss-index-${var.env}"
-    ClientId   = "${data.aws_caller_identity.current.account_id}"
+    ClientId = "${data.aws_caller_identity.current.account_id}"
   }
 }
 
 resource "aws_cloudwatch_metric_alarm" "dss-sync-failure" {
-  alarm_name          = "dss-sync-alert-${var.env}"
+  alarm_name = "dss-sync-alert-${var.env}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
-  evaluation_periods  = "1"
-  metric_name         = "ExecutionsFailed"
-  namespace           = "AWS/States"
-  period              = "120"
-  statistic           = "Maximum"
-  threshold           = "1"
+  evaluation_periods = "1"
+  metric_name = "ExecutionsFailed"
+  namespace = "AWS/States"
+  period = "120"
+  statistic = "Maximum"
+  threshold = "1"
 
   alarm_description = <<EOF
 {

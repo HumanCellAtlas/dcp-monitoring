@@ -4,3 +4,4 @@
 output "metadata_schema_health_check_id" {
   value = "${module.singleton-health-checks.metadata_schema_health_check_id}"
 }
+

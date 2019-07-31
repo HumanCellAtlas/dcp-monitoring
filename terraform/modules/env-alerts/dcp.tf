@@ -16,7 +16,7 @@ resource "aws_cloudwatch_metric_alarm" "dcp" {
 EOF
 
   alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
-  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
     HealthCheckId = "${var.dcp_health_check_id}"

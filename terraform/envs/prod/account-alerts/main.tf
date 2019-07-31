@@ -8,4 +8,5 @@ module "account-alerts" {
   logs_health_check_id    = "${local.logs_health_check_id}"
   metrics_health_check_id = "${local.metrics_health_check_id}"
   region                  = "${local.region}"
+
 }

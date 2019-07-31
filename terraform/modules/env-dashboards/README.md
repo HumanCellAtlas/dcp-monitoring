@@ -12,6 +12,7 @@ This module takes health check identifiers and account-wide data sources as inpu
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | analysis\_health\_check\_id |  | string | n/a | yes |
+| auth\_health\_check\_id |  | string | n/a | yes |
 | aws\_cloudwatch\_data\_source\_name |  | string | n/a | yes |
 | aws\_logs\_data\_source\_name |  | string | n/a | yes |
 | aws\_profile |  | string | n/a | yes |

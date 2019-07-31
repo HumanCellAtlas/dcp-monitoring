@@ -18,7 +18,7 @@ resource "aws_cloudwatch_metric_alarm" "ingest" {
 EOF
 
   alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
-  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
     HealthCheckId = "${var.ingest_health_check_id}"

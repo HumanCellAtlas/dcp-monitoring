@@ -25,8 +25,8 @@ EOF
 }
 
 resource "aws_iam_policy_attachment" "grafana_datasource" {
-  name       = "grafana-cloudwatch-datasource"
-  users      = ["${aws_iam_user.grafana_datasource.name}"]
+  name = "grafana-cloudwatch-datasource"
+  users = ["${aws_iam_user.grafana_datasource.name}"]
   policy_arn = "${aws_iam_policy.grafana_datasource.arn}"
 }
 
@@ -47,9 +47,9 @@ data "external" "json" {
 }
 
 locals {
-  aws_cloudwatch_data_source_name        = "account-cloudwatch"
-  aws_logs_data_source_name              = "account-elasticsearch"
-  gcp_log_project_datasource_name        = "gcp-logs-project"
+  aws_cloudwatch_data_source_name = "account-cloudwatch"
+  aws_logs_data_source_name = "account-elasticsearch"
+  gcp_log_project_datasource_name = "gcp-logs-project"
   gcp_monitoring_project_datasource_name = "gcp-monitoring-project"
 
   aws_cloudwatch_datasource = <<EOF

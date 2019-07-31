@@ -16,7 +16,7 @@ resource "aws_cloudwatch_metric_alarm" "metadata_schema" {
 EOF
 
   alarm_actions = ["${data.aws_sns_topic.alarms.arn}"]
-  ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
+  ok_actions = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
     HealthCheckId = "${var.metadata_schema_health_check_id}"
