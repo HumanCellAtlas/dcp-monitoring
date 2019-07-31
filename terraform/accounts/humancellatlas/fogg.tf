@@ -66,6 +66,17 @@ data "terraform_remote_state" "global" {
   }
 }
 
+data "terraform_remote_state" "hca-id" {
+  backend = "s3"
+
+  config = {
+    bucket  = "org-humancellatlas-634134578715-terraform"
+    key     = "terraform/dcp-observability/accounts/hca-id.tfstate"
+    region  = "us-east-1"
+    profile = "hca-id"
+  }
+}
+
 data "terraform_remote_state" "hca-prod" {
   backend = "s3"
 
