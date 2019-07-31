@@ -3,7 +3,7 @@
 
 
 provider "aws" {
-  version             = "~> 2.0"
+  version             = "~> 2.21.1"
   region              = "us-east-1"
   profile             = "hca-prod"
   allowed_account_ids = [109067257620]
