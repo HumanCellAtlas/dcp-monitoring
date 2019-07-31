@@ -2,7 +2,7 @@
 # Make improvements in fogg, so that everyone can benefit.
 
 provider "aws" {
-  version             = "~> 1.27.0"
+  version = "~> 2.0"
   region              = "us-east-1"
   profile             = "hca-prod"
   allowed_account_ids = [109067257620]

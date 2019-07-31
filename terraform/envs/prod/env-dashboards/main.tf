@@ -17,4 +17,5 @@ module "env-dashboards" {
   query_health_check_id           = "${local.query_health_check_id}"
   region                          = "${local.region}"
   upload_health_check_id          = "${local.upload_health_check_id}"
+
 }

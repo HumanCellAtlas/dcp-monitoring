@@ -40,3 +40,4 @@ output "query_health_check_id" {
 output "upload_health_check_id" {
   value = "${module.env-health-checks.upload_health_check_id}"
 }
+

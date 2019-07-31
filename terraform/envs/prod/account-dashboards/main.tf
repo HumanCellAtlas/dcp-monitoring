@@ -9,4 +9,5 @@ module "account-dashboards" {
   gcp_monitoring_project_id = "${local.gcp_monitoring_project_id}"
   logs_health_check_id      = "${local.logs_health_check_id}"
   region                    = "${local.region}"
+
 }
