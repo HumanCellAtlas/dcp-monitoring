@@ -82,6 +82,7 @@ EOF
 }
 
 resource "aws_cloudwatch_metric_alarm" "dss-sync-failure" {
+  count = "${contains(list("staging", "prod"), var.env)? 1: 0 }"
   alarm_name          = "dss-sync-alert-${var.env}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
