@@ -1,5 +1,5 @@
 locals {
-  dss_metrics_namespace = "DSS-${upper(var.env)}"
+  dss_metrics_namespace = "dss-${var.env}"
 }
 
 resource "aws_cloudwatch_log_metric_filter" "http_2xx" {
@@ -33,7 +33,7 @@ resource "aws_cloudwatch_log_metric_filter" "http_4xx" {
 
   metric_transformation {
     name      = "HTTP-4xx"
-    namespace = "DSS-${upper(var.env)}"
+    namespace = "${local.dss_metrics_namespace}"
     value     = "1"
   }
 }
@@ -45,7 +45,7 @@ resource "aws_cloudwatch_log_metric_filter" "http_5xx" {
 
   metric_transformation {
     name      = "HTTP-5xx"
-    namespace = "DSS-${upper(var.env)}"
+    namespace = "${local.dss_metrics_namespace}"
     value     = "1"
   }
 }
