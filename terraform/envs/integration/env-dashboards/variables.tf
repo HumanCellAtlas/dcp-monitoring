@@ -6,7 +6,7 @@ locals {
   aws_cloudwatch_data_source_name = "account-cloudwatch"
   aws_logs_data_source_name       = "account-elasticsearch"
 
-  gcp_analysis_project_id = "broad-dsde-mint-test"
+  gcp_analysis_project_id = "broad-dsde-mint-integration"
 
   analysis_health_check_id = "${data.terraform_remote_state.env-health-checks.analysis_health_check_id}"
   dcp_health_check_id      = "${data.terraform_remote_state.env-health-checks.dcp_health_check_id}"
