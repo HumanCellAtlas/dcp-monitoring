@@ -1216,6 +1216,7 @@ locals {
           "metricType": "agent.googleapis.com/agent/api_request_count",
           "mode": "monitoring",
           "projectId": "",
+          "service": "storage",
           "refId": "A",
           "seriesFilter": {
             "mode": "NONE",
