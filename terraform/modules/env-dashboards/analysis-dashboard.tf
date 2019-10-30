@@ -1211,7 +1211,15 @@ locals {
           },
           "alias": "Status: {{metric.labels.state}}",
           "filter": "",
+          "filters": [
+            "resource.label.bucket_name",
+            "=",
+            "${var.gcp_analysis_project_id}-cromwell-execution"
+          ],
           "format": "time_series",
+          "groupBys": [
+            "metric.label.method"
+          ],
           "hide": false,
           "metricType": "agent.googleapis.com/agent/api_request_count",
           "mode": "monitoring",
