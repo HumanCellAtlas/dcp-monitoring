@@ -61,7 +61,7 @@ locals {
         "h": 5,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 1
       },
       "id": 9,
       "legend": {
@@ -203,7 +203,7 @@ locals {
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 5
+        "y": 6
       },
       "id": 11,
       "legend": {
@@ -345,7 +345,7 @@ locals {
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 5
+        "y": 6
       },
       "id": 12,
       "legend": {
@@ -487,7 +487,7 @@ locals {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 10
+        "y": 11
       },
       "id": 2,
       "legend": {
@@ -588,7 +588,7 @@ locals {
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 10
+        "y": 11
       },
       "id": 4,
       "legend": {
@@ -709,7 +709,7 @@ locals {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 18
+        "y": 19
       },
       "id": 3,
       "legend": {
@@ -810,7 +810,7 @@ locals {
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 18
+        "y": 19
       },
       "id": 5,
       "legend": {
@@ -967,10 +967,10 @@ locals {
       "datasource": "${local.gcp_analysis_datasource_name}",
       "fill": 3,
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 12,
         "x": 0,
-        "y": 26
+        "y": 27
       },
       "id": 14,
       "legend": {
@@ -1169,11 +1169,12 @@ locals {
       "datasource": "${local.gcp_analysis_datasource_name}",
       "decimals": null,
       "fill": 5,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 31
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 27
       },
       "id": 7,
       "legend": {
@@ -1191,11 +1192,16 @@ locals {
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 1,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {}
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -1210,30 +1216,186 @@ locals {
             "perSeriesAligner": "ALIGN_RATE"
           },
           "alias": "Status: {{metric.labels.state}}",
+          "aliasBy": "",
+          "alignOptions": [
+            {
+              "expanded": true,
+              "label": "Alignment options",
+              "options": [
+                {
+                  "label": "interpolate",
+                  "metricKinds": [
+                    "GAUGE"
+                  ],
+                  "text": "interpolate",
+                  "value": "ALIGN_INTERPOLATE",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                },
+                {
+                  "label": "next older",
+                  "metricKinds": [
+                    "GAUGE"
+                  ],
+                  "text": "next older",
+                  "value": "ALIGN_NEXT_OLDER",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY",
+                    "DISTRIBUTION",
+                    "STRING",
+                    "VALUE_TYPE_UNSPECIFIED",
+                    "BOOL"
+                  ]
+                },
+                {
+                  "label": "min",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "min",
+                  "value": "ALIGN_MIN",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                },
+                {
+                  "label": "max",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "max",
+                  "value": "ALIGN_MAX",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                },
+                {
+                  "label": "mean",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "mean",
+                  "value": "ALIGN_MEAN",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                },
+                {
+                  "label": "count",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "count",
+                  "value": "ALIGN_COUNT",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY",
+                    "BOOL"
+                  ]
+                },
+                {
+                  "label": "sum",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "sum",
+                  "value": "ALIGN_SUM",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY",
+                    "DISTRIBUTION"
+                  ]
+                },
+                {
+                  "label": "stddev",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "stddev",
+                  "value": "ALIGN_STDDEV",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                },
+                {
+                  "label": "percent change",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "percent change",
+                  "value": "ALIGN_PERCENT_CHANGE",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                }
+              ]
+            }
+          ],
+          "alignmentPeriod": "$interval",
+          "crossSeriesReducer": "REDUCE_COUNT",
+          "defaultProject": "loading project...",
           "filter": "",
+          "filters": [
+            "resource.label.subscription_id",
+            "=",
+            "lira-push-notifications"
+          ],
           "format": "time_series",
+          "groupBys": [],
           "hide": false,
-          "metricType": "agent.googleapis.com/agent/api_request_count",
+          "lastQuery": "aggregation.alignmentPeriod=+60s&aggregation.crossSeriesReducer=REDUCE_COUNT&aggregation.perSeriesAligner=ALIGN_COUNT&filter=metric.type=\"pubsub.googleapis.com/subscription/num_undelivered_messages\"+resource.label.subscription_id=\"lira-push-notifications\"&interval.endTime=2019-11-07T19:32:38Z&interval.startTime=2019-11-07T16:32:38Z&view=FULL",
+          "lastQueryError": "",
+          "metricKind": "GAUGE",
+          "metricType": "pubsub.googleapis.com/subscription/num_undelivered_messages",
           "mode": "monitoring",
+          "perSeriesAligner": "ALIGN_COUNT",
           "projectId": "",
           "refId": "A",
           "seriesFilter": {
             "mode": "NONE",
             "param": "",
             "type": "NONE"
-          }
+          },
+          "service": "",
+          "unit": "1",
+          "usedAlignmentPeriod": 60,
+          "valueType": "INT64"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
-      "title": "Google Cloud API Request Rate",
+      "title": "Number of Undelivered Messages",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": false,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -1244,7 +1406,248 @@ locals {
       },
       "yaxes": [
         {
-          "format": "reqps",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${local.gcp_analysis_datasource_name}",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 33
+      },
+      "id": 18,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aliasBy": "",
+          "alignOptions": [
+            {
+              "expanded": true,
+              "label": "Alignment options",
+              "options": [
+                {
+                  "label": "interpolate",
+                  "metricKinds": [
+                    "GAUGE"
+                  ],
+                  "text": "interpolate",
+                  "value": "ALIGN_INTERPOLATE",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                },
+                {
+                  "label": "next older",
+                  "metricKinds": [
+                    "GAUGE"
+                  ],
+                  "text": "next older",
+                  "value": "ALIGN_NEXT_OLDER",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY",
+                    "DISTRIBUTION",
+                    "STRING",
+                    "VALUE_TYPE_UNSPECIFIED",
+                    "BOOL"
+                  ]
+                },
+                {
+                  "label": "min",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "min",
+                  "value": "ALIGN_MIN",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                },
+                {
+                  "label": "max",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "max",
+                  "value": "ALIGN_MAX",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                },
+                {
+                  "label": "mean",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "mean",
+                  "value": "ALIGN_MEAN",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                },
+                {
+                  "label": "count",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "count",
+                  "value": "ALIGN_COUNT",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY",
+                    "BOOL"
+                  ]
+                },
+                {
+                  "label": "sum",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "sum",
+                  "value": "ALIGN_SUM",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY",
+                    "DISTRIBUTION"
+                  ]
+                },
+                {
+                  "label": "stddev",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "stddev",
+                  "value": "ALIGN_STDDEV",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                },
+                {
+                  "label": "percent change",
+                  "metricKinds": [
+                    "GAUGE",
+                    "DELTA"
+                  ],
+                  "text": "percent change",
+                  "value": "ALIGN_PERCENT_CHANGE",
+                  "valueTypes": [
+                    "INT64",
+                    "DOUBLE",
+                    "MONEY"
+                  ]
+                }
+              ]
+            }
+          ],
+          "alignmentPeriod": "$interval",
+          "crossSeriesReducer": "REDUCE_NONE",
+          "defaultProject": "loading project...",
+          "filters": [
+            "resource.label.subscription_id",
+            "=",
+            "lira-push-notifications"
+          ],
+          "groupBys": [],
+          "lastQuery": "aggregation.alignmentPeriod=+60s&aggregation.crossSeriesReducer=REDUCE_NONE&aggregation.groupByFields=resource.label.subscription_id&aggregation.perSeriesAligner=ALIGN_INTERPOLATE&filter=metric.type=\"pubsub.googleapis.com/subscription/oldest_unacked_message_age\"+resource.label.subscription_id=\"lira-push-notifications\"&interval.endTime=2019-11-07T19:09:39Z&interval.startTime=2019-11-07T13:09:39Z&view=FULL",
+          "lastQueryError": "",
+          "metricKind": "GAUGE",
+          "metricType": "pubsub.googleapis.com/subscription/oldest_unacked_message_age",
+          "perSeriesAligner": "ALIGN_INTERPOLATE",
+          "refId": "A",
+          "service": "",
+          "unit": "s",
+          "usedAlignmentPeriod": 60,
+          "valueType": "INT64"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Oldest Unacknowledged Message Age",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
           "label": null,
           "logBase": 1,
           "max": null,
