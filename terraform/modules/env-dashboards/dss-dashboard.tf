@@ -1380,65 +1380,353 @@ locals {
             "steppedLine": false,
             "targets": [
                 {
-                    "alias": "CREATE",
-                    "dimensions": {
-                        "operation": "CREATE"
-                    },
-                    "expression": "",
-                    "highResolution": false,
-                    "id": "",
-                    "metricName": "bundles",
-                    "namespace": "DSS-${var.env}",
-                    "period": "",
                     "refId": "A",
-                    "region": "us-east-1",
-                    "returnData": false,
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
                     "statistics": [
                         "Sum"
-                    ]
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-admin-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-admin-${var.env}"
                 },
                 {
-                    "alias": "TOMBSTONE",
-                    "dimensions": {
-                        "operation": "TOMBSTONE"
-                    },
-                    "expression": "",
-                    "highResolution": false,
-                    "id": "",
-                    "metricName": "bundles",
-                    "namespace": "DSS-${var.env}",
-                    "period": "",
                     "refId": "B",
-                    "region": "us-east-1",
-                    "returnData": false,
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
                     "statistics": [
                         "Sum"
-                    ]
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-checkout-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-checkout-sfn-${var.env}"
                 },
                 {
-                    "alias": "DELETE",
-                    "dimensions": {
-                        "operation": "DELETE"
-                    },
-                    "expression": "",
-                    "highResolution": false,
-                    "id": "",
-                    "metricName": "bundles",
-                    "namespace": "DSS-${var.env}",
-                    "period": "",
                     "refId": "C",
-                    "region": "us-east-1",
-                    "returnData": false,
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
                     "statistics": [
                         "Sum"
-                    ]
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-${var.env}"
+                },
+                {
+                    "refId": "D",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-dlq-reaper-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-dlq-reaper-${var.env}"
+                },
+                {
+                    "refId": "E",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-events-scribe-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-events-scribe-${var.env}"
+                },
+                {
+                    "refId": "F",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-gs-copy-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-gs-copy-sfn-${var.env}"
+                },
+                {
+                    "refId": "G",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-gs-copy-write-metadata-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-gs-copy-write-metadata-sfn-${var.env}"
+                },
+                {
+                    "refId": "H",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-index-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-index-${var.env}"
+                },
+                {
+                    "refId": "I",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-monitor-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-monitor-${var.env}"
+                },
+                {
+                    "refId": "J",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-monitor-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-monitor-${var.env}"
+                },
+                {
+                    "refId": "K",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-notify-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-notify-${var.env}"
+                },
+                {
+                    "refId": "L",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-notify-v2-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-notify-v2-${var.env}"
+                },
+                {
+                    "refId": "M",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-operations-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-operations-${var.env}"
+                },
+                {
+                    "refId": "N",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-s3-copy-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-s3-copy-sfn-${var.env}"
+                },
+                {
+                    "refId": "O",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-s3-copy-write-metadata-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-s3-copy-write-metadata-sfn-${var.env}"
+                },
+                {
+                    "refId": "P",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-scalability-test-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-scalability-test-${var.env}"
+                },
+                {
+                    "refId": "Q",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-sfn-launcher-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-sfn-launcher-${var.env}"
+                },
+                {
+                    "refId": "R",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-sync-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-sync-sfn-${var.env}"
+                },
+                {
+                    "refId": "S",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-visitation-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-visitation-${var.env}"
                 }
             ],
             "thresholds": [],
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Bundle Events",
+            "title": "Lambda Invocations",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -1865,7 +2153,7 @@ locals {
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Bundle Events",
+            "title": "Lambda Duration",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -1900,8 +2188,7 @@ locals {
             "yaxis": {
                 "align": false,
                 "alignLevel": null
-            },
-            "Title": "Lambda Duration"
+            }
         },
         {
             "aliasColors": {},
@@ -1955,7 +2242,7 @@ locals {
                     "highResolution": false,
                     "id": "",
                     "metricName": "bundles",
-                    "namespace": "DSS-${var.env}",
+                    "namespace": "DSS-${upper(var.env)}",
                     "period": "",
                     "refId": "A",
                     "region": "us-east-1",
@@ -1973,7 +2260,7 @@ locals {
                     "highResolution": false,
                     "id": "",
                     "metricName": "bundles",
-                    "namespace": "DSS-${var.env}",
+                    "namespace": "DSS-${upper(var.env)}",
                     "period": "",
                     "refId": "B",
                     "region": "us-east-1",
@@ -1991,7 +2278,7 @@ locals {
                     "highResolution": false,
                     "id": "",
                     "metricName": "bundles",
-                    "namespace": "DSS-${var.env}",
+                    "namespace": "DSS-${upper(var.env)}",
                     "period": "",
                     "refId": "C",
                     "region": "us-east-1",
