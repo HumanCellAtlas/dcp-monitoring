@@ -1349,9 +1349,9 @@ locals {
                 "h": 8,
                 "w": 12,
                 "x": 0,
-                "y": 0
+                "y": 40
             },
-            "id": 22,
+            "id": 0,
             "legend": {
                 "alignAsTable": false,
                 "avg": false,
@@ -1775,10 +1775,10 @@ locals {
             "gridPos": {
                 "h": 8,
                 "w": 12,
-                "x": 0,
-                "y": 0
+                "x": 12,
+                "y": 40
             },
-            "id": 22,
+            "id": 0,
             "legend": {
                 "alignAsTable": false,
                 "avg": false,
@@ -2153,7 +2153,7 @@ locals {
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Lambda Duration",
+            "title": "Lambda Durations",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -2203,9 +2203,9 @@ locals {
                 "h": 8,
                 "w": 12,
                 "x": 0,
-                "y": 0
+                "y": 48
             },
-            "id": 22,
+            "id": 0,
             "legend": {
                 "alignAsTable": false,
                 "avg": false,
