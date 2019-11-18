@@ -31,7 +31,7 @@ resource "aws_cloudwatch_metric_alarm" "dss_es_jvm_memory_pressure" {
   evaluation_periods  = "3"
   datapoints_to_alarm = "2"
   metric_name         = "JVMMemoryPressure"
-  threshold           = "80"
+  threshold           = "85"
   namespace           = "AWS/ES"
   statistic           = "Maximum"
   period              = "120"
