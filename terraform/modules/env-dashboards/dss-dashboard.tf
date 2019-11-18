@@ -1337,14 +1337,8 @@ locals {
             }
         },
         {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "${var.aws_cloudwatch_data_source_name}",
-            "description": "",
-            "fill": 1,
-            "fillGradient": 0,
+            "type": "graph",
+            "title": "Lambda Invocations",
             "gridPos": {
                 "h": 8,
                 "w": 12,
@@ -1352,32 +1346,7 @@ locals {
                 "y": 40
             },
             "id": 0,
-            "legend": {
-                "alignAsTable": false,
-                "avg": false,
-                "current": false,
-                "hideZero": false,
-                "max": false,
-                "min": false,
-                "rightSide": true,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 1,
-            "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
-            "percentage": false,
-            "pointradius": 2,
-            "points": false,
-            "renderer": "flot",
-            "seriesOverrides": [],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
+            "datasource": "${var.aws_cloudwatch_data_source_name}",
             "targets": [
                 {
                     "refId": "A",
@@ -1722,89 +1691,86 @@ locals {
                     "alias": "dss-visitation-${var.env}"
                 }
             ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "Lambda Invocations",
-            "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
+            "options": {
+                "dataLinks": []
             },
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
+            "renderer": "flot",
             "yaxes": [
                 {
-                    "format": "short",
                     "label": null,
+                    "show": true,
                     "logBase": 1,
-                    "max": null,
                     "min": null,
-                    "show": true
+                    "max": null,
+                    "format": "ms"
                 },
                 {
-                    "format": "short",
                     "label": null,
+                    "show": true,
                     "logBase": 1,
-                    "max": null,
                     "min": null,
-                    "show": true
+                    "max": null,
+                    "format": "short"
                 }
             ],
+            "xaxis": {
+                "show": true,
+                "mode": "time",
+                "name": null,
+                "values": [],
+                "buckets": null
+            },
             "yaxis": {
                 "align": false,
                 "alignLevel": null
-            }
-        },
-        {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "${var.aws_cloudwatch_data_source_name}",
-            "description": "",
+            },
+            "lines": true,
             "fill": 1,
             "fillGradient": 0,
+            "linewidth": 1,
+            "dashes": false,
+            "dashLength": 10,
+            "spaceLength": 10,
+            "points": false,
+            "pointradius": 2,
+            "bars": false,
+            "stack": false,
+            "percentage": false,
+            "legend": {
+                "show": true,
+                "values": false,
+                "min": false,
+                "max": false,
+                "current": false,
+                "total": false,
+                "avg": false
+            },
+            "nullPointMode": "null",
+            "steppedLine": false,
+            "tooltip": {
+                "value_type": "individual",
+                "shared": true,
+                "sort": 0
+            },
+            "timeFrom": null,
+            "timeShift": null,
+            "aliasColors": {},
+            "seriesOverrides": [],
+            "thresholds": [],
+            "timeRegions": [],
+            "description": ""
+        },
+        {
+            "type": "graph",
+            "title": "Lambda Durations",
             "gridPos": {
                 "h": 8,
                 "w": 12,
                 "x": 12,
                 "y": 40
             },
-            "id": 0,
-            "legend": {
-                "alignAsTable": false,
-                "avg": false,
-                "current": false,
-                "hideZero": false,
-                "max": false,
-                "min": false,
-                "rightSide": true,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 1,
-            "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
-            "percentage": false,
-            "pointradius": 2,
-            "points": false,
-            "renderer": "flot",
-            "seriesOverrides": [],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
+            "id": 1,
+            "datasource": "${var.aws_cloudwatch_data_source_name}",
             "targets": [
                 {
                     "refId": "A",
@@ -2149,46 +2115,74 @@ locals {
                     "alias": "dss-visitation-${var.env}"
                 }
             ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "Lambda Durations",
-            "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
+            "options": {
+                "dataLinks": []
             },
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
+            "renderer": "flot",
             "yaxes": [
                 {
-                    "format": "short",
                     "label": null,
+                    "show": true,
                     "logBase": 1,
-                    "max": null,
                     "min": null,
-                    "show": true
+                    "max": null,
+                    "format": "ms"
                 },
                 {
-                    "format": "short",
                     "label": null,
+                    "show": true,
                     "logBase": 1,
-                    "max": null,
                     "min": null,
-                    "show": true
+                    "max": null,
+                    "format": "short"
                 }
             ],
+            "xaxis": {
+                "show": true,
+                "mode": "time",
+                "name": null,
+                "values": [],
+                "buckets": null
+            },
             "yaxis": {
                 "align": false,
                 "alignLevel": null
-            }
+            },
+            "lines": true,
+            "fill": 1,
+            "fillGradient": 0,
+            "linewidth": 1,
+            "dashes": false,
+            "dashLength": 10,
+            "spaceLength": 10,
+            "points": false,
+            "pointradius": 2,
+            "bars": false,
+            "stack": false,
+            "percentage": false,
+            "legend": {
+                "show": true,
+                "values": false,
+                "min": false,
+                "max": false,
+                "current": false,
+                "total": false,
+                "avg": false
+            },
+            "nullPointMode": "null",
+            "steppedLine": false,
+            "tooltip": {
+                "value_type": "individual",
+                "shared": true,
+                "sort": 0
+            },
+            "timeFrom": null,
+            "timeShift": null,
+            "aliasColors": {},
+            "seriesOverrides": [],
+            "thresholds": [],
+            "timeRegions": [],
+            "description": ""
         },
         {
             "aliasColors": {},
@@ -2205,7 +2199,7 @@ locals {
                 "x": 0,
                 "y": 48
             },
-            "id": 0,
+            "id": 3,
             "legend": {
                 "alignAsTable": false,
                 "avg": false,
