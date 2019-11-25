@@ -53,3 +53,43 @@ variable "aws_cloudwatch_data_source_name" {
 variable "aws_logs_data_source_name" {
   type = "string"
 }
+
+variable "dss-bucket-dev" {
+  type = "string"
+  default = "org-humancellatlas-dss-dev"
+}
+
+variable "dss-checkout-bucket-dev" {
+  type = "string"
+  default = "org-humancellatlas-dss-checkout-dev"
+}
+
+variable "dss-bucket-integration" {
+  type = "string"
+  default = "org-humancellatlas-dss-integration"
+}
+
+variable "dss-checkout-bucket-integration" {
+  type = "string"
+  default = "org-humancellatlas-dss-checkout-integration"
+}
+
+variable "dss-bucket-staging" {
+  type = "string"
+  default = "org-hca-dss-staging"
+}
+
+variable "dss-checkout-bucket-staging" {
+  type = "string"
+  default = "org-hca-dss-checkout-staging"
+}
+
+variable "dss-bucket-prod" {
+  type = "string"
+  default = "org-humancellatlas-dss-prod"
+}
+
+variable "dss-checkout-bucket-prod" {
+  type = "string"
+  default = "org-humancellatlas-dss-checkout-prod"
+}
