@@ -130,9 +130,9 @@ locals {
             "fill": 10,
             "gridPos": {
                 "h": 8,
-                "w": 19,
-                "x": 5,
-                "y": 0
+                "w": 24,
+                "x": 0,
+                "y": 8
             },
             "id": 13,
             "legend": {
@@ -326,7 +326,7 @@ locals {
                 "h": 8,
                 "w": 12,
                 "x": 0,
-                "y": 8
+                "y": 16
             },
             "id": 15,
             "legend": {
@@ -475,7 +475,7 @@ locals {
                 "h": 8,
                 "w": 12,
                 "x": 12,
-                "y": 8
+                "y": 16
             },
             "id": 2,
             "legend": {
@@ -624,7 +624,7 @@ locals {
                 "h": 8,
                 "w": 24,
                 "x": 0,
-                "y": 16
+                "y": 24
             },
             "id": 17,
             "legend": {
@@ -770,7 +770,7 @@ locals {
                 "h": 7,
                 "w": 8,
                 "x": 0,
-                "y": 24
+                "y": 32
             },
             "id": 9,
             "legend": {
@@ -866,7 +866,7 @@ locals {
                 "h": 7,
                 "w": 8,
                 "x": 8,
-                "y": 24
+                "y": 32
             },
             "id": 6,
             "legend": {
@@ -986,7 +986,7 @@ locals {
                 "h": 7,
                 "w": 8,
                 "x": 16,
-                "y": 24
+                "y": 32
             },
             "id": 8,
             "legend": {
@@ -1088,7 +1088,7 @@ locals {
                 "h": 9,
                 "w": 12,
                 "x": 0,
-                "y": 31
+                "y": 39
             },
             "id": 20,
             "legend": {
@@ -1236,7 +1236,7 @@ locals {
                 "h": 9,
                 "w": 12,
                 "x": 12,
-                "y": 31
+                "y": 39
             },
             "id": 19,
             "legend": {
@@ -1340,10 +1340,10 @@ locals {
             "type": "graph",
             "title": "Lambda Invocations",
             "gridPos": {
-                "h": 8,
-                "w": 12,
+                "h": 9,
+                "w": 24,
                 "x": 0,
-                "y": 40
+                "y": 48
             },
             "id": 0,
             "datasource": "${var.aws_cloudwatch_data_source_name}",
@@ -1764,10 +1764,10 @@ locals {
             "type": "graph",
             "title": "Lambda Durations",
             "gridPos": {
-                "h": 8,
-                "w": 12,
-                "x": 12,
-                "y": 40
+                "h": 9,
+                "w": 24,
+                "x": 0,
+                "y": 57
             },
             "id": 1,
             "datasource": "${var.aws_cloudwatch_data_source_name}",
@@ -2195,9 +2195,9 @@ locals {
             "fillGradient": 0,
             "gridPos": {
                 "h": 8,
-                "w": 12,
-                "x": 0,
-                "y": 48
+                "w": 10,
+                "x": 14,
+                "y": 0
             },
             "id": 3,
             "legend": {
@@ -2322,6 +2322,89 @@ locals {
                 "align": false,
                 "alignLevel": null
             }
+        },
+        {
+            "type": "graph",
+            "title": "Bucket Info",
+            "gridPos": {
+                "h": 8,
+                "w": 9,
+                "x": 5,
+                "y": 0
+            },
+            "id": 4,
+            "datasource": "${var.aws_cloudwatch_data_source_name}",
+            "targets": [
+                null,
+                null
+            ],
+            "options": {
+                "dataLinks": []
+            },
+            "renderer": "flot",
+            "yaxes": [
+                {
+                    "label": null,
+                    "show": true,
+                    "logBase": 1,
+                    "min": null,
+                    "max": null,
+                    "format": "bytes"
+                },
+                {
+                    "label": null,
+                    "show": true,
+                    "logBase": 1,
+                    "min": null,
+                    "max": null,
+                    "format": "short"
+                }
+            ],
+            "xaxis": {
+                "show": true,
+                "mode": "time",
+                "name": null,
+                "values": [],
+                "buckets": null
+            },
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            },
+            "lines": false,
+            "fill": 1,
+            "fillGradient": 0,
+            "linewidth": 1,
+            "dashes": false,
+            "dashLength": 10,
+            "spaceLength": 10,
+            "points": false,
+            "pointradius": 2,
+            "bars": true,
+            "stack": false,
+            "percentage": false,
+            "legend": {
+                "show": true,
+                "values": false,
+                "min": false,
+                "max": false,
+                "current": false,
+                "total": false,
+                "avg": false
+            },
+            "nullPointMode": "null",
+            "steppedLine": false,
+            "tooltip": {
+                "value_type": "individual",
+                "shared": true,
+                "sort": 0
+            },
+            "timeFrom": "7d",
+            "timeShift": null,
+            "aliasColors": {},
+            "seriesOverrides": [],
+            "thresholds": [],
+            "timeRegions": []
         }
     ],
     "refresh": "1m",
