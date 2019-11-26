@@ -60,7 +60,7 @@ locals {
     "dev" = "org-humancellatlas-dss-dev"
     "integration" = "org-hca-dss-integration"
     "staging" = "org-hca-dss-staging"
-    "prod" = "org-humancellatlas-dss-prod"
+    "prod" = "org-hca-dss-prod"
   }
   dss_checkout_bucket = {
     "dev" = "org-humancellatlas-dss-checkout-dev"
