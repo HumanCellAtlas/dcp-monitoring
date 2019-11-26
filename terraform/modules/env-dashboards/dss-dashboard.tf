@@ -2352,7 +2352,7 @@ locals {
                     "expression": "",
                     "returnData": false,
                     "highResolution": false,
-                    "alias": "${var.dss-bucket-${var.env}}"
+                    "alias": "${local.dss_primary_bucket[local.env]}"
                 },
                 {
                     "refId": "B",
@@ -2371,7 +2371,7 @@ locals {
                     "expression": "",
                     "returnData": false,
                     "highResolution": false,
-                    "alias": "${var.dss-checkout-bucket-${var.env}}"
+                    "alias": "${local.dss_checkout_bucket[local.env]}"
                 }
             ],
             "options": {
