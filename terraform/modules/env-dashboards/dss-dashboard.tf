@@ -2335,8 +2335,44 @@ locals {
             "id": 4,
             "datasource": "${var.aws_cloudwatch_data_source_name}",
             "targets": [
-                null,
-                null
+                {
+                    "refId": "A",
+                    "namespace": "AWS/S3",
+                    "metricName": "BucketSizeBytes",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "StorageType": "StandardStorage",
+                        "BucketName": "Primary Bucket"
+                    },
+                    "period": "86400",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "${var.dss-bucket-${var.env}}"
+                },
+                {
+                    "refId": "B",
+                    "namespace": "AWS/S3",
+                    "metricName": "BucketSizeBytes",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "StorageType": "StandardStorage",
+                        "BucketName": "Checkout Bucket"
+                    },
+                    "period": "86400",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "${var.dss-checkout-bucket-${var.env}}"
+                }
             ],
             "options": {
                 "dataLinks": []
