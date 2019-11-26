@@ -58,14 +58,14 @@ locals {
   env = "${var.env}"
   dss_primary_bucket = {
     "dev" = "org-humancellatlas-dss-dev"
-    "integration" = "org-humancellatlas-dss-integration"
+    "integration" = "org-hca-dss-integration"
     "staging" = "org-hca-dss-staging"
     "prod" = "org-humancellatlas-dss-prod"
   }
   dss_checkout_bucket = {
     "dev" = "org-humancellatlas-dss-checkout-dev"
-    "integration" = "org-humancellatlas-dss-checkout-integration"
+    "integration" = "org-hca-dss-checkout-integration"
     "staging" = "org-hca-dss-checkout-staging"
-    "prod" = "org-humancellatlas-dss-checkout-prod"
+    "prod" = "org-hca-dss-checkout-prod"
   }
 }
