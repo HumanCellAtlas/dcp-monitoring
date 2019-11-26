@@ -2344,7 +2344,7 @@ locals {
                     ],
                     "dimensions": {
                         "StorageType": "StandardStorage",
-                        "BucketName": "Primary Bucket"
+                        "BucketName": "${local.dss_primary_bucket[local.env]}"
                     },
                     "period": "86400",
                     "region": "default",
@@ -2352,7 +2352,7 @@ locals {
                     "expression": "",
                     "returnData": false,
                     "highResolution": false,
-                    "alias": "${local.dss_primary_bucket[local.env]}"
+                    "alias": "Primary Bucket"
                 },
                 {
                     "refId": "B",
@@ -2363,7 +2363,7 @@ locals {
                     ],
                     "dimensions": {
                         "StorageType": "StandardStorage",
-                        "BucketName": "Checkout Bucket"
+                        "BucketName": "${local.dss_checkout_bucket[local.env]}"
                     },
                     "period": "86400",
                     "region": "default",
@@ -2371,7 +2371,7 @@ locals {
                     "expression": "",
                     "returnData": false,
                     "highResolution": false,
-                    "alias": "${local.dss_checkout_bucket[local.env]}"
+                    "alias": "Checkout Bucket"
                 }
             ],
             "options": {
