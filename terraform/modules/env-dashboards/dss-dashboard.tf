@@ -1345,11 +1345,29 @@ locals {
                 "x": 0,
                 "y": 48
             },
-            "id": 0,
+            "id": 5,
             "datasource": "${var.aws_cloudwatch_data_source_name}",
             "targets": [
                 {
                     "refId": "A",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dds-delete-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dds-delete-${var.env}"
+                },
+                {
+                    "refId": "B",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1367,7 +1385,7 @@ locals {
                     "alias": "dss-admin-${var.env}"
                 },
                 {
-                    "refId": "B",
+                    "refId": "C",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1385,7 +1403,7 @@ locals {
                     "alias": "dss-checkout-sfn-${var.env}"
                 },
                 {
-                    "refId": "C",
+                    "refId": "D",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1403,7 +1421,7 @@ locals {
                     "alias": "dss-${var.env}"
                 },
                 {
-                    "refId": "D",
+                    "refId": "E",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1421,7 +1439,7 @@ locals {
                     "alias": "dss-dlq-reaper-${var.env}"
                 },
                 {
-                    "refId": "E",
+                    "refId": "F",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1439,7 +1457,7 @@ locals {
                     "alias": "dss-events-scribe-${var.env}"
                 },
                 {
-                    "refId": "F",
+                    "refId": "G",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1457,7 +1475,7 @@ locals {
                     "alias": "dss-gs-copy-sfn-${var.env}"
                 },
                 {
-                    "refId": "G",
+                    "refId": "H",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1475,7 +1493,7 @@ locals {
                     "alias": "dss-gs-copy-write-metadata-sfn-${var.env}"
                 },
                 {
-                    "refId": "H",
+                    "refId": "I",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1491,24 +1509,6 @@ locals {
                     "returnData": false,
                     "highResolution": false,
                     "alias": "dss-index-${var.env}"
-                },
-                {
-                    "refId": "I",
-                    "namespace": "AWS/Lambda",
-                    "metricName": "Invocations",
-                    "statistics": [
-                        "Sum"
-                    ],
-                    "dimensions": {
-                        "FunctionName": "dss-monitor-${var.env}"
-                    },
-                    "period": "",
-                    "region": "default",
-                    "id": "",
-                    "expression": "",
-                    "returnData": false,
-                    "highResolution": false,
-                    "alias": "dss-monitor-${var.env}"
                 },
                 {
                     "refId": "J",
@@ -1536,6 +1536,24 @@ locals {
                         "Sum"
                     ],
                     "dimensions": {
+                        "FunctionName": "dss-monitor-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-monitor-${var.env}"
+                },
+                {
+                    "refId": "L",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
                         "FunctionName": "dss-notify-${var.env}"
                     },
                     "period": "",
@@ -1547,7 +1565,7 @@ locals {
                     "alias": "dss-notify-${var.env}"
                 },
                 {
-                    "refId": "L",
+                    "refId": "M",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1565,7 +1583,7 @@ locals {
                     "alias": "dss-notify-v2-${var.env}"
                 },
                 {
-                    "refId": "M",
+                    "refId": "N",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1583,7 +1601,7 @@ locals {
                     "alias": "dss-operations-${var.env}"
                 },
                 {
-                    "refId": "N",
+                    "refId": "O",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1601,7 +1619,7 @@ locals {
                     "alias": "dss-s3-copy-sfn-${var.env}"
                 },
                 {
-                    "refId": "O",
+                    "refId": "P",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1619,7 +1637,7 @@ locals {
                     "alias": "dss-s3-copy-write-metadata-sfn-${var.env}"
                 },
                 {
-                    "refId": "P",
+                    "refId": "Q",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1637,7 +1655,7 @@ locals {
                     "alias": "dss-scalability-test-${var.env}"
                 },
                 {
-                    "refId": "Q",
+                    "refId": "R",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1655,7 +1673,7 @@ locals {
                     "alias": "dss-sfn-launcher-${var.env}"
                 },
                 {
-                    "refId": "R",
+                    "refId": "S",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1673,7 +1691,7 @@ locals {
                     "alias": "dss-sync-sfn-${var.env}"
                 },
                 {
-                    "refId": "S",
+                    "refId": "T",
                     "namespace": "AWS/Lambda",
                     "metricName": "Invocations",
                     "statistics": [
@@ -1769,11 +1787,29 @@ locals {
                 "x": 0,
                 "y": 57
             },
-            "id": 1,
+            "id": 7,
             "datasource": "${var.aws_cloudwatch_data_source_name}",
             "targets": [
                 {
                     "refId": "A",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dds-delete-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dds-delete-${var.env}"
+                },
+                {
+                    "refId": "B",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -1791,7 +1827,7 @@ locals {
                     "alias": "dss-admin-${var.env}"
                 },
                 {
-                    "refId": "B",
+                    "refId": "C",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -1809,7 +1845,7 @@ locals {
                     "alias": "dss-checkout-sfn-${var.env}"
                 },
                 {
-                    "refId": "C",
+                    "refId": "D",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -1827,7 +1863,7 @@ locals {
                     "alias": "dss-${var.env}"
                 },
                 {
-                    "refId": "D",
+                    "refId": "E",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -1845,7 +1881,7 @@ locals {
                     "alias": "dss-dlq-reaper-${var.env}"
                 },
                 {
-                    "refId": "E",
+                    "refId": "F",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -1863,7 +1899,7 @@ locals {
                     "alias": "dss-events-scribe-${var.env}"
                 },
                 {
-                    "refId": "F",
+                    "refId": "G",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -1881,7 +1917,7 @@ locals {
                     "alias": "dss-gs-copy-sfn-${var.env}"
                 },
                 {
-                    "refId": "G",
+                    "refId": "H",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -1899,7 +1935,7 @@ locals {
                     "alias": "dss-gs-copy-write-metadata-sfn-${var.env}"
                 },
                 {
-                    "refId": "H",
+                    "refId": "I",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -1915,24 +1951,6 @@ locals {
                     "returnData": false,
                     "highResolution": false,
                     "alias": "dss-index-${var.env}"
-                },
-                {
-                    "refId": "I",
-                    "namespace": "AWS/Lambda",
-                    "metricName": "Duration",
-                    "statistics": [
-                        "Sum"
-                    ],
-                    "dimensions": {
-                        "FunctionName": "dss-monitor-${var.env}"
-                    },
-                    "period": "",
-                    "region": "default",
-                    "id": "",
-                    "expression": "",
-                    "returnData": false,
-                    "highResolution": false,
-                    "alias": "dss-monitor-${var.env}"
                 },
                 {
                     "refId": "J",
@@ -1960,6 +1978,24 @@ locals {
                         "Sum"
                     ],
                     "dimensions": {
+                        "FunctionName": "dss-monitor-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-monitor-${var.env}"
+                },
+                {
+                    "refId": "L",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
                         "FunctionName": "dss-notify-${var.env}"
                     },
                     "period": "",
@@ -1971,7 +2007,7 @@ locals {
                     "alias": "dss-notify-${var.env}"
                 },
                 {
-                    "refId": "L",
+                    "refId": "M",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -1989,7 +2025,7 @@ locals {
                     "alias": "dss-notify-v2-${var.env}"
                 },
                 {
-                    "refId": "M",
+                    "refId": "N",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -2007,7 +2043,7 @@ locals {
                     "alias": "dss-operations-${var.env}"
                 },
                 {
-                    "refId": "N",
+                    "refId": "O",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -2025,7 +2061,7 @@ locals {
                     "alias": "dss-s3-copy-sfn-${var.env}"
                 },
                 {
-                    "refId": "O",
+                    "refId": "P",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -2043,7 +2079,7 @@ locals {
                     "alias": "dss-s3-copy-write-metadata-sfn-${var.env}"
                 },
                 {
-                    "refId": "P",
+                    "refId": "Q",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -2061,7 +2097,7 @@ locals {
                     "alias": "dss-scalability-test-${var.env}"
                 },
                 {
-                    "refId": "Q",
+                    "refId": "R",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -2079,7 +2115,7 @@ locals {
                     "alias": "dss-sfn-launcher-${var.env}"
                 },
                 {
-                    "refId": "R",
+                    "refId": "S",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -2097,7 +2133,7 @@ locals {
                     "alias": "dss-sync-sfn-${var.env}"
                 },
                 {
-                    "refId": "S",
+                    "refId": "T",
                     "namespace": "AWS/Lambda",
                     "metricName": "Duration",
                     "statistics": [
@@ -2199,7 +2235,7 @@ locals {
                 "x": 14,
                 "y": 0
             },
-            "id": 3,
+            "id": 10,
             "legend": {
                 "alignAsTable": false,
                 "avg": false,
@@ -2324,16 +2360,43 @@ locals {
             }
         },
         {
-            "type": "graph",
-            "title": "Bucket Info",
+            "aliasColors": {},
+            "bars": true,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "account-cloudwatch",
+            "fill": 1,
+            "fillGradient": 0,
             "gridPos": {
                 "h": 8,
                 "w": 9,
                 "x": 5,
                 "y": 0
             },
-            "id": 4,
-            "datasource": "${var.aws_cloudwatch_data_source_name}",
+            "id": 12,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": false,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
+            "percentage": false,
+            "pointradius": 2,
+            "points": true,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": true,
+            "steppedLine": false,
             "targets": [
                 {
                     "refId": "A",
@@ -2374,6 +2437,420 @@ locals {
                     "alias": "Checkout Bucket"
                 }
             ],
+            "thresholds": [],
+            "timeFrom": "7d",
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Bucket Info",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "bytes",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "type": "graph",
+            "title": "Lambda Invocations",
+            "gridPos": {
+                "h": 9,
+                "w": 24,
+                "x": 0,
+                "y": 48
+            },
+            "id": 5,
+            "datasource": "${var.aws_cloudwatch_data_source_name}",
+            "targets": [
+                {
+                    "refId": "A",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dds-delete-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dds-delete-${var.env}"
+                },
+                {
+                    "refId": "B",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-admin-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-admin-${var.env}"
+                },
+                {
+                    "refId": "C",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-checkout-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-checkout-sfn-${var.env}"
+                },
+                {
+                    "refId": "D",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-${var.env}"
+                },
+                {
+                    "refId": "E",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-dlq-reaper-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-dlq-reaper-${var.env}"
+                },
+                {
+                    "refId": "F",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-events-scribe-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-events-scribe-${var.env}"
+                },
+                {
+                    "refId": "G",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-gs-copy-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-gs-copy-sfn-${var.env}"
+                },
+                {
+                    "refId": "H",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-gs-copy-write-metadata-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-gs-copy-write-metadata-sfn-${var.env}"
+                },
+                {
+                    "refId": "I",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-index-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-index-${var.env}"
+                },
+                {
+                    "refId": "J",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-monitor-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-monitor-${var.env}"
+                },
+                {
+                    "refId": "K",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-monitor-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-monitor-${var.env}"
+                },
+                {
+                    "refId": "L",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-notify-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-notify-${var.env}"
+                },
+                {
+                    "refId": "M",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-notify-v2-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-notify-v2-${var.env}"
+                },
+                {
+                    "refId": "N",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-operations-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-operations-${var.env}"
+                },
+                {
+                    "refId": "O",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-s3-copy-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-s3-copy-sfn-${var.env}"
+                },
+                {
+                    "refId": "P",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-s3-copy-write-metadata-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-s3-copy-write-metadata-sfn-${var.env}"
+                },
+                {
+                    "refId": "Q",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-scalability-test-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-scalability-test-${var.env}"
+                },
+                {
+                    "refId": "R",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-sfn-launcher-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-sfn-launcher-${var.env}"
+                },
+                {
+                    "refId": "S",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-sync-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-sync-sfn-${var.env}"
+                },
+                {
+                    "refId": "T",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Invocations",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-visitation-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-visitation-${var.env}"
+                }
+            ],
             "options": {
                 "dataLinks": []
             },
@@ -2385,7 +2862,7 @@ locals {
                     "logBase": 1,
                     "min": null,
                     "max": null,
-                    "format": "bytes"
+                    "format": "ms"
                 },
                 {
                     "label": null,
@@ -2407,7 +2884,7 @@ locals {
                 "align": false,
                 "alignLevel": null
             },
-            "lines": false,
+            "lines": true,
             "fill": 1,
             "fillGradient": 0,
             "linewidth": 1,
@@ -2416,7 +2893,7 @@ locals {
             "spaceLength": 10,
             "points": false,
             "pointradius": 2,
-            "bars": true,
+            "bars": false,
             "stack": false,
             "percentage": false,
             "legend": {
@@ -2435,12 +2912,713 @@ locals {
                 "shared": true,
                 "sort": 0
             },
-            "timeFrom": "7d",
+            "timeFrom": null,
             "timeShift": null,
             "aliasColors": {},
             "seriesOverrides": [],
             "thresholds": [],
-            "timeRegions": []
+            "timeRegions": [],
+            "description": ""
+        },
+        {
+            "type": "graph",
+            "title": "Lambda Durations",
+            "gridPos": {
+                "h": 9,
+                "w": 24,
+                "x": 0,
+                "y": 57
+            },
+            "id": 7,
+            "datasource": "${var.aws_cloudwatch_data_source_name}",
+            "targets": [
+                {
+                    "refId": "A",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dds-delete-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dds-delete-${var.env}"
+                },
+                {
+                    "refId": "B",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-admin-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-admin-${var.env}"
+                },
+                {
+                    "refId": "C",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-checkout-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-checkout-sfn-${var.env}"
+                },
+                {
+                    "refId": "D",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-${var.env}"
+                },
+                {
+                    "refId": "E",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-dlq-reaper-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-dlq-reaper-${var.env}"
+                },
+                {
+                    "refId": "F",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-events-scribe-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-events-scribe-${var.env}"
+                },
+                {
+                    "refId": "G",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-gs-copy-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-gs-copy-sfn-${var.env}"
+                },
+                {
+                    "refId": "H",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-gs-copy-write-metadata-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-gs-copy-write-metadata-sfn-${var.env}"
+                },
+                {
+                    "refId": "I",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-index-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-index-${var.env}"
+                },
+                {
+                    "refId": "J",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-monitor-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-monitor-${var.env}"
+                },
+                {
+                    "refId": "K",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-monitor-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-monitor-${var.env}"
+                },
+                {
+                    "refId": "L",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-notify-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-notify-${var.env}"
+                },
+                {
+                    "refId": "M",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-notify-v2-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-notify-v2-${var.env}"
+                },
+                {
+                    "refId": "N",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-operations-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-operations-${var.env}"
+                },
+                {
+                    "refId": "O",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-s3-copy-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-s3-copy-sfn-${var.env}"
+                },
+                {
+                    "refId": "P",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-s3-copy-write-metadata-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-s3-copy-write-metadata-sfn-${var.env}"
+                },
+                {
+                    "refId": "Q",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-scalability-test-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-scalability-test-${var.env}"
+                },
+                {
+                    "refId": "R",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-sfn-launcher-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-sfn-launcher-${var.env}"
+                },
+                {
+                    "refId": "S",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-sync-sfn-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-sync-sfn-${var.env}"
+                },
+                {
+                    "refId": "T",
+                    "namespace": "AWS/Lambda",
+                    "metricName": "Duration",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "FunctionName": "dss-visitation-${var.env}"
+                    },
+                    "period": "",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "dss-visitation-${var.env}"
+                }
+            ],
+            "options": {
+                "dataLinks": []
+            },
+            "renderer": "flot",
+            "yaxes": [
+                {
+                    "label": null,
+                    "show": true,
+                    "logBase": 1,
+                    "min": null,
+                    "max": null,
+                    "format": "ms"
+                },
+                {
+                    "label": null,
+                    "show": true,
+                    "logBase": 1,
+                    "min": null,
+                    "max": null,
+                    "format": "short"
+                }
+            ],
+            "xaxis": {
+                "show": true,
+                "mode": "time",
+                "name": null,
+                "values": [],
+                "buckets": null
+            },
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            },
+            "lines": true,
+            "fill": 1,
+            "fillGradient": 0,
+            "linewidth": 1,
+            "dashes": false,
+            "dashLength": 10,
+            "spaceLength": 10,
+            "points": false,
+            "pointradius": 2,
+            "bars": false,
+            "stack": false,
+            "percentage": false,
+            "legend": {
+                "show": true,
+                "values": false,
+                "min": false,
+                "max": false,
+                "current": false,
+                "total": false,
+                "avg": false
+            },
+            "nullPointMode": "null",
+            "steppedLine": false,
+            "tooltip": {
+                "value_type": "individual",
+                "shared": true,
+                "sort": 0
+            },
+            "timeFrom": null,
+            "timeShift": null,
+            "aliasColors": {},
+            "seriesOverrides": [],
+            "thresholds": [],
+            "timeRegions": [],
+            "description": ""
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "${var.aws_cloudwatch_data_source_name}",
+            "description": "",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 8,
+                "w": 10,
+                "x": 14,
+                "y": 0
+            },
+            "id": 10,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": false,
+                "hideZero": false,
+                "max": false,
+                "min": false,
+                "rightSide": true,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
+            "percentage": false,
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "alias": "CREATE",
+                    "dimensions": {
+                        "operation": "CREATE"
+                    },
+                    "expression": "",
+                    "highResolution": false,
+                    "id": "",
+                    "metricName": "bundles",
+                    "namespace": "DSS-${upper(var.env)}",
+                    "period": "",
+                    "refId": "A",
+                    "region": "us-east-1",
+                    "returnData": false,
+                    "statistics": [
+                        "Sum"
+                    ]
+                },
+                {
+                    "alias": "TOMBSTONE",
+                    "dimensions": {
+                        "operation": "TOMBSTONE"
+                    },
+                    "expression": "",
+                    "highResolution": false,
+                    "id": "",
+                    "metricName": "bundles",
+                    "namespace": "DSS-${upper(var.env)}",
+                    "period": "",
+                    "refId": "B",
+                    "region": "us-east-1",
+                    "returnData": false,
+                    "statistics": [
+                        "Sum"
+                    ]
+                },
+                {
+                    "alias": "DELETE",
+                    "dimensions": {
+                        "operation": "DELETE"
+                    },
+                    "expression": "",
+                    "highResolution": false,
+                    "id": "",
+                    "metricName": "bundles",
+                    "namespace": "DSS-${upper(var.env)}",
+                    "period": "",
+                    "refId": "C",
+                    "region": "us-east-1",
+                    "returnData": false,
+                    "statistics": [
+                        "Sum"
+                    ]
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Bundle Events",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": true,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "account-cloudwatch",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 8,
+                "w": 9,
+                "x": 5,
+                "y": 0
+            },
+            "id": 12,
+            "legend": {
+                "avg": false,
+                "current": true,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": false,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
+            "percentage": false,
+            "pointradius": 2,
+            "points": true,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": true,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "refId": "A",
+                    "namespace": "AWS/S3",
+                    "metricName": "BucketSizeBytes",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "StorageType": "StandardStorage",
+                        "BucketName": "${local.dss_primary_bucket[local.env]}"
+                    },
+                    "period": "86400",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "Primary Bucket"
+                },
+                {
+                    "refId": "B",
+                    "namespace": "AWS/S3",
+                    "metricName": "BucketSizeBytes",
+                    "statistics": [
+                        "Sum"
+                    ],
+                    "dimensions": {
+                        "StorageType": "StandardStorage",
+                        "BucketName": "${local.dss_checkout_bucket[local.env]}"
+                    },
+                    "period": "86400",
+                    "region": "default",
+                    "id": "",
+                    "expression": "",
+                    "returnData": false,
+                    "highResolution": false,
+                    "alias": "Checkout Bucket"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": "7d",
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Bucket Info",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "bytes",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         }
     ],
     "refresh": "1m",
