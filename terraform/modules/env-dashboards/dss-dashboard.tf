@@ -2222,7 +2222,7 @@ locals {
         },
         {
             "aliasColors": {},
-            "bars": false,
+            "bars": true,
             "dashLength": 10,
             "dashes": false,
             "datasource": "${var.aws_cloudwatch_data_source_name}",
@@ -2243,12 +2243,12 @@ locals {
                 "hideZero": false,
                 "max": false,
                 "min": false,
-                "rightSide": true,
+                "rightSide": false,
                 "show": true,
-                "total": false,
-                "values": false
+                "total": true,
+                "values": true
             },
-            "lines": true,
+            "lines": false,
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
@@ -2364,7 +2364,7 @@ locals {
             "bars": true,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "account-cloudwatch",
+            "datasource": "${var.aws_cloudwatch_data_source_name}",
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -2461,7 +2461,7 @@ locals {
                     "label": null,
                     "logBase": 1,
                     "max": null,
-                    "min": null,
+                    "min": "0",
                     "show": true
                 },
                 {
@@ -2469,7 +2469,7 @@ locals {
                     "label": null,
                     "logBase": 1,
                     "max": null,
-                    "min": null,
+                    "min": "0",
                     "show": true
                 }
             ],
