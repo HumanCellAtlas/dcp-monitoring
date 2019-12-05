@@ -1,26 +1,133 @@
 locals {
   dss_dashboard = <<EOF
-{
-    "annotations": {
-        "list": [
-            {
-                "$hashKey": "object:267",
-                "builtIn": 1,
-                "datasource": "-- Grafana --",
-                "enable": true,
-                "hide": true,
-                "iconColor": "rgba(0, 211, 255, 1)",
-                "name": "Annotations & Alerts",
-                "type": "dashboard"
+        {
+            "annotations": {
+                "list": [
+                    {
+                        "$hashKey": "object:267",
+                        "builtIn": 1,
+                        "datasource": "-- Grafana --",
+                        "enable": true,
+                        "hide": true,
+                        "iconColor": "rgba(0, 211, 255, 1)",
+                        "name": "Annotations & Alerts",
+                        "type": "dashboard"
+                    }
+                ]
+            },
+            "editable": true,
+            "gnetId": null,
+            "graphTooltip": 0,
+            "iteration": 1543973320001,
+            "links": [],
+            "panels": [{
+            "aliasColors": {},
+            "bars": true,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "${local.hca_logs_ttfb_datasource_name}",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 8,
+                "w": 24,
+                "x": 0,
+                "y": 8
+            },
+            "id": 22,
+            "legend": {
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": false,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
+            "percentage": false,
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "bucketAggs": [
+                        {
+                            "field": "@timestamp",
+                            "id": "2",
+                            "settings": {
+                                "interval": "auto",
+                                "min_doc_count": 0,
+                                "trimEdges": 0
+                            },
+                            "type": "date_histogram"
+                        }
+                    ],
+                    "metrics": [
+                        {
+                            "field": "@ttfb",
+                            "id": "1",
+                            "meta": {},
+                            "settings": {},
+                            "type": "max"
+                        }
+                    ],
+                    "query": "@log_group:\"/custom/ttfb\" AND @stage:\"${var.env}\"",
+                    "refId": "A",
+                    "timeField": "@timestamp"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "GET /file Latency (Time to First Byte)",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "transparent": true,
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
             }
-        ]
-    },
-    "editable": true,
-    "gnetId": null,
-    "graphTooltip": 0,
-    "iteration": 1543973320001,
-    "links": [],
-    "panels": [
+        },
         {
             "cacheTimeout": null,
             "colorBackground": true,

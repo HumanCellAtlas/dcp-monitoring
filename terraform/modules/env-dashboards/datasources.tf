@@ -11,9 +11,25 @@ data "external" "json" {
 }
 
 locals {
-  gcp_analysis_datasource_name = "gcp-analysis-${var.env}"
-  aws_upload                   = "aws-upload"
-  aws_upload_datasource_name   = "upload-db-${var.env}"
+  gcp_analysis_datasource_name  = "gcp-analysis-${var.env}"
+  aws_upload                    = "aws-upload"
+  aws_upload_datasource_name    = "upload-db-${var.env}"
+  hca_logs_ttfb_datasource_name = "hca-logs-ttfb"
+
+  hca_logs_ttfb_datasource = <<EOF
+{
+  "name": "${local.hca_logs_ttfb_datasource_name}",
+  "type": "elasticsearch",
+  "database": "[ttfb-]YYYY-MM-DD",
+  "url": "http://0.0.0.0:9200",
+  "access": "proxy",
+  "jsonData": {
+    "interval": "Daily",
+    "timeFiled": "@timestamp"
+  },
+  "readOnly": false
+}
+EOF
 
   gcp_analysis_datasource = <<EOF
 {

@@ -6,11 +6,17 @@ output "aws_upload_datasource_name" {
   value = "${local.aws_upload_datasource_name}"
 }
 
+output "hca_logs_ttfb_datasource_name" {
+  value = "${local.hca_logs_ttfb_datasource_name}"
+}
+
+
 output "datasources" {
   value = <<EOF
 [
   ${local.gcp_analysis_datasource},
-  ${local.aws_upload_datasource}
+  ${local.aws_upload_datasource},
+  ${local.hca_logs_ttfb_datasource}
 ]
 EOF
 }

@@ -5,6 +5,7 @@ locals {
 
   aws_cloudwatch_data_source_name = "account-cloudwatch"
   aws_logs_data_source_name       = "account-elasticsearch"
+  hca_logs_ttfb_datasource_name   = "hca-logs-ttfb"
 
   gcp_analysis_project_id = "broad-dsde-mint-staging"
 

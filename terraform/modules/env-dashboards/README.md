@@ -33,5 +33,7 @@ This module takes health check identifiers and account-wide data sources as inpu
 | dashboards |  |
 | datasources |  |
 | gcp\_analysis\_datasource\_name |  |
+| gcp\_analysis\_datasource\_name |  |
+| hca\_logs\_ttfb\_datasource\_name |  |
 
 <!-- END -->
