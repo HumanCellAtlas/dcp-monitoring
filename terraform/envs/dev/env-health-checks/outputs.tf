@@ -2,41 +2,35 @@
 # Make improvements in fogg, so that everyone can benefit.
 
 output "analysis_health_check_id" {
-  value = "${module.env-health-checks.analysis_health_check_id}"
+  value = module.env-health-checks.analysis_health_check_id
 }
 
 output "auth_health_check_id" {
-  value = "${module.env-health-checks.auth_health_check_id}"
+  value = module.env-health-checks.auth_health_check_id
 }
 
 output "azul_health_check_id" {
-  value = "${module.env-health-checks.azul_health_check_id}"
+  value = module.env-health-checks.azul_health_check_id
 }
 
 output "data_browser_and_portal_health_check_id" {
-  value = "${module.env-health-checks.data_browser_and_portal_health_check_id}"
+  value = module.env-health-checks.data_browser_and_portal_health_check_id
 }
 
 output "dcp_health_check_id" {
-  value = "${module.env-health-checks.dcp_health_check_id}"
+  value = module.env-health-checks.dcp_health_check_id
 }
 
 output "dss_health_check_id" {
-  value = "${module.env-health-checks.dss_health_check_id}"
+  value = module.env-health-checks.dss_health_check_id
 }
 
 output "ingest_health_check_id" {
-  value = "${module.env-health-checks.ingest_health_check_id}"
+  value = module.env-health-checks.ingest_health_check_id
 }
 
 output "matrix_health_check_id" {
-  value = "${module.env-health-checks.matrix_health_check_id}"
+  value = module.env-health-checks.matrix_health_check_id
 }
 
-output "query_health_check_id" {
-  value = "${module.env-health-checks.query_health_check_id}"
-}
 
-output "upload_health_check_id" {
-  value = "${module.env-health-checks.upload_health_check_id}"
-}

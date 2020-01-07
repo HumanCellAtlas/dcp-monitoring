@@ -26,18 +26,10 @@ variable "ingest_health_check_id" {
   type = "string"
 }
 
-variable "upload_health_check_id" {
-  type = "string"
-}
-
 variable "matrix_health_check_id" {
   type = "string"
 }
 
 variable "azul_health_check_id" {
-  type = "string"
-}
-
-variable "query_health_check_id" {
   type = "string"
 }

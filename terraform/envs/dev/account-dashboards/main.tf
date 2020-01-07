@@ -3,10 +3,11 @@
 
 module "account-dashboards" {
   source                    = "../../../modules/account-dashboards"
-  aws_profile               = "${local.aws_profile}"
-  env                       = "${local.env}"
-  gcp_logs_project_id       = "${local.gcp_logs_project_id}"
-  gcp_monitoring_project_id = "${local.gcp_monitoring_project_id}"
-  logs_health_check_id      = "${local.logs_health_check_id}"
-  region                    = "${local.region}"
+  aws_profile               = local.aws_profile
+  env                       = local.env
+  gcp_logs_project_id       = local.gcp_logs_project_id
+  gcp_monitoring_project_id = local.gcp_monitoring_project_id
+  logs_health_check_id      = local.logs_health_check_id
+  region                    = local.region
+
 }

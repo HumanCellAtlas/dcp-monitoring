@@ -8,12 +8,8 @@ REPO_RELATIVE_PATH := $(shell git rev-parse --show-prefix)
 AUTO_APPROVE := false
 REFRESH_ENABLED ?= true # Should terraform refresh during plan/apply
 
-# We need to do this because `terraform fmt` recurses into .terraform/modules
-# and wont' accept more than one file at a time.
-TF=$(wildcard *.tf)
-
 TFENV_DIR ?= $(REPO_ROOT)/.fogg/tfenv
-export PATH :=$(TFENV_DIR)/versions/$(TERRAFORM_VERSION)/:$(REPO_ROOT)/.fogg/bin:$(PATH)
+export PATH :=$(TFENV_DIR)/libexec:$(TFENV_DIR)/versions/$(TERRAFORM_VERSION)/:$(REPO_ROOT)/.fogg/bin:$(PATH)
 export TF_PLUGIN_CACHE_DIR=$(REPO_ROOT)/.terraform.d/plugin-cache
 export TF_IN_AUTOMATION=1
 terraform_command ?= $(TFENV_DIR)/versions/$(TERRAFORM_VERSION)/terraform
@@ -25,12 +21,12 @@ ifeq ($(MODE),atlantis)
 endif
 
 
-tfenv:
+tfenv: ## install the tfenv tool
 	@if [ ! -d ${TFENV_DIR} ]; then \
-		git clone -q https://github.com/tfutils/tfenv.git $(TFENV_DIR); \
+		git clone -q https://github.com/chanzuckerberg/tfenv.git $(TFENV_DIR); \
 	fi
 .PHONY: tfenv
 
-terraform: tfenv
-	${TFENV_DIR}/bin/tfenv install $(TERRAFORM_VERSION)
+terraform: tfenv ## ensure that the proper version of terraform is installed
+	@${TFENV_DIR}/bin/tfenv install $(TERRAFORM_VERSION)
 .PHONY: terraform
