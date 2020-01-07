@@ -8,5 +8,4 @@ locals {
   ingest_health_check_id   = "${data.terraform_remote_state.env-health-checks.ingest_health_check_id}"
   matrix_health_check_id   = "${data.terraform_remote_state.env-health-checks.matrix_health_check_id}"
   azul_health_check_id     = "${data.terraform_remote_state.env-health-checks.azul_health_check_id}"
-  query_health_check_id    = "${data.terraform_remote_state.env-health-checks.query_health_check_id}"
 }

@@ -30,10 +30,6 @@ variable "matrix_health_check_id" {
   type = "string"
 }
 
-variable "query_health_check_id" {
-  type = "string"
-}
-
 variable "auth_health_check_id" {
   type = "string"
 }
