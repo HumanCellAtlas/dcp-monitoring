@@ -12,4 +12,5 @@ module "env-alerts" {
   ingest_health_check_id   = local.ingest_health_check_id
   matrix_health_check_id   = local.matrix_health_check_id
   region                   = local.region
+
 }
