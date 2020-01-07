@@ -3,7 +3,8 @@
 
 module "account-health-checks" {
   source      = "../../../modules/account-health-checks"
-  aws_profile = "${local.aws_profile}"
-  env         = "${local.env}"
-  region      = "${local.region}"
+  aws_profile = local.aws_profile
+  env         = local.env
+  region      = local.region
+
 }

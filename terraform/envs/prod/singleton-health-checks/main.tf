@@ -3,6 +3,7 @@
 
 module "singleton-health-checks" {
   source = "../../../modules/singleton-health-checks"
-  env    = "${local.env}"
-  region = "${local.region}"
+  env    = local.env
+  region = local.region
+
 }

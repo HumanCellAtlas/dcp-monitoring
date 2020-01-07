@@ -3,6 +3,7 @@
 
 module "singleton-alerts" {
   source                          = "../../../modules/singleton-alerts"
-  aws_profile                     = "${local.aws_profile}"
-  metadata_schema_health_check_id = "${local.metadata_schema_health_check_id}"
+  aws_profile                     = local.aws_profile
+  metadata_schema_health_check_id = local.metadata_schema_health_check_id
+
 }
