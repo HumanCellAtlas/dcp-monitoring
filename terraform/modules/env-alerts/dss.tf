@@ -21,7 +21,7 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
-    HealthCheckId = "${var.dss_health_check_id}"
+    HealthCheckId =  var.dss_health_check_id
   }
 }
 
@@ -49,7 +49,7 @@ EOF
 
   dimensions {
     DomainName = "dss-index-${var.env}"
-    ClientId   = "${data.aws_caller_identity.current.account_id}"
+    ClientId   =  data.aws_caller_identity.current.account_id
   }
 }
 
@@ -77,12 +77,12 @@ EOF
 
   dimensions {
     DomainName = "dss-index-${var.env}"
-    ClientId   = "${data.aws_caller_identity.current.account_id}"
+    ClientId   =  data.aws_caller_identity.current.account_id
   }
 }
 
 resource "aws_cloudwatch_metric_alarm" "dss-sync-failure" {
-  count = "${contains(list("staging", "prod"), var.env)? 1: 0 }"
+  count =  contains(list("staging", "prod"), var.env)? 1: 0 
   alarm_name          = "dss-sync-alert-${var.env}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"

@@ -18,7 +18,7 @@ locals {
 
 resource "aws_route53_health_check" "dcp" {
   type                   = "CALCULATED"
-  child_health_threshold = "${length(local.child_health_check_ids)}"
+  child_health_threshold =  length(local.child_health_check_ids)
 
   child_healthchecks = ["${local.child_health_check_ids}"]
 

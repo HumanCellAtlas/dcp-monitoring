@@ -1,7 +1,7 @@
 variable "env" {
-  type = "string"
+  type = string
 }
 
 variable "region" {
-  type = "string"
+  type = string
 }

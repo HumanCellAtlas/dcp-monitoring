@@ -1,4 +1,4 @@
 locals {
-  env    = "${var.env}"
-  region = "${var.region}"
+  env    =  var.env
+  region =  var.region
 }

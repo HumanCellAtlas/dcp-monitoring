@@ -9,7 +9,7 @@ resource "aws_cloudwatch_log_metric_filter" "http_2xx" {
 
   metric_transformation {
     name      = "HTTP-2xx"
-    namespace = "${local.dss_metrics_namespace}"
+    namespace =  local.dss_metrics_namespace
     value     = "1"
   }
 }
@@ -21,7 +21,7 @@ resource "aws_cloudwatch_log_metric_filter" "http_3xx" {
 
   metric_transformation {
     name      = "HTTP-3xx"
-    namespace = "${local.dss_metrics_namespace}"
+    namespace =  local.dss_metrics_namespace
     value     = "1"
   }
 }

@@ -21,7 +21,7 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
-    HealthCheckId = "${var.query_health_check_id}"
+    HealthCheckId =  var.query_health_check_id
   }
 }
 
@@ -49,7 +49,7 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
-    Stage = "${var.env}"
+    Stage =  var.env
   }
 }
 
@@ -76,6 +76,6 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
-    Stage = "${var.env}"
+    Stage =  var.env
   }
 }

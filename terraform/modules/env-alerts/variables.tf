@@ -1,43 +1,43 @@
 variable "region" {
-  type = "string"
+  type = string
 }
 
 variable "env" {
-  type = "string"
+  type = string
 }
 
 variable "aws_profile" {
-  type = "string"
+  type = string
 }
 
 variable "analysis_health_check_id" {
-  type = "string"
+  type = string
 }
 
 variable "dcp_health_check_id" {
-  type = "string"
+  type = string
 }
 
 variable "dss_health_check_id" {
-  type = "string"
+  type = string
 }
 
 variable "ingest_health_check_id" {
-  type = "string"
+  type = string
 }
 
 variable "upload_health_check_id" {
-  type = "string"
+  type = string
 }
 
 variable "matrix_health_check_id" {
-  type = "string"
+  type = string
 }
 
 variable "azul_health_check_id" {
-  type = "string"
+  type = string
 }
 
 variable "query_health_check_id" {
-  type = "string"
+  type = string
 }

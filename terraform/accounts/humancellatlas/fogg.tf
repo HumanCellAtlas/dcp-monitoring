@@ -25,27 +25,27 @@ terraform {
 }
 
 variable "project" {
-  type    = "string"
+  type    = string
   default = "dcp-observability"
 }
 
 variable "region" {
-  type    = "string"
+  type    = string
   default = "us-east-1"
 }
 
 variable "aws_profile" {
-  type    = "string"
+  type    = string
   default = "hca"
 }
 
 variable "owner" {
-  type    = "string"
+  type    = string
   default = "mweiden@chanzuckerberg.com"
 }
 
 variable "aws_accounts" {
-  type = "map"
+  type = map
 
   default = {
     hca-prod = 109067257620

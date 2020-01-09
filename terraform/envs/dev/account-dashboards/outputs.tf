@@ -2,25 +2,25 @@
 # Make improvements in fogg, so that everyone can benefit.
 
 output "aws_cloudwatch_data_source_name" {
-  value = "${module.account-dashboards.aws_cloudwatch_data_source_name}"
+  value =  module.account-dashboards.aws_cloudwatch_data_source_name
 }
 
 output "aws_logs_data_source_name" {
-  value = "${module.account-dashboards.aws_logs_data_source_name}"
+  value =  module.account-dashboards.aws_logs_data_source_name
 }
 
 output "dashboards" {
-  value = "${module.account-dashboards.dashboards}"
+  value =  module.account-dashboards.dashboards
 }
 
 output "datasources" {
-  value = "${module.account-dashboards.datasources}"
+  value =  module.account-dashboards.datasources
 }
 
 output "gcp_log_project_datasource_name" {
-  value = "${module.account-dashboards.gcp_log_project_datasource_name}"
+  value =  module.account-dashboards.gcp_log_project_datasource_name
 }
 
 output "gcp_monitoring_project_datasource_name" {
-  value = "${module.account-dashboards.gcp_monitoring_project_datasource_name}"
+  value =  module.account-dashboards.gcp_monitoring_project_datasource_name
 }

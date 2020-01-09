@@ -19,6 +19,6 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
-    HealthCheckId = "${var.analysis_health_check_id}"
+    HealthCheckId =  var.analysis_health_check_id
   }
 }

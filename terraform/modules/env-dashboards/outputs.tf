@@ -1,9 +1,9 @@
 output "gcp_analysis_datasource_name" {
-  value = "${local.gcp_analysis_datasource_name}"
+  value =  local.gcp_analysis_datasource_name
 }
 
 output "aws_upload_datasource_name" {
-  value = "${local.aws_upload_datasource_name}"
+  value =  local.aws_upload_datasource_name
 }
 
 output "datasources" {

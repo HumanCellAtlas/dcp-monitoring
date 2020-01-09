@@ -1,7 +1,7 @@
 variable "aws_profile" {
-  type = "string"
+  type = string
 }
 
 variable "metadata_schema_health_check_id" {
-  type = "string"
+  type = string
 }

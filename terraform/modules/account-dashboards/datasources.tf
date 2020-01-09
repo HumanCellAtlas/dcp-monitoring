@@ -27,11 +27,11 @@ EOF
 resource "aws_iam_policy_attachment" "grafana_datasource" {
   name       = "grafana-cloudwatch-datasource"
   users      = ["${aws_iam_user.grafana_datasource.name}"]
-  policy_arn = "${aws_iam_policy.grafana_datasource.arn}"
+  policy_arn =  aws_iam_policy.grafana_datasource.arn
 }
 
 resource "aws_iam_access_key" "grafana_datasource" {
-  user = "${aws_iam_user.grafana_datasource.name}"
+  user =  aws_iam_user.grafana_datasource.name
 }
 
 data "aws_secretsmanager_secret" "config" {
@@ -39,7 +39,7 @@ data "aws_secretsmanager_secret" "config" {
 }
 
 data "aws_secretsmanager_secret_version" "config" {
-  secret_id = "${data.aws_secretsmanager_secret.config.id}"
+  secret_id =  data.aws_secretsmanager_secret.config.id
 }
 
 data "external" "json" {

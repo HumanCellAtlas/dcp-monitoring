@@ -5,7 +5,7 @@ resource "aws_route53_health_check" "upload" {
   resource_path           = "/health"
   failure_threshold       = "3"
   request_interval        = "30"
-  cloudwatch_alarm_region = "${var.region}"
+  cloudwatch_alarm_region =  var.region
 
   tags = {
     Name = "upload-health-check-${var.env}"

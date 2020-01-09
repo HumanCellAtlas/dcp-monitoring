@@ -3,7 +3,7 @@ data "aws_secretsmanager_secret" "config" {
 }
 
 data "aws_secretsmanager_secret_version" "config" {
-  secret_id = "${data.aws_secretsmanager_secret.config.id}"
+  secret_id =  data.aws_secretsmanager_secret.config.id
 }
 
 data "external" "json" {
@@ -59,7 +59,7 @@ data "aws_secretsmanager_secret" "upload_db_creds" {
 }
 
 data "aws_secretsmanager_secret_version" "upload_db_creds" {
-  secret_id = "${data.aws_secretsmanager_secret.upload_db_creds.id}"
+  secret_id =  data.aws_secretsmanager_secret.upload_db_creds.id
 }
 
 data "external" "upload_db_secrets_processing" {
@@ -68,6 +68,6 @@ data "external" "upload_db_secrets_processing" {
   query = {
     # arbitrary map from strings to strings, passed
     # to the external program as the data query.
-    db_secret_string = "${data.aws_secretsmanager_secret_version.upload_db_creds.secret_string}"
+    db_secret_string =  data.aws_secretsmanager_secret_version.upload_db_creds.secret_string
   }
 }

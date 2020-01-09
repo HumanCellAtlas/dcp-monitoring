@@ -19,7 +19,7 @@ EOF
   ok_actions    = ["${data.aws_sns_topic.alarms.arn}"]
 
   dimensions {
-    HealthCheckId = "${var.logs_health_check_id}"
+    HealthCheckId =  var.logs_health_check_id
   }
 }
 
@@ -45,6 +45,6 @@ EOF
 
   dimensions {
     DomainName = "hca-logs"
-    ClientId   = "${data.aws_caller_identity.current.account_id}"
+    ClientId   =  data.aws_caller_identity.current.account_id
   }
 }
